@@ -136,6 +136,7 @@
     });
 
     // Mobile curr toggle
+    const mobileCurrBtn = document.getElementById('mobile-curr-btn');
     if (mobileCurrBtn) {
       mobileCurrBtn.addEventListener('click', () => {
         setCurrency(state.currency === 'KES' ? 'USD' : 'KES');

@@ -1,4 +1,5 @@
 baseURL = 'https://julzinsight.co/'
+relativeURLs = true
 languageCode = 'en-US'
 title = 'Julz Insight — The Engine of Digital Sovereignty | Managed Open-Source Enterprise Infrastructure'
 
