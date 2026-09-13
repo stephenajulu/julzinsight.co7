@@ -1,0 +1,132 @@
+{{ $infra := hugo.Data.infrastructure }}
+{{ $brand := $infra.brandInfo }}
+
+<footer class="site-footer">
+  <div class="container-custom">
+    <!-- Top Row: Mission, Positioning & Direct Briefing CTA -->
+    <div class="footer-top-grid">
+      <div class="footer-mission-col">
+        <div class="footer-brand">
+          <div class="brand-svg-wrap">
+            <svg viewBox="0 0 31.5 48.5" fill="none">
+              <path d="M21.5 0 L21.5 19.5 L31.5 19.5 L31.5 29 L10 48.5 L10 28.5 L0.5 28.5 L0.5 18.5 Z" fill="#542bff"></path>
+              <rect x="0.5" y="18.5" width="9" height="10" fill="#ffffff"></rect>
+              <rect x="22" y="19.5" width="9.5" height="9.5" fill="#00f2fe"></rect>
+            </svg>
+          </div>
+          <span class="footer-brand-title">Julz Insight</span>
+        </div>
+
+        <p class="footer-positioning">
+          {{ $brand.positioning }}. We build, customize, and manage mission-critical open-source 
+          infrastructure that delivers true data sovereignty, operational efficiency, and measurable capital retention.
+        </p>
+
+        <div class="footer-meta-links">
+          <span class="meta-item">
+            <svg viewBox="0 0 24 24" class="cyan-icon" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"></path>
+              <circle cx="12" cy="10" r="3"></circle>
+            </svg>
+            {{ $brand.location }}
+          </span>
+          <span class="meta-item">
+            <svg viewBox="0 0 24 24" class="brand-icon" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect width="20" height="16" x="2" y="4" rx="2"></rect>
+              <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
+            </svg>
+            {{ $brand.contactEmail }}
+          </span>
+        </div>
+      </div>
+
+      <div class="footer-newsletter-col">
+        <div class="briefing-card">
+          <div class="briefing-tag">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+              <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+            </svg>
+            <span>SOVEREIGN CLARITY BRIEFING</span>
+          </div>
+          <h4 class="briefing-title">
+            Receive the African Enterprise Sovereignty Benchmark
+          </h4>
+          <p class="briefing-desc">
+            Quarterly technical analysis on open-source TCO, KDPA compliance audits, and self-hosted AI models.
+          </p>
+          <form class="briefing-form" onsubmit="event.preventDefault(); alert('Subscribed to Sovereign Clarity Briefing.');">
+            <input
+              type="email"
+              required
+              placeholder="executive@enterprise.co.ke"
+              class="briefing-input"
+            />
+            <button type="submit" class="btn-subscribe">
+              Subscribe
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- Middle Navigation Grid -->
+    <div class="footer-links-grid">
+      <div>
+        <h5 class="column-title">Architectural Tiers</h5>
+        <ul class="footer-menu">
+          <li><a href="#tiers">Tier 1: Storage &amp; Edge Foundation</a></li>
+          <li><a href="#tiers">Tier 2: Core ERP &amp; Operations</a></li>
+          <li><a href="#tiers">Tier 3: Workspace &amp; Security Vault</a></li>
+          <li><a href="#tiers">Tier 4: Neural Automation Engine</a></li>
+          <li><a href="#tiers">Tier 5: Agentic Enterprise Forge</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h5 class="column-title">Sovereign Fabrics</h5>
+        <ul class="footer-menu">
+          <li><a href="#hosting">Safaricom Enterprise Cloud</a></li>
+          <li><a href="#hosting">Konza Technopolis Cloud</a></li>
+          <li><a href="#hosting">LiquidC2 &amp; Angani Mesh</a></li>
+          <li><a href="#hosting">iXAfrica Bare-Metal Co-Lo</a></li>
+          <li><a href="#hosting">Client On-Premise Air-Gapped</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h5 class="column-title">Open-Source Engines</h5>
+        <ul class="footer-menu">
+          <li><span>Proxmox VE &amp; PBS</span></li>
+          <li><span>Kubernetes (Talos/RKE2)</span></li>
+          <li><span>ERPNext &amp; Frappe</span></li>
+          <li><span>Nextcloud Hub &amp; ONLYOFFICE</span></li>
+          <li><span>Rook-Ceph Distributed S3</span></li>
+          <li><span>Wazuh SIEM &amp; SigNoz APM</span></li>
+        </ul>
+      </div>
+
+      <div>
+        <h5 class="column-title">Compliance &amp; Legal</h5>
+        <ul class="footer-menu">
+          <li><span>Kenya Data Protection Act 2019</span></li>
+          <li><span>GDPR In-Region Sovereignty</span></li>
+          <li><span>ISO/IEC 27001 Preparedness</span></li>
+          <li><span>US CLOUD Act Immunity</span></li>
+          <li><span>99.99% Hardware &amp; Software SLA</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Bottom Statutory Footer -->
+    <div class="footer-statutory-row">
+      <div>
+        &copy; {{ now.Format "2006" }} {{ $brand.legalName }}. All rights reserved.
+      </div>
+      <div class="tagline-strip">
+        <span>The Engine of Digital Sovereignty.</span>
+        <span class="highlight-text">Sovereign. Performant. Open-Source.</span>
+      </div>
+    </div>
+  </div>
+</footer>

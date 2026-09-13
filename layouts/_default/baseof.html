@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  {{ partial "head.html" . }}
+</head>
+<body class="site-body">
+  {{ partial "navbar.html" . }}
+  <main class="site-main">
+    {{ block "main" . }}{{ end }}
+  </main>
+  {{ partial "footer.html" . }}
+  {{ partial "modal.html" . }}
+</body>
+</html>

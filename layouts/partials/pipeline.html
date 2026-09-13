@@ -1,0 +1,84 @@
+{{ $infra := hugo.Data.infrastructure }}
+{{ $steps := $infra.pipelineSteps }}
+
+<section id="pipeline" class="pipeline-section">
+  <div class="container-custom">
+    <!-- Section Header -->
+    <div style="max-width: 48rem; margin-bottom: 4rem;">
+      <div class="section-tag">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path>
+        </svg>
+        <span>THE MANAGED DEPLOYMENT PROTOCOL</span>
+      </div>
+      <h2 class="section-heading">
+        Dedicated Engineering. <span class="heading-italic">White-Glove Hands-On Staging.</span>
+      </h2>
+      <p class="section-lead">
+        Every Julz Insight enterprise environment is personally architected, hardened, and staged by our systems engineers. 
+        We build your sovereign foundation with meticulous attention to detail before handing over your turnkey InsightOS control plane.
+      </p>
+    </div>
+
+    <!-- 4-Step Pipeline Flow Cards -->
+    <div class="pipeline-grid">
+      {{ range $idx, $step := $steps }}
+        <div class="pipeline-card">
+          <div class="card-top">
+            <div class="card-step-row">
+              <span class="step-number">{{ $step.step }}</span>
+              <span class="phase-tag">Phase {{ add $idx 1 }}</span>
+            </div>
+
+            <h3 class="card-phase-title">{{ $step.phase }}</h3>
+
+            <div class="card-tech-wrap">
+              <span class="card-tech">{{ $step.tech }}</span>
+              <span class="card-actor">Actor: {{ $step.actor }}</span>
+            </div>
+
+            <p class="card-detail">{{ $step.detail }}</p>
+          </div>
+
+          <div class="card-connector-footer">
+            <span>Engineer Verified</span>
+            {{ if lt $idx 3 }}
+              <svg class="card-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+                <polyline points="12 5 19 12 12 19"></polyline>
+              </svg>
+            {{ else }}
+              <svg class="card-shield" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                <path d="m9 12 2 2 4-4"></path>
+              </svg>
+            {{ end }}
+          </div>
+        </div>
+      {{ end }}
+    </div>
+
+    <!-- GitOps Technical Schema Strip -->
+    <div class="gitops-strip">
+      <div class="gitops-left">
+        <div class="gitops-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="6" y1="3" x2="6" y2="15"></line>
+            <circle cx="18" cy="6" r="3"></circle>
+            <circle cx="6" cy="18" r="3"></circle>
+            <path d="M18 9a9 9 0 0 1-9 9"></path>
+          </svg>
+        </div>
+        <div>
+          <p class="gitops-title">Declarative Systems Architecture</p>
+          <p class="gitops-sub">Our engineering team manages declarative GitOps manifests for your clusters, ensuring full reproducibility, zero drift, and instant rollback capabilities.</p>
+        </div>
+      </div>
+      <div class="gitops-badges">
+        <span class="badge-green">● 100% Audit Trail</span>
+        <span class="badge-cyan">● Instant Rollbacks</span>
+        <span>● Zero Production Drift</span>
+      </div>
+    </div>
+  </div>
+</section>

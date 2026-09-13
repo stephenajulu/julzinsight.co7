@@ -1,0 +1,55 @@
+{{ $infra := hugo.Data.infrastructure }}
+{{ $faqs := $infra.faqs }}
+
+<section id="faq" class="faq-section">
+  <div class="container-custom">
+    <div class="faq-grid">
+      <!-- Left Column: Heading & Context -->
+      <div class="faq-left">
+        <div>
+          <div class="section-tag">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"></circle>
+              <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path>
+              <line x1="12" y1="17" x2="12.01" y2="17"></line>
+            </svg>
+            <span>EXECUTIVE ADVISORY FAQ</span>
+          </div>
+          <h2 class="section-heading">
+            Targeted Technical &amp; <span class="heading-italic">Strategic Answers.</span>
+          </h2>
+          <p class="section-lead">
+            Straightforward, uncompromising answers to mission-critical questions raised by CTOs, CIOs, 
+            and enterprise finance executives evaluating sovereign migration.
+          </p>
+        </div>
+
+        <div class="rfp-card">
+          <span>Need a bespoke architectural RFP evaluation? </span>
+          <a href="mailto:{{ site.Params.contactEmail }}">Email our Sovereign Advisors</a>
+        </div>
+      </div>
+
+      <!-- Right Column: Accordion List -->
+      <div class="faq-accordion-col">
+        {{ range $idx, $faq := $faqs }}
+          {{ $isOpen := eq $idx 0 }}
+          <div class="faq-item{{ if $isOpen }} open{{ end }}" id="{{ $faq.id }}">
+            <button type="button" class="faq-question-btn">
+              <span class="faq-question-text">{{ $faq.question }}</span>
+              <div class="chevron-wrap">
+                <svg class="chevron-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="6 9 12 15 18 9"></polyline>
+                </svg>
+              </div>
+            </button>
+
+            <div class="faq-answer">
+              <p>{{ $faq.answer }}</p>
+            </div>
+          </div>
+        {{ end }}
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,193 @@
+{{ $infra := hugo.Data.infrastructure }}
+{{ $tiers := $infra.architectureTiers }}
+{{ $defaultTier := index $tiers 2 }}
+
+<section id="tiers" class="tiers-section">
+  <div class="container-custom">
+    <!-- Section Header -->
+    <div style="display: flex; flex-direction: column; justify-content: space-between; gap: 1.5rem; margin-bottom: 4rem;" class="lg-flex-row">
+      <div style="max-width: 48rem;">
+        <div class="section-tag">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+            <polyline points="2 17 12 22 22 17"></polyline>
+            <polyline points="2 12 12 17 22 12"></polyline>
+          </svg>
+          <span>PROGRESSIVE SOVEREIGN ARCHITECTURAL TIERS</span>
+        </div>
+        <h2 class="section-heading">
+          Scale Your Sovereign Footprint <span class="heading-italic">Without Re-Architecting.</span>
+        </h2>
+        <p class="section-lead">
+          Start with sovereign encrypted document custody, then upgrade seamlessly into an agent-native, 
+          bare-metal enterprise forge. Upgrades are managed hands-on by our dedicated engineering team 
+          with zero data migration penalties or downtime.
+        </p>
+      </div>
+
+      <div style="display: flex; align-items: center; gap: 0.5rem; font-size: 12px; font-family: 'JetBrains Mono', monospace; color: rgba(255, 255, 255, 0.5); background: #0d0e17; padding: 0.5rem 1rem; border-radius: 0.75rem; border: 1px solid rgba(255, 255, 255, 0.1); width: fit-content; height: fit-content;">
+        <svg viewBox="0 0 24 24" width="14" height="14" stroke="#00f2fe" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/></svg>
+        <span>Modular container namespaces • Zero vendor lock-in</span>
+      </div>
+    </div>
+
+    <!-- Tier Horizontal Navigation Selector -->
+    <div class="tier-nav-grid">
+      {{ range $tier := $tiers }}
+        {{ $isSelected := eq $tier.id 3 }}
+        <button
+          type="button"
+          data-tier-id="{{ $tier.id }}"
+          class="tier-tab-btn{{ if $isSelected }} active{{ end }}"
+        >
+          {{ if $tier.isPopular }}
+            <span class="popular-badge">Popular</span>
+          {{ end }}
+          <div class="tab-top-row">
+            <span class="tier-num">TIER 0{{ $tier.id }}</span>
+            <span class="tab-ping-dot animate-ping{{ if not $isSelected }} hidden{{ end }}"></span>
+          </div>
+          <h4 class="tier-badge-title">{{ $tier.badge }}</h4>
+          <p id="tier-tab-price-{{ $tier.id }}" class="tier-price-preview">{{ $tier.monthlyKes }}</p>
+        </button>
+      {{ end }}
+    </div>
+
+    <!-- Tier Deep-Dive Interactive Showcase Card -->
+    <div class="tier-deepdive-card">
+      <div class="deepdive-ambient-glow"></div>
+
+      <div class="deepdive-grid">
+        <!-- Left 7 Columns: Tier Narrative & Solved Pain Points -->
+        <div class="deepdive-left">
+          <div>
+            <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 0.75rem; margin-bottom: 0.75rem;">
+              <span id="tier-featured-pill" style="padding: 0.25rem 0.75rem; border-radius: 9999px; background: rgba(84, 43, 255, 0.2); color: #8c6aff; font-size: 12px; font-family: 'JetBrains Mono', monospace; font-weight: 600; border: 1px solid rgba(84, 43, 255, 0.3);">
+                {{ $defaultTier.featuredPill }}
+              </span>
+              <span style="font-size: 12px; font-family: 'JetBrains Mono', monospace; color: rgba(255, 255, 255, 0.4);">
+                Continuous SRE Management Included
+              </span>
+            </div>
+
+            <h3 id="tier-title" style="font-size: 1.5rem; font-weight: 700; color: #ffffff; font-family: 'Inter', sans-serif; letter-spacing: -0.025em; margin-bottom: 0.75rem;">
+              {{ $defaultTier.name }}
+            </h3>
+            <p id="tier-tagline" style="font-size: 1rem; color: rgba(255, 255, 255, 0.8); line-height: 1.625; font-family: 'Inter', sans-serif;">
+              {{ $defaultTier.tagline }}
+            </p>
+          </div>
+
+          <!-- Purpose & Target Profile -->
+          <div style="padding: 1.25rem; border-radius: 1rem; background: rgba(255, 255, 255, 0.02); border: 1px solid rgba(255, 255, 255, 0.1); display: flex; flex-direction: column; gap: 0.75rem;">
+            <div>
+              <span style="font-size: 12px; text-transform: uppercase; font-family: 'JetBrains Mono', monospace; letter-spacing: 0.05em; color: rgba(255, 255, 255, 0.5); display: block; margin-bottom: 0.25rem;">
+                Target Enterprise Profile
+              </span>
+              <p id="tier-audience" style="font-size: 14px; color: rgba(255, 255, 255, 0.9);">
+                {{ $defaultTier.targetAudience }}
+              </p>
+            </div>
+            <div style="padding-top: 0.75rem; border-top: 1px solid rgba(255, 255, 255, 0.05);">
+              <span style="font-size: 12px; text-transform: uppercase; font-family: 'JetBrains Mono', monospace; letter-spacing: 0.05em; color: rgba(255, 255, 255, 0.5); display: block; margin-bottom: 0.25rem;">
+                Operational Purpose
+              </span>
+              <p id="tier-purpose" style="font-size: 14px; color: rgba(255, 255, 255, 0.9);">
+                {{ $defaultTier.purpose }}
+              </p>
+            </div>
+          </div>
+
+          <!-- Eliminated SaaS Pain Points -->
+          <div>
+            <h4 style="font-size: 14px; font-family: 'JetBrains Mono', monospace; text-transform: uppercase; letter-spacing: 0.05em; color: rgba(255, 255, 255, 0.6); margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem;">
+              <svg viewBox="0 0 24 24" width="16" height="16" stroke="#00f2fe" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+              Eliminated SaaS Pain Points
+            </h4>
+            <div id="tier-pain-points-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem;">
+              {{ range $point := $defaultTier.painPointsSolved }}
+                <div style="padding: 1rem; border-radius: 0.75rem; background: rgba(0,0,0,0.4); border: 1px solid rgba(255,255,255,0.1);">
+                  <div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.375rem;">
+                    <svg viewBox="0 0 24 24" width="16" height="16" stroke="#34d399" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink: 0;"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                    <span style="font-size: 14px; font-weight: 600; color: #ffffff;">{{ $point.title }}</span>
+                  </div>
+                  <p style="font-size: 12px; color: rgba(255,255,255,0.6); line-height: 1.625;">{{ $point.description }}</p>
+                </div>
+              {{ end }}
+            </div>
+          </div>
+
+          <!-- Agent Readiness Score -->
+          <div style="padding: 1.25rem; border-radius: 1rem; background: linear-gradient(to right, #120f26, #0d0e17); border: 1px solid rgba(84, 43, 255, 0.4);">
+            <div style="display: flex; align-items: center; gap: 0.5rem; color: #00f2fe; margin-bottom: 0.5rem;">
+              <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="2"></rect><rect x="9" y="9" width="6" height="6"></rect><line x1="9" y1="1" x2="9" y2="4"></line><line x1="15" y1="1" x2="15" y2="4"></line><line x1="9" y1="20" x2="9" y2="23"></line><line x1="15" y1="20" x2="15" y2="23"></line><line x1="20" y1="9" x2="23" y2="9"></line><line x1="20" y1="14" x2="23" y2="14"></line><line x1="1" y1="9" x2="4" y2="9"></line><line x1="1" y1="14" x2="4" y2="14"></line></svg>
+              <span style="font-size: 12px; font-family: 'JetBrains Mono', monospace; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em;">
+                AI Agent Readiness Protocol
+              </span>
+            </div>
+            <p id="tier-agent-readiness" style="font-size: 14px; color: rgba(255, 255, 255, 0.9); line-height: 1.625;">
+              {{ $defaultTier.agentReadiness }}
+            </p>
+          </div>
+        </div>
+
+        <!-- Right 5 Columns: Financials & Component Stack -->
+        <div class="deepdive-right">
+          <!-- Financial Box -->
+          <div class="financial-box">
+            <span class="fin-label">Transparent Sovereign Financials</span>
+
+            <div class="fin-retainer-row">
+              <div class="fin-sub">Monthly Retainer &amp; SLA:</div>
+              <div id="tier-monthly-price" class="fin-amount-large">{{ $defaultTier.monthlyKes }}</div>
+            </div>
+
+            <div class="fin-setup-row">
+              <div class="fin-sub">Architecture &amp; Deployment Setup:</div>
+              <div id="tier-setup-price" class="fin-amount-medium">{{ $defaultTier.setupFeeKes }}</div>
+            </div>
+
+            <div id="tier-replaces-text" class="fin-replaces-pill">
+              {{ $defaultTier.replacesText }}
+            </div>
+
+            <button
+              type="button"
+              id="btn-request-blueprint"
+              data-tier-id="{{ $defaultTier.id }}"
+              class="btn-request-blueprint"
+            >
+              <span>Request Tier 0{{ $defaultTier.id }} Architecture Blueprint</span>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+                <polyline points="12 5 19 12 12 19"></polyline>
+              </svg>
+            </button>
+          </div>
+
+          <!-- Component Stack Badges -->
+          <div>
+            <h4 style="font-size: 12px; font-family: 'JetBrains Mono', monospace; text-transform: uppercase; letter-spacing: 0.05em; color: rgba(255, 255, 255, 0.5); margin-bottom: 0.75rem;">
+              Deployable Sovereign Components (<span id="tier-components-count">{{ len $defaultTier.components }}</span>)
+            </h4>
+            <div id="tier-components-list" style="display: flex; flex-direction: column; gap: 0.625rem;">
+              {{ range $comp := $defaultTier.components }}
+                <div style="padding: 0.75rem; border-radius: 0.75rem; background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.1); display: flex; align-items: flex-start; justify-content: space-between; gap: 0.75rem;">
+                  <div>
+                    <div style="display: flex; align-items: center; gap: 0.5rem;">
+                      <span style="font-size: 14px; font-weight: 600; color: #ffffff;">{{ $comp.name }}</span>
+                      <span style="font-size: 10px; font-family: 'JetBrains Mono', monospace; padding: 0.125rem 0.5rem; border-radius: 4px; background: rgba(255, 255, 255, 0.05); color: rgba(255, 255, 255, 0.6);">{{ $comp.role }}</span>
+                    </div>
+                    <p style="font-size: 12px; color: rgba(255, 255, 255, 0.5); margin-top: 0.25rem;">{{ $comp.description }}</p>
+                  </div>
+                  <span style="padding: 0.125rem 0.5rem; border-radius: 4px; font-size: 10px; font-family: 'JetBrains Mono', monospace; text-transform: uppercase; font-weight: 700; color: #00f2fe; background: rgba(0, 242, 254, 0.1); flex-shrink: 0;">{{ $comp.status }}</span>
+                </div>
+              {{ end }}
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>

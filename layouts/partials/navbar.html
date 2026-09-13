@@ -1,0 +1,124 @@
+<header id="site-header" class="site-header">
+  <div class="container-custom header-inner">
+    <!-- Brand Mark & Identity -->
+    <a href="#" class="brand-link">
+      <div class="brand-logo-wrap">
+        <svg viewBox="0 0 31.5 48.5" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="brandBoltGrad" x1="8" y1="0" x2="34.1" y2="28.9" gradientUnits="userSpaceOnUse">
+              <stop offset="0%" stop-color="#7047ff" />
+              <stop offset="35%" stop-color="#542bff" />
+              <stop offset="70%" stop-color="#25117a" />
+              <stop offset="100%" stop-color="#00f2fe" />
+            </linearGradient>
+          </defs>
+          <path d="M21.5 0 L21.5 19.5 L31.5 19.5 L31.5 29 L10 48.5 L10 28.5 L0.5 28.5 L0.5 18.5 Z" fill="url(#brandBoltGrad)" />
+          <rect x="0.5" y="18.5" width="9" height="10" fill="#ffffff" />
+          <rect x="22" y="19.5" width="9.5" height="9.5" fill="#00f2fe" />
+        </svg>
+      </div>
+      <div class="brand-info">
+        <div class="brand-title-row">
+          <span class="brand-title">Julz Insight</span>
+          <span class="badge-mosbi">MOSBI</span>
+        </div>
+        <span class="brand-subtitle">Managed Open-Source Infrastructure</span>
+      </div>
+    </a>
+
+    <!-- Desktop Nav Links Pill -->
+    <nav class="nav-pill">
+      <a href="#tiers" class="nav-item">Tiers &amp; Specs</a>
+      <a href="#insight-os" class="nav-item">InsightOS</a>
+      <a href="#pipeline" class="nav-item">Deployment Protocol</a>
+      <a href="#hosting" class="nav-item">Sovereign Hosting</a>
+      <a href="#roi" class="nav-item">ROI Calculator</a>
+      <a href="#faq" class="nav-item">FAQ</a>
+    </nav>
+
+    <!-- Right Action Tools & CTA -->
+    <div class="header-tools">
+      <!-- Currency Switcher -->
+      <div class="currency-toggle">
+        <button type="button" data-currency-btn="KES" class="active" onclick="setCurrency('KES')">KES</button>
+        <button type="button" data-currency-btn="USD" onclick="setCurrency('USD')">USD</button>
+      </div>
+
+      <!-- In-Region Status Badge -->
+      <div class="status-badge-residency">
+        <span class="dot-ping-wrap">
+          <span class="dot-ping animate-ping"></span>
+          <span class="dot-solid"></span>
+        </span>
+        <span>100% African Residency</span>
+      </div>
+
+      <!-- Primary Action Button -->
+      <button type="button" data-modal-open class="btn-primary">
+        <span>Deploy Sovereign Stack</span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="7" y1="17" x2="17" y2="7"></line>
+          <polyline points="7 7 17 7 17 17"></polyline>
+        </svg>
+      </button>
+    </div>
+
+    <!-- Mobile Right Controls -->
+    <div class="mobile-tools">
+      <button type="button" id="mobile-curr-btn" class="mobile-curr-btn">KES</button>
+      <button type="button" id="hamburger-btn" class="hamburger-btn" aria-label="Toggle navigation menu">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- Mobile Drawer Menu -->
+<div id="mobile-drawer" class="mobile-drawer">
+  <div id="drawer-backdrop" class="drawer-backdrop"></div>
+  <div class="drawer-content">
+    <div class="drawer-top">
+      <div class="drawer-header">
+        <span class="drawer-title">Sovereign Navigation</span>
+        <span class="drawer-compliance">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+          </svg>
+          KDPA Compliant
+        </span>
+      </div>
+      <nav class="drawer-nav">
+        <a href="#tiers">Tiers &amp; Specs</a>
+        <a href="#insight-os">InsightOS</a>
+        <a href="#pipeline">Deployment Protocol</a>
+        <a href="#hosting">Sovereign Hosting</a>
+        <a href="#roi">ROI Calculator</a>
+        <a href="#faq">FAQ</a>
+      </nav>
+    </div>
+
+    <div class="drawer-bottom">
+      <div class="drawer-currency-row">
+        <span>Currency preference:</span>
+        <div class="drawer-curr-buttons">
+          <button type="button" data-currency-btn="KES" class="active" onclick="setCurrency('KES')">KES</button>
+          <button type="button" data-currency-btn="USD" onclick="setCurrency('USD')">USD</button>
+        </div>
+      </div>
+      <button type="button" data-modal-open class="btn-drawer-cta">
+        <span>Book Sovereign Architecture Call</span>
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="7" y1="17" x2="17" y2="7"></line>
+          <polyline points="7 7 17 7 17 17"></polyline>
+        </svg>
+      </button>
+      <p class="drawer-footnote">
+        Nairobi, Kenya • Zero Foreign SaaS Tax
+      </p>
+    </div>
+  </div>
+</div>

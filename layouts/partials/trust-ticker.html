@@ -1,0 +1,88 @@
+{{ $technologies := slice
+  (dict "name" "Kubernetes" "role" "Elastic Orchestration")
+  (dict "name" "Proxmox VE" "role" "Bare-Metal Hypervisor")
+  (dict "name" "ERPNext" "role" "Core Ledger & ERP")
+  (dict "name" "Nextcloud Hub" "role" "Sovereign Collaboration")
+  (dict "name" "Authentik" "role" "Enterprise SSO & MFA")
+  (dict "name" "n8n Agents" "role" "Neural Automation")
+  (dict "name" "Rook-Ceph" "role" "Distributed S3 Storage")
+  (dict "name" "SigNoz APM" "role" "OpenTelemetry Observability")
+  (dict "name" "Wazuh SIEM" "role" "Host & Cloud Defense")
+  (dict "name" "Qdrant" "role" "Vector Memory Engine")
+  (dict "name" "ONLYOFFICE" "role" "Sovereign Document Suite")
+  (dict "name" "Documenso" "role" "Cryptographic Signatures")
+}}
+
+{{ $sovereignNodes := slice
+  "Safaricom Cloud"
+  "Konza Technopolis"
+  "LiquidC2 Data Centers"
+  "Angani Enterprise Cloud"
+  "iXAfrica Co-Location"
+  "On-Premise Private HQ"
+}}
+
+<div class="trust-ticker-section">
+  <div class="container-custom ticker-header-row">
+    <div class="header-left">
+      <div class="icon-wrap">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="2" y="2" width="20" height="8" rx="2" ry="2"></rect>
+          <rect x="2" y="14" width="20" height="8" rx="2" ry="2"></rect>
+          <line x1="6" y1="6" x2="6.01" y2="6"></line>
+          <line x1="6" y1="18" x2="6.01" y2="18"></line>
+        </svg>
+      </div>
+      <span class="ticker-title">
+        Hardened Open-Source Enterprise Stack • 100% In-Region Custody
+      </span>
+    </div>
+    <div class="header-right">
+      <span class="tax-free">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+          <polyline points="22 4 12 14.01 9 11.01"></polyline>
+        </svg>
+        Zero Hyperscaler Tax
+      </span>
+      <span class="crypto-custody">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+          <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+        </svg>
+        End-to-End Cryptographic Custody
+      </span>
+    </div>
+  </div>
+
+  <!-- Infinite Scrolling Ticker -->
+  <div class="mask-gradient-x" style="position: relative; width: 100%; display: flex; overflow-x: hidden;">
+    <div class="animate-marquee" style="display: flex; shrink: 0; align-items: center; gap: 1rem; padding: 0.5rem 0;">
+      {{ range $t := $technologies }}
+        <div class="tech-badge">
+          <div class="badge-dot"></div>
+          <span class="tech-name">{{ $t.name }}</span>
+          <span class="tech-role">{{ $t.role }}</span>
+        </div>
+      {{ end }}
+      {{ range $t := $technologies }}
+        <div class="tech-badge">
+          <div class="badge-dot"></div>
+          <span class="tech-name">{{ $t.name }}</span>
+          <span class="tech-role">{{ $t.role }}</span>
+        </div>
+      {{ end }}
+    </div>
+  </div>
+
+  <!-- Second Strip: African Sovereign Data Centers -->
+  <div class="container-custom fabrics-strip">
+    <span class="fabrics-label">Sovereign Hosting Fabrics:</span>
+    {{ range $node := $sovereignNodes }}
+      <span class="fabric-pill">
+        <span class="fabric-dot"></span>
+        {{ $node }}
+      </span>
+    {{ end }}
+  </div>
+</div>

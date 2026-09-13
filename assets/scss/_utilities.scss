@@ -1,0 +1,98 @@
+@use "variables" as *;
+@use "mixins" as *;
+
+.container-custom {
+  width: 100%;
+  max-width: $max-width;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+
+  @include sm {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+
+  @include md {
+    padding-left: 3rem;
+    padding-right: 3rem;
+  }
+}
+
+.font-serif {
+  font-family: $font-serif;
+}
+
+.font-sans {
+  font-family: $font-sans;
+}
+
+.font-mono {
+  font-family: $font-mono;
+}
+
+.italic {
+  font-style: italic;
+}
+
+.text-gradient {
+  background: linear-gradient(to right, #ffffff, #d3c7ff 60%, $cyan-accent 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.text-gradient-cyan {
+  background: linear-gradient(to right, #ffffff, $cyan-accent);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.text-gradient-emerald {
+  background: linear-gradient(to right, #ffffff, #ffffff 60%, $emerald-light 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.hidden {
+  display: none !important;
+}
+
+@include sm {
+  .sm-hidden {
+    display: none !important;
+  }
+  .sm-block {
+    display: block !important;
+  }
+  .sm-inline {
+    display: inline !important;
+  }
+  .sm-flex {
+    display: flex !important;
+  }
+}
+
+@include md {
+  .md-hidden {
+    display: none !important;
+  }
+  .md-block {
+    display: block !important;
+  }
+  .md-flex {
+    display: flex !important;
+  }
+}
+
+@include lg {
+  .lg-hidden {
+    display: none !important;
+  }
+  .lg-block {
+    display: block !important;
+  }
+  .lg-flex {
+    display: flex !important;
+  }
+}

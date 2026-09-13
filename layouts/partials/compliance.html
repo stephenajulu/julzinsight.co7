@@ -1,0 +1,83 @@
+{{ $compliancePoints := slice
+  (dict
+    "title" "Kenya Data Protection Act (KDPA 2019)"
+    "desc" "Guaranteed domestic hosting on Safaricom, Konza, or client on-premise eliminates cross-border transfer reporting penalties and regulator audit friction."
+    "badge" "Statutory Compliance"
+  )
+  (dict
+    "title" "Zero Foreign Surveillance (CLOUD Act Immunity)"
+    "desc" "Unlike US hyperscalers (AWS, Azure, Google Cloud), sovereign African infrastructure is completely immune to unilateral foreign government subpoena orders."
+    "badge" "Sovereignty"
+  )
+  (dict
+    "title" "Wazuh SIEM & Real-Time Host Defense"
+    "desc" "Host-privileged agents monitor file integrity, detect brute-force incursions, and enforce CIS benchmark compliance across all LXC containers and VMs."
+    "badge" "Continuous SIEM"
+  )
+  (dict
+    "title" "Air-Gapped & Instant Disaster Recovery"
+    "desc" "Proxmox Backup Server (PBS) provides deduplicated host recovery, while Velero and Kopia push encrypted snapshots to secondary offsite S3 targets."
+    "badge" "RPO < 15 Min"
+  )
+}}
+
+<section class="compliance-section">
+  <div class="container-custom">
+    <div class="compliance-grid">
+      <!-- Left Column: Heading & Narrative -->
+      <div class="compliance-left">
+        <div>
+          <div class="section-tag">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+              <path d="m9 12 2 2 4-4"></path>
+            </svg>
+            <span>REGULATORY GOVERNANCE &amp; SOVEREIGN DEFENSE</span>
+          </div>
+          <h2 class="section-heading">
+            Security Built Into <span class="heading-italic">Every System Layer.</span>
+          </h2>
+          <p class="section-lead">
+            Data sovereignty is not just about server location—it is about legal ownership, 
+            cryptographic autonomy, and total freedom from foreign jurisdiction overreach. 
+            Julz Insight delivers enterprise security that satisfies the strictest central bank and government mandates.
+          </p>
+        </div>
+
+        <div class="zero-trust-box">
+          <div class="spec-row">
+            <span>Encryption At Rest</span>
+            <span class="spec-val-emerald">AES-256-GCM</span>
+          </div>
+          <div class="spec-row">
+            <span>Ingress Transport</span>
+            <span class="spec-val-cyan">TLS 1.3 / mTLS Zero-Trust</span>
+          </div>
+          <div class="spec-row">
+            <span>IAM Authentication</span>
+            <span class="spec-val-white">Authentik FIDO2 WebAuthn</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Column: 4 Compliance Pillar Cards -->
+      <div class="compliance-right">
+        {{ range $point := $compliancePoints }}
+          <div class="compliance-card">
+            <div>
+              <span class="compliance-badge">{{ $point.badge }}</span>
+              <h3 class="compliance-card-title">{{ $point.title }}</h3>
+              <p class="compliance-card-desc">{{ $point.desc }}</p>
+            </div>
+            <div class="card-audit-footer">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              <span>Enterprise Audit Verified</span>
+            </div>
+          </div>
+        {{ end }}
+      </div>
+    </div>
+  </div>
+</section>

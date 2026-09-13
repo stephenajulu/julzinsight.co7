@@ -1,0 +1,165 @@
+<section id="roi" class="roi-section">
+  <div class="container-custom">
+    <!-- Section Header -->
+    <div style="max-width: 48rem; margin-bottom: 4rem;">
+      <div class="section-tag">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="4" y="2" width="16" height="20" rx="2"></rect>
+          <line x1="8" y1="6" x2="16" y2="6"></line>
+          <line x1="16" y1="14" x2="16" y2="18"></line>
+          <path d="M16 10h.01"></path>
+          <path d="M12 10h.01"></path>
+          <path d="M8 10h.01"></path>
+          <path d="M12 14h.01"></path>
+          <path d="M8 14h.01"></path>
+          <path d="M12 18h.01"></path>
+          <path d="M8 18h.01"></path>
+        </svg>
+        <span>MEASURABLE CAPITAL RECOVERY</span>
+      </div>
+      <h2 class="section-heading">
+        Sovereignty Meets <span class="heading-italic">Compounding ROI.</span>
+      </h2>
+      <p class="section-lead">
+        Foreign SaaS companies charge per-seat taxes in US Dollars, causing software bills to spike whenever currency shifts. 
+        Julz Insight replaces per-seat penalties with sovereign, fixed infrastructure retainers.
+      </p>
+    </div>
+
+    <div class="roi-grid">
+      <!-- Left Column: Interactive Inputs -->
+      <div class="roi-inputs-col">
+        <!-- Team Size Slider -->
+        <div class="roi-slider-block">
+          <div class="slider-header">
+            <label for="roi-slider">Active Team &amp; Employee Headcount</label>
+            <span id="roi-team-size-badge" class="slider-badge">65 Users</span>
+          </div>
+          <input
+            id="roi-slider"
+            type="range"
+            min="5"
+            max="500"
+            step="5"
+            value="65"
+            class="range-input"
+          />
+          <div class="slider-scale-labels">
+            <span>5 Seats (Micro)</span>
+            <span>100 Seats (Mid-Market)</span>
+            <span>500+ Seats (Enterprise)</span>
+          </div>
+        </div>
+
+        <!-- Currently Deployed SaaS Sprawl Checkboxes -->
+        <div>
+          <label style="font-size: 14px; font-weight: 600; color: #ffffff; display: block; margin-bottom: 0.75rem;">
+            Current Proprietary SaaS Sprawl (Select all active)
+          </label>
+          <div class="sprawl-grid">
+            <button
+              type="button"
+              id="roi-tool-workspace"
+              data-tool-id="workspace"
+              class="tool-btn active"
+            >
+              <span class="tool-name">Google Workspace / M365</span>
+              <span class="tool-cost">~KES 2,340/u</span>
+            </button>
+
+            <button
+              type="button"
+              id="roi-tool-crm_slack"
+              data-tool-id="crm_slack"
+              class="tool-btn active"
+            >
+              <span class="tool-name">Salesforce + Slack + Jira</span>
+              <span class="tool-cost">~KES 11,050/u</span>
+            </button>
+
+            <button
+              type="button"
+              id="roi-tool-security_vault"
+              data-tool-id="security_vault"
+              class="tool-btn active"
+            >
+              <span class="tool-name">Okta SSO + 1Password</span>
+              <span class="tool-cost">~KES 1,820/u</span>
+            </button>
+
+            <button
+              type="button"
+              id="roi-tool-automation"
+              data-tool-id="automation"
+              class="tool-btn active"
+            >
+              <span class="tool-name">Zapier Ent + DocuSign</span>
+              <span class="tool-cost">~KES 2,860/u</span>
+            </button>
+
+            <button
+              type="button"
+              id="roi-tool-devops_cloud"
+              data-tool-id="devops_cloud"
+              class="tool-btn"
+            >
+              <span class="tool-name">Datadog + AWS S3 / EKS Sprawl</span>
+              <span class="tool-cost">~KES 5,850/u</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- In-region FX Protection Alert -->
+        <div class="fx-protection-alert">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+            <line x1="12" y1="8" x2="12" y2="12"></line>
+            <line x1="12" y1="16" x2="12.01" y2="16"></line>
+          </svg>
+          <div>
+            <strong>Foreign Exchange Protection:</strong> By anchoring your technology budget in local currency retainers, your enterprise shields itself from compounding dollar devaluation and overseas cross-border VAT taxes.
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Column: Dynamic Capital Comparison Card -->
+      <div class="roi-results-col">
+        <div class="results-header">
+          <span class="results-title">Estimated Capital Retained</span>
+          <span id="roi-savings-pct" class="savings-pct-badge">74% Savings</span>
+        </div>
+
+        <!-- Annual Retained Capital Callout -->
+        <div class="annual-retained-box">
+          <span class="annual-label">Annual Capital Retained:</span>
+          <div id="roi-annual-savings" class="annual-amount">KES 12,838,800</div>
+          <p class="annual-subtext">
+            Recovered every 12 months for high-priority local expansion
+          </p>
+        </div>
+
+        <!-- Side-by-Side Monthly Breakdown -->
+        <div class="side-by-side-spend">
+          <div class="spend-row-foreign">
+            <span class="spend-label">Foreign Proprietary SaaS Spend:</span>
+            <span id="roi-proprietary-monthly" class="spend-val">KES 1,170,000/mo</span>
+          </div>
+
+          <div class="spend-row-sovereign">
+            <span class="spend-label">Julz Insight Sovereign Retainer:</span>
+            <span id="roi-julz-monthly" class="spend-val">KES 156,000/mo</span>
+          </div>
+        </div>
+
+        <!-- CTA Button -->
+        <button type="button" id="btn-roi-lock" class="btn-lock-roi">
+          <span>Lock In Your Sovereign ROI Blueprint</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="7" y1="17" x2="17" y2="7"></line>
+            <polyline points="7 7 17 7 17 17"></polyline>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+</section>

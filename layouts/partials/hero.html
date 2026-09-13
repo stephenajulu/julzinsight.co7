@@ -1,0 +1,213 @@
+{{ $infra := hugo.Data.infrastructure }}
+{{ $barHeights := $infra.barHeights }}
+{{ $maxHeight := 95.0 }}
+
+<section class="hero-stage">
+  <!-- Background Cinematic Looping Video -->
+  <div class="hero-video-wrap">
+    <video
+      src="{{ site.Params.videoUrl }}"
+      autoplay
+      loop
+      muted
+      playsinline
+    ></video>
+    <div class="overlay-v-gradient"></div>
+    <div class="overlay-h-gradient"></div>
+    <div class="overlay-ambient-glow"></div>
+  </div>
+
+  <!-- Main Content Area -->
+  <div class="container-custom" style="position: relative; z-index: 10; flex: 1; display: flex; align-items: center;">
+    <div class="hero-grid">
+      <!-- Left Column: Core Positioning & Sovereign Statement -->
+      <div class="hero-content">
+        <!-- Liquid Glass Tag Pill -->
+        <div class="hero-tag-pill">
+          <span class="tag-release">InsightOS v3.2</span>
+          <span class="tag-desc">Africa's No. 1 Sovereign Cloud Engine</span>
+        </div>
+
+        <!-- Headline with Instrument Serif italic accent -->
+        <h1 class="hero-headline">
+          The Engine of <br class="sm-inline" />
+          <span class="hero-serif-accent">Digital Sovereignty</span>.
+        </h1>
+
+        <!-- Subtitle -->
+        <p class="hero-description">
+          Free your organization from foreign SaaS licensing bloat and offshore data risks. 
+          Julz Insight architects, manually provisions, and actively manages dedicated open-source 
+          business infrastructure hosted 100% on African sovereign soil.
+        </p>
+
+        <!-- Action Buttons -->
+        <div class="hero-actions">
+          <button type="button" data-modal-open class="btn-primary btn-hero-lg">
+            <span>Deploy Sovereign Stack</span>
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="7" y1="17" x2="17" y2="7"></line>
+              <polyline points="7 7 17 7 17 17"></polyline>
+            </svg>
+          </button>
+
+          <a href="#tiers" class="btn-secondary-lg">
+            <span>Explore 5 Architectural Tiers</span>
+          </a>
+        </div>
+
+        <!-- Institutional Trust Badges -->
+        <div class="hero-trust-badges">
+          <div class="trust-badge-item">
+            <svg viewBox="0 0 24 24" class="cyan-icon" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+              <path d="m9 12 2 2 4-4"></path>
+            </svg>
+            <span>KDPA 2019 Law</span>
+          </div>
+
+          <div class="trust-badge-item">
+            <svg viewBox="0 0 24 24" class="brand-icon" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <ellipse cx="12" cy="5" rx="9" ry="3"></ellipse>
+              <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path>
+              <path d="M3 12c0 1.66 4 3 9 3s9-1.34 9-3"></path>
+            </svg>
+            <span>100% Data In-Country</span>
+          </div>
+
+          <div class="trust-badge-item">
+            <svg viewBox="0 0 24 24" class="cyan-icon" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="4" y="4" width="16" height="16" rx="2"></rect>
+              <rect x="9" y="9" width="6" height="6"></rect>
+              <line x1="9" y1="1" x2="9" y2="4"></line>
+              <line x1="15" y1="1" x2="15" y2="4"></line>
+              <line x1="9" y1="20" x2="9" y2="23"></line>
+              <line x1="15" y1="20" x2="15" y2="23"></line>
+              <line x1="20" y1="9" x2="23" y2="9"></line>
+              <line x1="20" y1="14" x2="23" y2="14"></line>
+              <line x1="1" y1="9" x2="4" y2="9"></line>
+              <line x1="1" y1="14" x2="4" y2="14"></line>
+            </svg>
+            <span>Local GPU Inference</span>
+          </div>
+
+          <div class="trust-badge-item">
+            <svg viewBox="0 0 24 24" class="brand-icon" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+              <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+            </svg>
+            <span>Zero Foreign Egress</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Column: Live Telemetry & Capital Savings Glass Card -->
+      <div class="hero-telemetry-col">
+        <div class="telemetry-card">
+          <div class="telemetry-ambient-glow"></div>
+
+          <!-- Card Header -->
+          <div class="telemetry-header">
+            <div class="telemetry-status">
+              <div class="status-pulse-dot animate-pulse"></div>
+              <p class="status-label">Enterprise Capital Retained</p>
+            </div>
+            <span class="telemetry-badge">REAL-TIME SLA</span>
+          </div>
+
+          <!-- Amount Display -->
+          <div class="telemetry-amount-block">
+            <div class="amount-display">
+              <span id="hero-telemetry-amount" class="amount-num">KES 2,420,000</span>
+              <span class="amount-unit">/mo saved</span>
+            </div>
+            <p class="amount-subtext">
+              Average client capital drain recovered from foreign SaaS seats
+            </p>
+          </div>
+
+          <!-- Delta Stat Row -->
+          <div class="telemetry-delta-pill">
+            <span class="delta-badge">{{ $infra.telemetryData.savingsPercentage }}</span>
+            <span class="delta-text">vs. fragmented AWS + Okta + Slack + M365 stack</span>
+          </div>
+
+          <!-- 32-Bar Growing Telemetry Visualization -->
+          <div class="bars-chart-container">
+            <div class="bars-wrap">
+              {{ range $idx, $height := $barHeights }}
+                {{ $percent := div (mul (float $height) 100.0) $maxHeight }}
+                {{ $delay := add 400 (mul $idx 25) }}
+                {{ $color := "rgba(255, 255, 255, 0.85)" }}
+                {{ if ge $idx 28 }}
+                  {{ $color = "rgba(0, 242, 254, 0.35)" }}
+                {{ else if gt $idx 20 }}
+                  {{ $color = "#542bff" }}
+                {{ end }}
+                <div
+                  class="bar-item animate-bar-grow"
+                  style="height: {{ $percent }}%; background-color: {{ $color | safeCSS }}; animation-delay: {{ $delay }}ms;"
+                ></div>
+              {{ end }}
+            </div>
+
+            <!-- Vertical Gridlines -->
+            <div class="chart-gridlines">
+              <div class="gridline"></div>
+              <div class="gridline"></div>
+              <div class="gridline"></div>
+              <div class="gridline"></div>
+              <div class="gridline"></div>
+            </div>
+
+            <!-- Time Axis Labels -->
+            <div class="time-labels">
+              <span>00:00</span>
+              <span>06:00</span>
+              <span>12:00</span>
+              <span>18:00</span>
+              <span class="live-label">LIVE NOW</span>
+            </div>
+          </div>
+
+          <!-- Active Infrastructure Metrics Grid -->
+          <div class="telemetry-metrics-grid">
+            <div class="metric-box">
+              <p class="metric-label">Uptime SLA</p>
+              <p class="metric-val">99.99%</p>
+            </div>
+            <div class="metric-box">
+              <p class="metric-label">Latency</p>
+              <p class="metric-val val-emerald">&lt; 4ms</p>
+            </div>
+            <div class="metric-box">
+              <p class="metric-label">Data Custody</p>
+              <p class="metric-val val-cyan">100% Ke</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bottom Transition Strip -->
+  <div class="hero-bottom-strip">
+    <div class="container-custom bottom-strip-inner">
+      <div class="strip-left">
+        <span class="dot-brand"></span>
+        <span>MANAGED OPEN-SOURCE ENTERPRISE INFRASTRUCTURE</span>
+      </div>
+      <div class="strip-tech-list">
+        <span>PROXMOX VE</span>
+        <span>•</span>
+        <span>KUBERNETES</span>
+        <span>•</span>
+        <span>ERPNEXT</span>
+        <span>•</span>
+        <span>NEXTCLOUD</span>
+        <span>•</span>
+        <span>N8N AGENTS</span>
+      </div>
+    </div>
+  </div>
+</section>

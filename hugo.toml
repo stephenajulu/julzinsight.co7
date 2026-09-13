@@ -1,0 +1,19 @@
+baseURL = 'https://julzinsight.co/'
+languageCode = 'en-US'
+title = 'Julz Insight — The Engine of Digital Sovereignty | Managed Open-Source Enterprise Infrastructure'
+
+[params]
+  description = "Africa's No. 1 Fully Managed, Sovereign & Performant Open-Source Business Infrastructure for Enterprises. Sovereign cloud, local data residency, zero SaaS lock-in."
+  themeColor = "#040406"
+  legalName = "Julz Insight Technology Limited"
+  tagline = "The Engine of Digital Sovereignty"
+  positioning = "Africa’s No. 1 Fully Managed, Sovereign & Performant Open-Source Business Infrastructure for Enterprises"
+  contactEmail = "advisory@julzinsight.co"
+  location = "Nairobi, Kenya • Operating Continent-Wide across Africa"
+  videoUrl = "https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260813_092641_de52eb87-daf2-41db-92cb-7a56eae012a5.mp4"
+
+[build]
+  writeStats = false
+
+[taxonomies]
+  # Disable taxonomies to keep static output clean

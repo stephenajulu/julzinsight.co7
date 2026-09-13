@@ -1,0 +1,649 @@
+/**
+ * Julz Insight — Enterprise Web Presence
+ * Core JavaScript Engine
+ * Fully Sovereign, Zero Dependencies, High Performance
+ */
+
+(function () {
+  'use strict';
+
+  // Site Data injected or parsed
+  const siteData = window.__JULZ_DATA__ || {};
+  const tiers = siteData.architectureTiers || [];
+
+  // Global Application State
+  const state = {
+    currency: 'KES',
+    activeRole: 'ceo',
+    selectedTierId: 3,
+    modalTierId: 3,
+    hostingFilter: 'All',
+    teamSize: 65,
+    selectedTools: ['workspace', 'crm_slack', 'security_vault', 'automation'],
+    isModalOpen: false,
+    isDrawerOpen: false,
+  };
+
+  const toolDefinitions = [
+    { id: 'workspace', name: 'Google Workspace / M365', costPerUserUsd: 18, costPerUserKes: 2340 },
+    { id: 'crm_slack', name: 'Salesforce + Slack + Jira', costPerUserUsd: 85, costPerUserKes: 11050 },
+    { id: 'security_vault', name: 'Okta SSO + 1Password', costPerUserUsd: 14, costPerUserKes: 1820 },
+    { id: 'automation', name: 'Zapier Ent + DocuSign', costPerUserUsd: 22, costPerUserKes: 2860 },
+    { id: 'devops_cloud', name: 'Datadog + AWS S3 / EKS Sprawl', costPerUserUsd: 45, costPerUserKes: 5850 },
+  ];
+
+  function formatNumber(num) {
+    return new Intl.NumberFormat().format(Math.round(num));
+  }
+
+  /* ==========================================================================
+     CURRENCY SWITCHER
+     ========================================================================== */
+  function setCurrency(curr) {
+    if (curr !== 'KES' && curr !== 'USD') return;
+    state.currency = curr;
+
+    // 1. Update active states on currency buttons
+    document.querySelectorAll('[data-currency-btn]').forEach((btn) => {
+      const targetCurr = btn.getAttribute('data-currency-btn');
+      if (targetCurr === curr) {
+        btn.classList.add('active');
+      } else {
+        btn.classList.remove('active');
+      }
+    });
+
+    const mobileCurrBtn = document.getElementById('mobile-curr-btn');
+    if (mobileCurrBtn) {
+      mobileCurrBtn.textContent = curr;
+    }
+
+    // 2. Update Hero Telemetry Amount
+    const heroAmount = document.getElementById('hero-telemetry-amount');
+    if (heroAmount) {
+      heroAmount.textContent = curr === 'KES' ? 'KES 2,420,000' : '$18,400';
+    }
+
+    // 3. Update InsightOS CEO KPI
+    const ceoSavingsKpi = document.getElementById('ceo-savings-kpi');
+    if (ceoSavingsKpi) {
+      ceoSavingsKpi.textContent = curr === 'KES' ? 'KES 24,800,000' : '$192,000';
+    }
+
+    // 4. Update Tier Explorer prices
+    updateTierExplorerCurrency();
+
+    // 5. Update ROI Calculator
+    updateRoiCalculator();
+
+    // 6. Update Modal Tier Price estimate
+    updateModalEstimate();
+  }
+
+  window.setCurrency = setCurrency;
+
+  /* ==========================================================================
+     NAVBAR & SCROLL
+     ========================================================================== */
+  function initNavbar() {
+    const header = document.getElementById('site-header');
+    if (header) {
+      window.addEventListener('scroll', () => {
+        if (window.scrollY > 20) {
+          header.classList.add('scrolled');
+        } else {
+          header.classList.remove('scrolled');
+        }
+      }, { passive: true });
+    }
+
+    // Mobile drawer toggle
+    const hamburgerBtn = document.getElementById('hamburger-btn');
+    const mobileDrawer = document.getElementById('mobile-drawer');
+    const drawerBackdrop = document.getElementById('drawer-backdrop');
+
+    function openDrawer() {
+      state.isDrawerOpen = true;
+      if (mobileDrawer) mobileDrawer.classList.add('open');
+      document.body.classList.add('modal-open');
+    }
+
+    function closeDrawer() {
+      state.isDrawerOpen = false;
+      if (mobileDrawer) mobileDrawer.classList.remove('open');
+      if (!state.isModalOpen) {
+        document.body.classList.remove('modal-open');
+      }
+    }
+
+    if (hamburgerBtn) {
+      hamburgerBtn.addEventListener('click', () => {
+        if (state.isDrawerOpen) {
+          closeDrawer();
+        } else {
+          openDrawer();
+        }
+      });
+    }
+
+    if (drawerBackdrop) {
+      drawerBackdrop.addEventListener('click', closeDrawer);
+    }
+
+    // Close drawer on link click
+    document.querySelectorAll('.drawer-nav a').forEach((link) => {
+      link.addEventListener('click', closeDrawer);
+    });
+
+    // Mobile curr toggle
+    if (mobileCurrBtn) {
+      mobileCurrBtn.addEventListener('click', () => {
+        setCurrency(state.currency === 'KES' ? 'USD' : 'KES');
+      });
+    }
+  }
+
+  /* ==========================================================================
+     INSIGHTOS SHOWCASE TABS
+     ========================================================================== */
+  function setInsightOsRole(role) {
+    state.activeRole = role;
+
+    // Update tab button styles
+    document.querySelectorAll('.role-btn').forEach((btn) => {
+      if (btn.getAttribute('data-role') === role) {
+        btn.classList.add('active');
+      } else {
+        btn.classList.remove('active');
+      }
+    });
+
+    // Update role view containers
+    document.querySelectorAll('.os-role-view').forEach((view) => {
+      if (view.getAttribute('data-view') === role) {
+        view.classList.remove('hidden');
+      } else {
+        view.classList.add('hidden');
+      }
+    });
+  }
+
+  function initInsightOs() {
+    document.querySelectorAll('.role-btn').forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const role = btn.getAttribute('data-role');
+        if (role) setInsightOsRole(role);
+      });
+    });
+  }
+
+  /* ==========================================================================
+     TIER EXPLORER
+     ========================================================================== */
+  function getTierById(id) {
+    return tiers.find((t) => t.id === Number(id)) || tiers[2];
+  }
+
+  function selectTier(tierId) {
+    state.selectedTierId = Number(tierId);
+    const tier = getTierById(tierId);
+
+    // Update tab buttons
+    document.querySelectorAll('.tier-tab-btn').forEach((btn) => {
+      const bId = Number(btn.getAttribute('data-tier-id'));
+      const pingDot = btn.querySelector('.tab-ping-dot');
+      if (bId === state.selectedTierId) {
+        btn.classList.add('active');
+        if (pingDot) pingDot.classList.remove('hidden');
+      } else {
+        btn.classList.remove('active');
+        if (pingDot) pingDot.classList.add('hidden');
+      }
+    });
+
+    // Update Deep Dive Content
+    const pill = document.getElementById('tier-featured-pill');
+    if (pill) pill.textContent = tier.featuredPill;
+
+    const title = document.getElementById('tier-title');
+    if (title) title.textContent = tier.name;
+
+    const tagline = document.getElementById('tier-tagline');
+    if (tagline) tagline.textContent = tier.tagline;
+
+    const audience = document.getElementById('tier-audience');
+    if (audience) audience.textContent = tier.targetAudience;
+
+    const purpose = document.getElementById('tier-purpose');
+    if (purpose) purpose.textContent = tier.purpose;
+
+    const readiness = document.getElementById('tier-agent-readiness');
+    if (readiness) readiness.textContent = tier.agentReadiness;
+
+    const replaces = document.getElementById('tier-replaces-text');
+    if (replaces) replaces.textContent = tier.replacesText;
+
+    // Update CTA button inside financial box
+    const reqBtn = document.getElementById('btn-request-blueprint');
+    if (reqBtn) {
+      reqBtn.setAttribute('data-tier-id', tier.id);
+      const span = reqBtn.querySelector('span');
+      if (span) span.textContent = `Request Tier 0${tier.id} Architecture Blueprint`;
+    }
+
+    // Update Pain Points Grid
+    const painGrid = document.getElementById('tier-pain-points-grid');
+    if (painGrid && tier.painPointsSolved) {
+      painGrid.innerHTML = tier.painPointsSolved
+        .map(
+          (p) => `
+          <div style="padding: 1rem; border-radius: 0.75rem; background: rgba(0,0,0,0.4); border: 1px solid rgba(255,255,255,0.1);">
+            <div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.375rem;">
+              <svg viewBox="0 0 24 24" width="16" height="16" stroke="#34d399" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink: 0;"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+              <span style="font-size: 14px; font-weight: 600; color: #ffffff;">${p.title}</span>
+            </div>
+            <p style="font-size: 12px; color: rgba(255,255,255,0.6); line-height: 1.625;">${p.description}</p>
+          </div>
+        `
+        )
+        .join('');
+    }
+
+    // Update Components List
+    const compCount = document.getElementById('tier-components-count');
+    if (compCount) compCount.textContent = tier.components.length;
+
+    const compList = document.getElementById('tier-components-list');
+    if (compList && tier.components) {
+      compList.innerHTML = tier.components
+        .map(
+          (c) => `
+          <div style="padding: 0.75rem; border-radius: 0.75rem; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); display: flex; align-items: flex-start; justify-content: space-between; gap: 0.75rem;">
+            <div>
+              <div style="display: flex; align-items: center; gap: 0.5rem;">
+                <span style="font-size: 14px; font-weight: 600; color: #ffffff;">${c.name}</span>
+                <span style="font-size: 10px; font-family: 'JetBrains Mono', monospace; padding: 0.125rem 0.5rem; border-radius: 4px; background: rgba(255,255,255,0.05); color: rgba(255,255,255,0.6);">${c.role}</span>
+              </div>
+              <p style="font-size: 12px; color: rgba(255,255,255,0.5); margin-top: 0.25rem;">${c.description}</p>
+            </div>
+            <span style="padding: 0.125rem 0.5rem; border-radius: 4px; font-size: 10px; font-family: 'JetBrains Mono', monospace; text-transform: uppercase; font-weight: 700; color: #00f2fe; background: rgba(0, 242, 254, 0.1); flex-shrink: 0;">${c.status}</span>
+          </div>
+        `
+        )
+        .join('');
+    }
+
+    updateTierExplorerCurrency();
+  }
+
+  function updateTierExplorerCurrency() {
+    const isKes = state.currency === 'KES';
+
+    // Tab price previews
+    tiers.forEach((t) => {
+      const previewEl = document.getElementById(`tier-tab-price-${t.id}`);
+      if (previewEl) {
+        previewEl.textContent = isKes ? t.monthlyKes : t.monthlyUsd;
+      }
+    });
+
+    // Deep dive active tier
+    const activeTier = getTierById(state.selectedTierId);
+    const monthlyEl = document.getElementById('tier-monthly-price');
+    if (monthlyEl) {
+      monthlyEl.textContent = isKes ? activeTier.monthlyKes : activeTier.monthlyUsd;
+    }
+
+    const setupEl = document.getElementById('tier-setup-price');
+    if (setupEl) {
+      setupEl.textContent = isKes ? activeTier.setupFeeKes : activeTier.setupFeeUsd;
+    }
+  }
+
+  function initTierExplorer() {
+    document.querySelectorAll('.tier-tab-btn').forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const id = btn.getAttribute('data-tier-id');
+        if (id) selectTier(id);
+      });
+    });
+
+    const reqBtn = document.getElementById('btn-request-blueprint');
+    if (reqBtn) {
+      reqBtn.addEventListener('click', () => {
+        const id = reqBtn.getAttribute('data-tier-id') || state.selectedTierId;
+        openModal(Number(id));
+      });
+    }
+
+    // Initialize with Tier 3
+    selectTier(3);
+  }
+
+  /* ==========================================================================
+     ROI CALCULATOR
+     ========================================================================== */
+  function toggleRoiTool(toolId) {
+    if (state.selectedTools.includes(toolId)) {
+      if (state.selectedTools.length > 1) {
+        state.selectedTools = state.selectedTools.filter((t) => t !== toolId);
+      }
+    } else {
+      state.selectedTools.push(toolId);
+    }
+    updateRoiCalculator();
+  }
+
+  function updateRoiCalculator() {
+    const isKes = state.currency === 'KES';
+
+    // Update Team Size Badge
+    const sizeBadge = document.getElementById('roi-team-size-badge');
+    if (sizeBadge) {
+      sizeBadge.textContent = `${state.teamSize} Users`;
+    }
+
+    // Update tool button styles and price subtexts
+    toolDefinitions.forEach((tool) => {
+      const btn = document.getElementById(`roi-tool-${tool.id}`);
+      if (btn) {
+        const isChecked = state.selectedTools.includes(tool.id);
+        if (isChecked) {
+          btn.classList.add('active');
+        } else {
+          btn.classList.remove('active');
+        }
+        const costSpan = btn.querySelector('.tool-cost');
+        if (costSpan) {
+          costSpan.textContent = isKes
+            ? `~KES ${formatNumber(tool.costPerUserKes)}/u`
+            : `~$${tool.costPerUserUsd}/u`;
+        }
+      }
+    });
+
+    // Math Calculations
+    const proprietaryMonthlyUsd = state.selectedTools.reduce((acc, toolId) => {
+      const tool = toolDefinitions.find((t) => t.id === toolId);
+      return acc + (tool ? tool.costPerUserUsd * state.teamSize : 0);
+    }, 0);
+
+    const proprietaryMonthlyKes = proprietaryMonthlyUsd * 130;
+
+    const julzMonthlyUsd =
+      state.teamSize <= 25 ? 400 : state.teamSize <= 100 ? 1200 : state.teamSize <= 250 ? 2500 : 4500;
+    const julzMonthlyKes = julzMonthlyUsd * 130;
+
+    const monthlySavingsUsd = Math.max(0, proprietaryMonthlyUsd - julzMonthlyUsd);
+    const monthlySavingsKes = monthlySavingsUsd * 130;
+
+    const savingsPct =
+      proprietaryMonthlyUsd > 0 ? Math.round((monthlySavingsUsd / proprietaryMonthlyUsd) * 100) : 0;
+    const annualSavingsUsd = monthlySavingsUsd * 12;
+    const annualSavingsKes = monthlySavingsKes * 12;
+
+    // Update UI elements
+    const savingsPctBadge = document.getElementById('roi-savings-pct');
+    if (savingsPctBadge) {
+      savingsPctBadge.textContent = `${savingsPct}% Savings`;
+    }
+
+    const annualSavingsEl = document.getElementById('roi-annual-savings');
+    if (annualSavingsEl) {
+      annualSavingsEl.textContent = isKes
+        ? `KES ${formatNumber(annualSavingsKes)}`
+        : `$${formatNumber(annualSavingsUsd)}`;
+    }
+
+    const propSpendEl = document.getElementById('roi-proprietary-monthly');
+    if (propSpendEl) {
+      propSpendEl.textContent = isKes
+        ? `KES ${formatNumber(proprietaryMonthlyKes)}/mo`
+        : `$${formatNumber(proprietaryMonthlyUsd)}/mo`;
+    }
+
+    const julzSpendEl = document.getElementById('roi-julz-monthly');
+    if (julzSpendEl) {
+      julzSpendEl.textContent = isKes
+        ? `KES ${formatNumber(julzMonthlyKes)}/mo`
+        : `$${formatNumber(julzMonthlyUsd)}/mo`;
+    }
+  }
+
+  function initRoiCalculator() {
+    const slider = document.getElementById('roi-slider');
+    if (slider) {
+      slider.addEventListener('input', (e) => {
+        state.teamSize = Number(e.target.value);
+        updateRoiCalculator();
+      });
+    }
+
+    document.querySelectorAll('.sprawl-grid .tool-btn').forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const id = btn.getAttribute('data-tool-id');
+        if (id) toggleRoiTool(id);
+      });
+    });
+
+    const ctaBtn = document.getElementById('btn-roi-lock');
+    if (ctaBtn) {
+      ctaBtn.addEventListener('click', () => {
+        openModal();
+      });
+    }
+
+    updateRoiCalculator();
+  }
+
+  /* ==========================================================================
+     HOSTING MATRIX FILTER
+     ========================================================================== */
+  function setHostingFilter(category) {
+    state.hostingFilter = category;
+
+    // Update filter pills
+    document.querySelectorAll('.matrix-filters .filter-btn').forEach((btn) => {
+      if (btn.getAttribute('data-category') === category) {
+        btn.classList.add('active');
+      } else {
+        btn.classList.remove('active');
+      }
+    });
+
+    // Show/hide cards
+    document.querySelectorAll('.providers-grid .provider-card').forEach((card) => {
+      const cardCat = card.getAttribute('data-category');
+      if (category === 'All' || cardCat === category) {
+        card.classList.remove('hidden');
+      } else {
+        card.classList.add('hidden');
+      }
+    });
+  }
+
+  function initHostingMatrix() {
+    document.querySelectorAll('.matrix-filters .filter-btn').forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const cat = btn.getAttribute('data-category');
+        if (cat) setHostingFilter(cat);
+      });
+    });
+  }
+
+  /* ==========================================================================
+     FAQ ACCORDION
+     ========================================================================== */
+  function initFaqAccordion() {
+    document.querySelectorAll('.faq-item').forEach((item) => {
+      const btn = item.querySelector('.faq-question-btn');
+      if (btn) {
+        btn.addEventListener('click', () => {
+          const isOpen = item.classList.contains('open');
+
+          // Close other items
+          document.querySelectorAll('.faq-item').forEach((other) => {
+            other.classList.remove('open');
+          });
+
+          // Toggle clicked item
+          if (!isOpen) {
+            item.classList.add('open');
+          }
+        });
+      }
+    });
+  }
+
+  /* ==========================================================================
+     CONSULTATION MODAL
+     ========================================================================== */
+  function updateModalEstimate() {
+    const tier = getTierById(state.modalTierId);
+    const estEl = document.getElementById('modal-tier-price-estimate');
+    if (estEl) {
+      const price = state.currency === 'KES' ? tier.monthlyKes : tier.monthlyUsd;
+      estEl.textContent = `Estimated: ${price} (Retainer & Continuous SRE)`;
+    }
+  }
+
+  function setModalTier(tierId) {
+    state.modalTierId = Number(tierId);
+
+    document.querySelectorAll('.tier-choice-btn').forEach((btn) => {
+      const id = Number(btn.getAttribute('data-tier-id'));
+      if (id === state.modalTierId) {
+        btn.classList.add('active');
+      } else {
+        btn.classList.remove('active');
+      }
+    });
+
+    updateModalEstimate();
+  }
+
+  function openModal(tierId) {
+    if (tierId) {
+      setModalTier(tierId);
+    } else {
+      setModalTier(state.selectedTierId || 3);
+    }
+
+    // Reset confirmation view to form
+    const formView = document.getElementById('modal-form-view');
+    const confirmView = document.getElementById('modal-confirmation-view');
+    if (formView) formView.classList.remove('hidden');
+    if (confirmView) confirmView.classList.add('hidden');
+
+    const modal = document.getElementById('consultation-modal');
+    if (modal) {
+      modal.classList.add('open');
+      state.isModalOpen = true;
+      document.body.classList.add('modal-open');
+    }
+  }
+
+  function closeModal() {
+    const modal = document.getElementById('consultation-modal');
+    if (modal) {
+      modal.classList.remove('open');
+      state.isModalOpen = false;
+      if (!state.isDrawerOpen) {
+        document.body.classList.remove('modal-open');
+      }
+    }
+  }
+
+  window.openModal = openModal;
+  window.closeModal = closeModal;
+
+  function initModal() {
+    // Open triggers
+    document.querySelectorAll('[data-modal-open]').forEach((btn) => {
+      btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        const tId = btn.getAttribute('data-tier-id');
+        openModal(tId ? Number(tId) : undefined);
+      });
+    });
+
+    // Close triggers
+    const closeBtn = document.getElementById('modal-close-btn');
+    if (closeBtn) closeBtn.addEventListener('click', closeModal);
+
+    const backdrop = document.getElementById('modal-backdrop');
+    if (backdrop) backdrop.addEventListener('click', closeModal);
+
+    const returnBtn = document.getElementById('modal-return-btn');
+    if (returnBtn) returnBtn.addEventListener('click', closeModal);
+
+    // Escape key
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && state.isModalOpen) {
+        closeModal();
+      }
+    });
+
+    // Tier choice buttons inside modal
+    document.querySelectorAll('.tier-choice-btn').forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const id = btn.getAttribute('data-tier-id');
+        if (id) setModalTier(id);
+      });
+    });
+
+    // Form submission
+    const form = document.getElementById('consultation-form');
+    if (form) {
+      form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const nameInput = document.getElementById('modal-input-name');
+        const emailInput = document.getElementById('modal-input-email');
+        const companyInput = document.getElementById('modal-input-company');
+        const hostSelect = document.getElementById('modal-select-hosting');
+
+        const userName = nameInput ? nameInput.value : 'Executive';
+        const userEmail = emailInput ? emailInput.value : 'executive@enterprise.co.ke';
+        const userCompany = companyInput ? companyInput.value : 'Enterprise';
+        const userHost = hostSelect ? hostSelect.value : 'Safaricom Enterprise Cloud';
+
+        const tierObj = getTierById(state.modalTierId);
+
+        // Populate confirmation view
+        const spanName = document.getElementById('confirm-name');
+        if (spanName) spanName.textContent = userName;
+
+        const spanCompany = document.getElementById('confirm-company');
+        if (spanCompany) spanCompany.textContent = userCompany;
+
+        const spanEmail = document.getElementById('confirm-email');
+        if (spanEmail) spanEmail.textContent = userEmail;
+
+        const spanTier = document.getElementById('confirm-tier');
+        if (spanTier) spanTier.textContent = `Tier 0${tierObj.id} (${tierObj.name})`;
+
+        const spanFabric = document.getElementById('confirm-fabric');
+        if (spanFabric) spanFabric.textContent = userHost;
+
+        // Switch views
+        const formView = document.getElementById('modal-form-view');
+        const confirmView = document.getElementById('modal-confirmation-view');
+        if (formView) formView.classList.add('hidden');
+        if (confirmView) confirmView.classList.remove('hidden');
+      });
+    }
+  }
+
+  /* ==========================================================================
+     INIT ON DOM READY
+     ========================================================================== */
+  document.addEventListener('DOMContentLoaded', () => {
+    initNavbar();
+    initInsightOs();
+    initTierExplorer();
+    initRoiCalculator();
+    initHostingMatrix();
+    initFaqAccordion();
+    initModal();
+  });
+})();
