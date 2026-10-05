@@ -5,7 +5,7 @@
 
 ---
 
-## 🏛️ Architectural Overview & Delivered Translation
+## Architectural Overview & Delivered Translation
 
 This repository is the official **GoHugo** enterprise implementation of the **Julz Insight** web presence, translated from the React/Vite codebase into a fast, zero-dependency, static Hugo engine utilizing native HTML5 semantic markup, modular SCSS (compiled via Hugo Pipes), and reactive Vanilla JavaScript.
 
@@ -30,7 +30,7 @@ This repository is the official **GoHugo** enterprise implementation of the **Ju
 
 ---
 
-## 🚀 Development & Build Instructions
+## Development & Build Instructions
 
 ### Prerequisites
 - [Hugo Extended](https://gohugo.io/) (v0.120+ recommended, tested with v0.160.1+extended).
@@ -51,7 +51,7 @@ All production-ready assets and HTML will be generated into the `public/` direct
 
 ---
 
-## 📂 Project Structure
+## Project Structure
 
 ```
 julzinsight.co7-hugo/

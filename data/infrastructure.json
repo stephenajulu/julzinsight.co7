@@ -189,7 +189,9 @@
       "slug": "tier-4-automation-growth",
       "name": "Tier 4: Automation & Growth Engine",
       "badge": "Neural Automation",
-      "tagline": "The autonomic nervous system. Event-driven triggers, automated lead scoring, programmatic contracts, and cryptographic e-signatures.",
+      "status": "beta",
+      "availabilityBadge": "Beta Testers Only",
+      "tagline": "The autonomic nervous system. Event-driven triggers, automated lead scoring, programmatic contracts, and cryptographic e-signatures. Currently in fine-tuning with select enterprise beta testers.",
       "setupFeeKes": "KES 1,300,000 – 2,080,000",
       "setupFeeUsd": "$10,000 – $16,000",
       "monthlyKes": "KES 260,000 – 416,000 / mo",
@@ -199,7 +201,7 @@
       "targetAudience": "Scaling enterprises, high-velocity sales organizations, fintechs, and automated service providers.",
       "purpose": "Interconnects every sovereign layer into an autonomous pipeline. Eliminates manual data re-entry with intelligent event workflows.",
       "agentReadiness": "n8n serves as the central neural bridge, equipping autonomous AI agents with tools to interact with ERPNext, Nextcloud, and Documenso via Infisical secrets.",
-      "featuredPill": "Hyper-Automation Engine",
+      "featuredPill": "Beta Testers Only • SRE Fine-Tuning",
       "isPopular": false,
       "painPointsSolved": [
         {
@@ -247,7 +249,9 @@
       "slug": "tier-5-agentic-forge",
       "name": "Tier 5: The Agentic Enterprise Forge",
       "badge": "Bare-Metal & AI Sovereign",
-      "tagline": "The ultimate sovereign enterprise architecture. Bare-metal Proxmox virtualization, Kubernetes, distributed Ceph S3, and private GPU inference.",
+      "status": "coming-soon",
+      "availabilityBadge": "Coming Soon",
+      "tagline": "The ultimate sovereign enterprise architecture. Bare-metal Proxmox virtualization, Kubernetes, distributed Ceph S3, and private GPU inference. Currently behind closed doors.",
       "setupFeeKes": "KES 3,900,000 – 7,150,000",
       "setupFeeUsd": "$30,000 – $55,000",
       "monthlyKes": "KES 715,000 – 1,235,000 / mo",
@@ -257,7 +261,7 @@
       "targetAudience": "Tier-1 commercial banks, national telcos, government ministries, health networks, and tech companies requiring total digital sovereignty.",
       "purpose": "Total sovereign compute stack. Combines bare-metal hypervisor reliability with elastic cloud-native orchestration, private LLMs, and 24/7 SIEM auditing.",
       "agentReadiness": "Fully autonomous multi-modal AI agent ecosystem. Agents write code via Forgejo CI/CD, resolve tickets in Zammad, execute ERP transactions, and query private Qdrant vectors—with zero offshore telemetry.",
-      "featuredPill": "The Sovereign Vanguard",
+      "featuredPill": "Coming Soon • In Closed R&D",
       "isPopular": false,
       "painPointsSolved": [
         {
@@ -379,7 +383,15 @@
       "classification": "African Cloud Providers",
       "strategicPurpose": "Primary enterprise target. Guarantees 100% Kenyan data residency, M-Pesa latency parity, and CBK regulatory compliance.",
       "region": "Nairobi, Kenya",
-      "flag": "🇰🇪",
+      "icon": "flag-ke",
+      "dataSovereigntyGrade": "100% Sovereign (Kenya/Africa)"
+    },
+    {
+      "name": "Servercore Cloud",
+      "classification": "African Cloud Providers",
+      "strategicPurpose": "Tier III-backed sovereign cloud in Nairobi. KDPA 2019 compliant with local dedicated servers, managed Kubernetes, private VPC, and in-country KES billing.",
+      "region": "Nairobi, Kenya",
+      "icon": "flag-ke",
       "dataSovereigntyGrade": "100% Sovereign (Kenya/Africa)"
     },
     {
@@ -387,7 +399,7 @@
       "classification": "African Cloud Providers",
       "strategicPurpose": "Government, parastatal, and public sector workloads requiring state-level sovereign digital custody.",
       "region": "Konza, Kenya",
-      "flag": "🇰🇪",
+      "icon": "flag-ke",
       "dataSovereigntyGrade": "100% Sovereign (Kenya/Africa)"
     },
     {
@@ -395,7 +407,7 @@
       "classification": "African Cloud Providers",
       "strategicPurpose": "Pan-African fiber interconnectivity with multi-region replication across East, Central, and Southern Africa.",
       "region": "East Africa Mesh",
-      "flag": "🌍",
+      "icon": "globe-africa",
       "dataSovereigntyGrade": "100% Sovereign (Kenya/Africa)"
     },
     {
@@ -403,7 +415,7 @@
       "classification": "Bespoke Co-Location & Bare-Metal",
       "strategicPurpose": "Dedicated high-density compute, Proxmox hypervisor clusters, and GPU arrays for Tier 5 Agentic deployments.",
       "region": "Nairobi Data Centers",
-      "flag": "🇰🇪",
+      "icon": "server-rack",
       "dataSovereigntyGrade": "100% Sovereign (Kenya/Africa)"
     },
     {
@@ -411,7 +423,7 @@
       "classification": "On-Premise (Client Hardware)",
       "strategicPurpose": "Ultimate physical custody. Proxmox VE installed directly on server hardware inside client headquarters with air-gapped options.",
       "region": "Client Corporate HQ",
-      "flag": "🔒",
+      "icon": "shield-lock",
       "dataSovereigntyGrade": "100% On-Premise Air-Gapped"
     },
     {
@@ -419,7 +431,7 @@
       "classification": "Global Redundancy & CDN",
       "strategicPurpose": "Strictly utilized as secondary encrypted offsite disaster-recovery targets and global static content caching.",
       "region": "Global Edge Failover",
-      "flag": "🛡️",
+      "icon": "cloud-failover",
       "dataSovereigntyGrade": "Secondary Redundancy Only"
     }
   ],
@@ -507,6 +519,12 @@
       "category": "financials",
       "question": "What is the ROI comparison between Julz Insight and foreign SaaS platforms like Microsoft 365 or Salesforce?",
       "answer": "Most African enterprises experience a 65% to 85% net reduction in total cost of ownership (TCO) over 24 months. Proprietary SaaS vendors charge per-user, per-month in foreign exchange (USD), subjecting your budget to local currency devaluations. Julz Insight charges transparent flat or tiered monthly retainers in local currency (KES) with predictable SLAs and zero per-seat licensing penalties."
+    },
+    {
+      "id": "faq-6",
+      "category": "financials",
+      "question": "Is third-party cloud or bare-metal hosting included in the monthly retainer?",
+      "answer": "No. Julz Insight maintains strict infrastructure neutrality. The visible retainers cover our fully managed open-source software stack, custom GitOps automation, security hardening, and 24/7 proactive SRE support. Underlying cloud or bare-metal compute (via Safaricom, Servercore, Konza, iXAfrica, or your corporate headquarters) is contracted directly with or billed transparently by the sovereign data center provider. This ensures your organization retains full legal hardware ownership, zero host markup, and complete freedom from proprietary vendor lock-in."
     }
   ]
 }

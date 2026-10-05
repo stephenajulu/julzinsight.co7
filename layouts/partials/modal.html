@@ -37,20 +37,27 @@
           <div class="tier-choice-grid" role="group" aria-label="Target architectural tier">
             {{ range $t := $tiers }}
               {{ $isSelected := eq $t.id 3 }}
+              {{ $isBeta := eq $t.id 4 }}
+              {{ $isComingSoon := eq $t.id 5 }}
               <button
                 type="button"
                 data-tier-id="{{ $t.id }}"
-                class="tier-choice-btn{{ if $isSelected }} active{{ end }}"
+                class="tier-choice-btn{{ if $isSelected }} active{{ end }}{{ if $isBeta }} is-beta{{ else if $isComingSoon }} is-coming-soon{{ end }}"
                 aria-pressed="{{ if $isSelected }}true{{ else }}false{{ end }}"
               >
                 <span class="choice-num">T0{{ $t.id }}</span>
-                <span class="choice-badge">{{ $t.badge }}</span>
+                <span class="choice-badge">
+                  {{ if $isBeta }}Beta Testers Only{{ else if $isComingSoon }}Coming Soon{{ else }}{{ $t.badge }}{{ end }}
+                </span>
               </button>
             {{ end }}
           </div>
           <div id="modal-tier-price-estimate" class="modal-price-estimate">
             Estimated: {{ $defaultTier.monthlyKes }} (Retainer &amp; Continuous SRE)
           </div>
+          <p class="modal-hosting-disclaimer">
+            * Retainers cover managed software architecture and continuous SRE. Underlying cloud/server hosting is billed directly by your sovereign data center of choice (zero markup).
+          </p>
         </div>
 
         <!-- Hosting Fabric Preference -->
@@ -58,6 +65,7 @@
           <label class="form-label">Target Sovereign Hosting Location</label>
           <select id="modal-select-hosting" class="form-select">
             <option value="Safaricom Cloud (Nairobi, Kenya)">Safaricom Enterprise Cloud (Nairobi, Kenya)</option>
+            <option value="Servercore Cloud (Tier III Nairobi)">Servercore Cloud (Tier III Data Center, Nairobi)</option>
             <option value="Konza Technopolis Cloud (Konza, Kenya)">Konza Technopolis Data Center (Konza, Kenya)</option>
             <option value="LiquidC2 / Angani (East Africa)">LiquidC2 / Angani Mesh (East Africa)</option>
             <option value="iXAfrica Co-Location (High-Density)">iXAfrica Co-Location (Bare-Metal Proxmox)</option>

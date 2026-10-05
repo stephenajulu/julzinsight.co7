@@ -35,6 +35,8 @@
     <div class="tier-nav-grid" role="tablist" aria-label="Sovereign Architecture Tiers">
       {{ range $tier := $tiers }}
         {{ $isSelected := eq $tier.id 3 }}
+        {{ $isBeta := eq $tier.id 4 }}
+        {{ $isComingSoon := eq $tier.id 5 }}
         <button
           type="button"
           data-tier-id="{{ $tier.id }}"
@@ -42,10 +44,14 @@
           role="tab"
           aria-selected="{{ if $isSelected }}true{{ else }}false{{ end }}"
           aria-controls="tier-deepdive"
-          class="tier-tab-btn{{ if $isSelected }} active{{ end }}"
+          class="tier-tab-btn{{ if $isSelected }} active{{ end }}{{ if $isBeta }} is-beta{{ else if $isComingSoon }} is-coming-soon{{ end }}"
         >
           {{ if $tier.isPopular }}
             <span class="popular-badge">Popular</span>
+          {{ else if $isBeta }}
+            <span class="tier-status-pill pill-beta">Beta Testers Only</span>
+          {{ else if $isComingSoon }}
+            <span class="tier-status-pill pill-coming-soon">Coming Soon</span>
           {{ end }}
           <div class="tab-top-row">
             <span class="tier-num">TIER 0{{ $tier.id }}</span>
@@ -73,6 +79,9 @@
                 Continuous SRE Management Included
               </span>
             </div>
+
+            <!-- Dynamic Beta / Coming Soon Status Banner -->
+            <div id="tier-status-banner" class="tier-status-banner hidden" role="status"></div>
 
             <h3 id="tier-title" style="font-size: 1.5rem; font-weight: 700; color: #ffffff; font-family: 'Inter', sans-serif; letter-spacing: -0.025em; margin-bottom: 0.75rem;">
               {{ $defaultTier.name }}
@@ -167,6 +176,22 @@
                 <polyline points="12 5 19 12 12 19"></polyline>
               </svg>
             </button>
+
+            <!-- Hosting Neutrality Notice -->
+            <div class="hosting-neutrality-disclaimer">
+              <div class="disclaimer-title-row">
+                <svg width="14" height="14" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <line x1="12" y1="16" x2="12" y2="12"></line>
+                  <line x1="12" y1="8" x2="12.01" y2="8"></line>
+                </svg>
+                <span>Infrastructure Neutrality &amp; Hosting Notice</span>
+              </div>
+              <p class="disclaimer-body">
+                Visible retainers reflect Julz Insight's managed open-source software engineering, dedicated tenant GitOps pipelines, and 24/7 continuous SRE operations. 
+                <strong>Underlying cloud or bare-metal server hosting is not included</strong>, as compute is contracted directly or passed through transparently from sovereign data centers (Safaricom, Servercore, Konza, or client on-premise hardware) to prevent third-party markup and eliminate hosting lock-in.
+              </p>
+            </div>
           </div>
 
           <!-- Component Stack Badges -->

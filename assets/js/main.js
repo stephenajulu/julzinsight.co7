@@ -247,7 +247,47 @@
     if (reqBtn) {
       reqBtn.setAttribute('data-tier-id', tier.id);
       const span = reqBtn.querySelector('span');
-      if (span) span.textContent = `Request Tier 0${tier.id} Architecture Blueprint`;
+      if (span) {
+        if (state.selectedTierId === 4) {
+          span.textContent = 'Apply for Tier 04 Beta Access';
+        } else if (state.selectedTierId === 5) {
+          span.textContent = 'Join Closed Architecture Waitlist (Tier 05)';
+        } else {
+          span.textContent = `Request Tier 0${tier.id} Architecture Blueprint`;
+        }
+      }
+    }
+
+    // Update Status Banner for Beta / Coming Soon
+    const statusBanner = document.getElementById('tier-status-banner');
+    if (statusBanner) {
+      if (state.selectedTierId === 4) {
+        statusBanner.className = 'tier-status-banner banner-beta';
+        statusBanner.innerHTML = `
+          <svg width="18" height="18" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;">
+            <path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"></path>
+            <line x1="12" y1="9" x2="12" y2="13"></line>
+            <line x1="12" y1="17" x2="12.01" y2="17"></line>
+          </svg>
+          <div>
+            <strong>Beta Testers Only:</strong> Tier 04 is currently in active early-access fine-tuning. Deployments are limited to selected enterprise test partners.
+          </div>
+        `;
+      } else if (state.selectedTierId === 5) {
+        statusBanner.className = 'tier-status-banner banner-coming-soon';
+        statusBanner.innerHTML = `
+          <svg width="18" height="18" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;">
+            <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+            <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+          </svg>
+          <div>
+            <strong>Coming Soon:</strong> Tier 05 is in advanced research and development behind closed doors. Rollout opens soon for waitlist partners.
+          </div>
+        `;
+      } else {
+        statusBanner.className = 'tier-status-banner hidden';
+        statusBanner.innerHTML = '';
+      }
     }
 
     // Update Pain Points Grid
