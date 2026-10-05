@@ -63,3 +63,24 @@
   0% { opacity: 0; transform: translateY(-16px); }
   100% { opacity: 1; transform: translateY(0); }
 }
+
+/* WCAG 2.1 AAA Reduced Motion Support */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .animate-marquee {
+    animation: none !important;
+    width: 100% !important;
+    overflow-x: auto;
+  }
+
+  .animate-bar-grow {
+    transform: scaleY(1) !important;
+    opacity: 1 !important;
+  }
+}

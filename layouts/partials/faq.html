@@ -1,21 +1,21 @@
 {{ $infra := hugo.Data.infrastructure }}
 {{ $faqs := $infra.faqs }}
 
-<section id="faq" class="faq-section">
+<section id="faq" class="faq-section" aria-labelledby="faq-heading">
   <div class="container-custom">
     <div class="faq-grid">
       <!-- Left Column: Heading & Context -->
       <div class="faq-left">
         <div>
           <div class="section-tag">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <svg width="14" height="14" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <circle cx="12" cy="12" r="10"></circle>
               <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path>
               <line x1="12" y1="17" x2="12.01" y2="17"></line>
             </svg>
             <span>EXECUTIVE ADVISORY FAQ</span>
           </div>
-          <h2 class="section-heading">
+          <h2 id="faq-heading" class="section-heading">
             Targeted Technical &amp; <span class="heading-italic">Strategic Answers.</span>
           </h2>
           <p class="section-lead">
@@ -35,16 +35,22 @@
         {{ range $idx, $faq := $faqs }}
           {{ $isOpen := eq $idx 0 }}
           <div class="faq-item{{ if $isOpen }} open{{ end }}" id="{{ $faq.id }}">
-            <button type="button" class="faq-question-btn">
+            <button
+              type="button"
+              class="faq-question-btn"
+              id="faq-btn-{{ $faq.id }}"
+              aria-expanded="{{ if $isOpen }}true{{ else }}false{{ end }}"
+              aria-controls="faq-answer-{{ $faq.id }}"
+            >
               <span class="faq-question-text">{{ $faq.question }}</span>
               <div class="chevron-wrap">
-                <svg class="chevron-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <svg class="chevron-icon" width="16" height="16" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                   <polyline points="6 9 12 15 18 9"></polyline>
                 </svg>
               </div>
             </button>
 
-            <div class="faq-answer">
+            <div class="faq-answer" id="faq-answer-{{ $faq.id }}" role="region" aria-labelledby="faq-btn-{{ $faq.id }}">
               <p>{{ $faq.answer }}</p>
             </div>
           </div>

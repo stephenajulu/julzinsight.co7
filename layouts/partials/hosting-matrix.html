@@ -8,19 +8,19 @@
   "Global Redundancy & CDN"
 }}
 
-<section id="hosting" class="hosting-section">
+<section id="hosting" class="hosting-section" aria-labelledby="hosting-heading">
   <div class="container-custom">
     <!-- Section Header -->
     <div style="max-width: 48rem; margin-bottom: 4rem;">
       <div class="section-tag">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <svg width="14" height="14" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
           <circle cx="12" cy="12" r="10"></circle>
           <line x1="2" y1="12" x2="22" y2="12"></line>
           <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
         </svg>
         <span>AFRICAN SOVEREIGN DATA RESIDENCY</span>
       </div>
-      <h2 class="section-heading">
+      <h2 id="hosting-heading" class="section-heading">
         Your Data Stays on <span class="heading-italic">African Sovereign Soil.</span>
       </h2>
       <p class="section-lead">
@@ -31,12 +31,13 @@
     </div>
 
     <!-- Filter Pills -->
-    <div class="matrix-filters">
+    <div class="matrix-filters" role="group" aria-label="Hosting provider filter">
       {{ range $cat := $categories }}
         <button
           type="button"
           data-category="{{ $cat }}"
           class="filter-btn{{ if eq $cat "All" }} active{{ end }}"
+          aria-pressed="{{ if eq $cat "All" }}true{{ else }}false{{ end }}"
         >
           {{ $cat }}
         </button>
@@ -70,7 +71,7 @@
 
           <div class="card-subpoena-footer">
             <span class="subpoena-left">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <svg width="14" height="14" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
                 <path d="m9 12 2 2 4-4"></path>
               </svg>

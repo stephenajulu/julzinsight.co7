@@ -1,9 +1,9 @@
 <header id="site-header" class="site-header">
   <div class="container-custom header-inner">
     <!-- Brand Mark & Identity -->
-    <a href="#" class="brand-link">
+    <a href="#" class="brand-link" aria-label="Julz Insight - Managed Open-Source Infrastructure">
       <div class="brand-logo-wrap">
-        <svg viewBox="0 0 31.5 48.5" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <svg viewBox="0 0 31.5 48.5" width="32" height="49" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
           <defs>
             <linearGradient id="brandBoltGrad" x1="8" y1="0" x2="34.1" y2="28.9" gradientUnits="userSpaceOnUse">
               <stop offset="0%" stop-color="#7047ff" />
@@ -27,7 +27,7 @@
     </a>
 
     <!-- Desktop Nav Links Pill -->
-    <nav class="nav-pill">
+    <nav class="nav-pill" aria-label="Primary Navigation">
       <a href="#tiers" class="nav-item">Tiers &amp; Specs</a>
       <a href="#insight-os" class="nav-item">InsightOS</a>
       <a href="#pipeline" class="nav-item">Deployment Protocol</a>
@@ -39,14 +39,14 @@
     <!-- Right Action Tools & CTA -->
     <div class="header-tools">
       <!-- Currency Switcher -->
-      <div class="currency-toggle">
-        <button type="button" data-currency-btn="KES" class="active" onclick="setCurrency('KES')">KES</button>
-        <button type="button" data-currency-btn="USD" onclick="setCurrency('USD')">USD</button>
+      <div class="currency-toggle" role="group" aria-label="Currency Selector">
+        <button type="button" data-currency-btn="KES" class="active" onclick="setCurrency('KES')" aria-pressed="true">KES</button>
+        <button type="button" data-currency-btn="USD" onclick="setCurrency('USD')" aria-pressed="false">USD</button>
       </div>
 
       <!-- In-Region Status Badge -->
       <div class="status-badge-residency">
-        <span class="dot-ping-wrap">
+        <span class="dot-ping-wrap" aria-hidden="true">
           <span class="dot-ping animate-ping"></span>
           <span class="dot-solid"></span>
         </span>
@@ -56,7 +56,7 @@
       <!-- Primary Action Button -->
       <button type="button" data-modal-open class="btn-primary">
         <span>Deploy Sovereign Stack</span>
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
           <line x1="7" y1="17" x2="17" y2="7"></line>
           <polyline points="7 7 17 7 17 17"></polyline>
         </svg>
@@ -65,9 +65,9 @@
 
     <!-- Mobile Right Controls -->
     <div class="mobile-tools">
-      <button type="button" id="mobile-curr-btn" class="mobile-curr-btn">KES</button>
-      <button type="button" id="hamburger-btn" class="hamburger-btn" aria-label="Toggle navigation menu">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <button type="button" id="mobile-curr-btn" class="mobile-curr-btn" aria-label="Toggle currency between KES and USD">KES</button>
+      <button type="button" id="hamburger-btn" class="hamburger-btn" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="mobile-drawer">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
           <line x1="3" y1="12" x2="21" y2="12"></line>
           <line x1="3" y1="6" x2="21" y2="6"></line>
           <line x1="3" y1="18" x2="21" y2="18"></line>
@@ -78,20 +78,20 @@
 </header>
 
 <!-- Mobile Drawer Menu -->
-<div id="mobile-drawer" class="mobile-drawer">
+<div id="mobile-drawer" class="mobile-drawer" role="dialog" aria-modal="true" aria-label="Mobile Navigation">
   <div id="drawer-backdrop" class="drawer-backdrop"></div>
   <div class="drawer-content">
     <div class="drawer-top">
       <div class="drawer-header">
         <span class="drawer-title">Sovereign Navigation</span>
         <span class="drawer-compliance">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
             <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
           </svg>
           KDPA Compliant
         </span>
       </div>
-      <nav class="drawer-nav">
+      <nav class="drawer-nav" aria-label="Mobile Menu Links">
         <a href="#tiers">Tiers &amp; Specs</a>
         <a href="#insight-os">InsightOS</a>
         <a href="#pipeline">Deployment Protocol</a>
@@ -104,14 +104,14 @@
     <div class="drawer-bottom">
       <div class="drawer-currency-row">
         <span>Currency preference:</span>
-        <div class="drawer-curr-buttons">
-          <button type="button" data-currency-btn="KES" class="active" onclick="setCurrency('KES')">KES</button>
-          <button type="button" data-currency-btn="USD" onclick="setCurrency('USD')">USD</button>
+        <div class="drawer-curr-buttons" role="group" aria-label="Mobile Currency Selector">
+          <button type="button" data-currency-btn="KES" class="active" onclick="setCurrency('KES')" aria-pressed="true">KES</button>
+          <button type="button" data-currency-btn="USD" onclick="setCurrency('USD')" aria-pressed="false">USD</button>
         </div>
       </div>
       <button type="button" data-modal-open class="btn-drawer-cta">
         <span>Book Sovereign Architecture Call</span>
-        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
           <line x1="7" y1="17" x2="17" y2="7"></line>
           <polyline points="7 7 17 7 17 17"></polyline>
         </svg>
@@ -122,3 +122,4 @@
     </div>
   </div>
 </div>
+

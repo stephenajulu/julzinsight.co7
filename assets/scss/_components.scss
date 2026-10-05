@@ -1134,6 +1134,62 @@
 }
 
 /* ==========================================================================
+   GLOBAL SECTION HEADERS & PILLS
+   ========================================================================== */
+.section-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  background: rgba(84, 43, 255, 0.15);
+  border: 1px solid rgba(84, 43, 255, 0.3);
+  font-size: 12px;
+  font-family: $font-mono;
+  color: $brand-light;
+  margin-bottom: 1rem;
+  width: fit-content;
+
+  svg {
+    width: 0.875rem;
+    height: 0.875rem;
+    flex-shrink: 0;
+  }
+}
+
+.section-heading {
+  font-size: 1.875rem;
+  font-family: $font-sans;
+  font-weight: 500;
+  color: $ink-white;
+  letter-spacing: -0.025em;
+  margin-bottom: 1rem;
+
+  @include sm {
+    font-size: 3rem;
+  }
+
+  .heading-italic {
+    font-family: $font-serif;
+    font-style: italic;
+    font-weight: 400;
+    background: linear-gradient(to right, #ffffff, $cyan-accent);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+}
+
+.section-lead {
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.7);
+  line-height: 1.625;
+
+  @include sm {
+    font-size: 1.125rem;
+  }
+}
+
+/* ==========================================================================
    INSIGHTOS SHOWCASE
    ========================================================================== */
 .insight-os-section {
@@ -1157,57 +1213,6 @@
     border-radius: 9999px;
     filter: blur(150px);
     pointer-events: none;
-  }
-
-  .section-tag {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    padding: 0.25rem 0.75rem;
-    border-radius: 9999px;
-    background: rgba(84, 43, 255, 0.15);
-    border: 1px solid rgba(84, 43, 255, 0.3);
-    font-size: 12px;
-    font-family: $font-mono;
-    color: $brand-light;
-    margin-bottom: 1rem;
-
-    svg {
-      width: 0.875rem;
-      height: 0.875rem;
-    }
-  }
-
-  .section-heading {
-    font-size: 1.875rem;
-    font-family: $font-sans;
-    font-weight: 500;
-    color: $ink-white;
-    letter-spacing: -0.025em;
-    margin-bottom: 1rem;
-
-    @include sm {
-      font-size: 3rem;
-    }
-
-    .heading-italic {
-      font-family: $font-serif;
-      font-style: italic;
-      font-weight: 400;
-      background: linear-gradient(to right, #ffffff, $cyan-accent);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-  }
-
-  .section-lead {
-    font-size: 1rem;
-    color: rgba(255, 255, 255, 0.7);
-    line-height: 1.625;
-
-    @include sm {
-      font-size: 1.125rem;
-    }
   }
 
   .role-tabs {

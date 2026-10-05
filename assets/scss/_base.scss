@@ -65,7 +65,51 @@ input, select, textarea {
   font-family: inherit;
 }
 
-img, svg, video {
+img, video {
   display: block;
   max-width: 100%;
+}
+
+svg {
+  display: inline-block;
+  vertical-align: middle;
+  flex-shrink: 0;
+}
+
+/* Universal WCAG 2.1 AAA Keyboard Focus Indicator */
+:focus-visible {
+  outline: 2px solid $cyan-accent;
+  outline-offset: 3px;
+}
+
+/* Accessible Skip Link */
+.skip-link {
+  position: absolute;
+  top: -100px;
+  left: 1rem;
+  z-index: 1000;
+  padding: 0.75rem 1.5rem;
+  background: $brand;
+  color: #ffffff;
+  font-weight: 700;
+  border-radius: 0.5rem;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+  transition: top 0.2s ease;
+
+  &:focus {
+    top: 1rem;
+  }
+}
+
+/* Screen reader only utility */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
 }

@@ -24,6 +24,8 @@
     isDrawerOpen: false,
   };
 
+  let lastFocusedElement = null;
+
   const toolDefinitions = [
     { id: 'workspace', name: 'Google Workspace / M365', costPerUserUsd: 18, costPerUserKes: 2340 },
     { id: 'crm_slack', name: 'Salesforce + Slack + Jira', costPerUserUsd: 85, costPerUserKes: 11050 },
@@ -48,8 +50,10 @@
       const targetCurr = btn.getAttribute('data-currency-btn');
       if (targetCurr === curr) {
         btn.classList.add('active');
+        btn.setAttribute('aria-pressed', 'true');
       } else {
         btn.classList.remove('active');
+        btn.setAttribute('aria-pressed', 'false');
       }
     });
 
@@ -104,13 +108,21 @@
 
     function openDrawer() {
       state.isDrawerOpen = true;
-      if (mobileDrawer) mobileDrawer.classList.add('open');
+      if (mobileDrawer) {
+        mobileDrawer.classList.add('open');
+        mobileDrawer.setAttribute('aria-hidden', 'false');
+      }
+      if (hamburgerBtn) hamburgerBtn.setAttribute('aria-expanded', 'true');
       document.body.classList.add('modal-open');
     }
 
     function closeDrawer() {
       state.isDrawerOpen = false;
-      if (mobileDrawer) mobileDrawer.classList.remove('open');
+      if (mobileDrawer) {
+        mobileDrawer.classList.remove('open');
+        mobileDrawer.setAttribute('aria-hidden', 'true');
+      }
+      if (hamburgerBtn) hamburgerBtn.setAttribute('aria-expanded', 'false');
       if (!state.isModalOpen) {
         document.body.classList.remove('modal-open');
       }
@@ -150,12 +162,15 @@
   function setInsightOsRole(role) {
     state.activeRole = role;
 
-    // Update tab button styles
+    // Update tab button styles and ARIA states
     document.querySelectorAll('.role-btn').forEach((btn) => {
-      if (btn.getAttribute('data-role') === role) {
+      const isRole = btn.getAttribute('data-role') === role;
+      if (isRole) {
         btn.classList.add('active');
+        btn.setAttribute('aria-selected', 'true');
       } else {
         btn.classList.remove('active');
+        btn.setAttribute('aria-selected', 'false');
       }
     });
 
@@ -193,11 +208,14 @@
     document.querySelectorAll('.tier-tab-btn').forEach((btn) => {
       const bId = Number(btn.getAttribute('data-tier-id'));
       const pingDot = btn.querySelector('.tab-ping-dot');
-      if (bId === state.selectedTierId) {
+      const isSelected = bId === state.selectedTierId;
+      if (isSelected) {
         btn.classList.add('active');
+        btn.setAttribute('aria-selected', 'true');
         if (pingDot) pingDot.classList.remove('hidden');
       } else {
         btn.classList.remove('active');
+        btn.setAttribute('aria-selected', 'false');
         if (pingDot) pingDot.classList.add('hidden');
       }
     });
@@ -351,8 +369,10 @@
         const isChecked = state.selectedTools.includes(tool.id);
         if (isChecked) {
           btn.classList.add('active');
+          btn.setAttribute('aria-pressed', 'true');
         } else {
           btn.classList.remove('active');
+          btn.setAttribute('aria-pressed', 'false');
         }
         const costSpan = btn.querySelector('.tool-cost');
         if (costSpan) {
@@ -445,10 +465,13 @@
 
     // Update filter pills
     document.querySelectorAll('.matrix-filters .filter-btn').forEach((btn) => {
-      if (btn.getAttribute('data-category') === category) {
+      const isCat = btn.getAttribute('data-category') === category;
+      if (isCat) {
         btn.classList.add('active');
+        btn.setAttribute('aria-pressed', 'true');
       } else {
         btn.classList.remove('active');
+        btn.setAttribute('aria-pressed', 'false');
       }
     });
 
@@ -485,11 +508,16 @@
           // Close other items
           document.querySelectorAll('.faq-item').forEach((other) => {
             other.classList.remove('open');
+            const otherBtn = other.querySelector('.faq-question-btn');
+            if (otherBtn) otherBtn.setAttribute('aria-expanded', 'false');
           });
 
           // Toggle clicked item
           if (!isOpen) {
             item.classList.add('open');
+            btn.setAttribute('aria-expanded', 'true');
+          } else {
+            btn.setAttribute('aria-expanded', 'false');
           }
         });
       }
@@ -513,10 +541,13 @@
 
     document.querySelectorAll('.tier-choice-btn').forEach((btn) => {
       const id = Number(btn.getAttribute('data-tier-id'));
-      if (id === state.modalTierId) {
+      const isMatch = id === state.modalTierId;
+      if (isMatch) {
         btn.classList.add('active');
+        btn.setAttribute('aria-pressed', 'true');
       } else {
         btn.classList.remove('active');
+        btn.setAttribute('aria-pressed', 'false');
       }
     });
 
@@ -524,6 +555,8 @@
   }
 
   function openModal(tierId) {
+    lastFocusedElement = document.activeElement;
+
     if (tierId) {
       setModalTier(tierId);
     } else {
@@ -539,8 +572,13 @@
     const modal = document.getElementById('consultation-modal');
     if (modal) {
       modal.classList.add('open');
+      modal.setAttribute('aria-hidden', 'false');
       state.isModalOpen = true;
       document.body.classList.add('modal-open');
+      const firstInput = modal.querySelector('input:not([type="hidden"]), button:not([disabled])');
+      if (firstInput) {
+        setTimeout(() => firstInput.focus(), 50);
+      }
     }
   }
 
@@ -548,9 +586,13 @@
     const modal = document.getElementById('consultation-modal');
     if (modal) {
       modal.classList.remove('open');
+      modal.setAttribute('aria-hidden', 'true');
       state.isModalOpen = false;
       if (!state.isDrawerOpen) {
         document.body.classList.remove('modal-open');
+      }
+      if (lastFocusedElement && typeof lastFocusedElement.focus === 'function') {
+        lastFocusedElement.focus();
       }
     }
   }
@@ -584,6 +626,32 @@
         closeModal();
       }
     });
+
+    // Modal focus trap
+    const modalEl = document.getElementById('consultation-modal');
+    if (modalEl) {
+      modalEl.addEventListener('keydown', (e) => {
+        if (e.key !== 'Tab' || !state.isModalOpen) return;
+        const focusable = modalEl.querySelectorAll(
+          'button:not([disabled]), input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])'
+        );
+        if (!focusable.length) return;
+        const first = focusable[0];
+        const last = focusable[focusable.length - 1];
+
+        if (e.shiftKey) {
+          if (document.activeElement === first) {
+            e.preventDefault();
+            last.focus();
+          }
+        } else {
+          if (document.activeElement === last) {
+            e.preventDefault();
+            first.focus();
+          }
+        }
+      });
+    }
 
     // Tier choice buttons inside modal
     document.querySelectorAll('.tier-choice-btn').forEach((btn) => {

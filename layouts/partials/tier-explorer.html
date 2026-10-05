@@ -2,20 +2,20 @@
 {{ $tiers := $infra.architectureTiers }}
 {{ $defaultTier := index $tiers 2 }}
 
-<section id="tiers" class="tiers-section">
+<section id="tiers" class="tiers-section" aria-labelledby="tiers-heading">
   <div class="container-custom">
     <!-- Section Header -->
     <div style="display: flex; flex-direction: column; justify-content: space-between; gap: 1.5rem; margin-bottom: 4rem;" class="lg-flex-row">
       <div style="max-width: 48rem;">
         <div class="section-tag">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
             <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
             <polyline points="2 17 12 22 22 17"></polyline>
             <polyline points="2 12 12 17 22 12"></polyline>
           </svg>
           <span>PROGRESSIVE SOVEREIGN ARCHITECTURAL TIERS</span>
         </div>
-        <h2 class="section-heading">
+        <h2 id="tiers-heading" class="section-heading">
           Scale Your Sovereign Footprint <span class="heading-italic">Without Re-Architecting.</span>
         </h2>
         <p class="section-lead">
@@ -26,18 +26,22 @@
       </div>
 
       <div style="display: flex; align-items: center; gap: 0.5rem; font-size: 12px; font-family: 'JetBrains Mono', monospace; color: rgba(255, 255, 255, 0.5); background: #0d0e17; padding: 0.5rem 1rem; border-radius: 0.75rem; border: 1px solid rgba(255, 255, 255, 0.1); width: fit-content; height: fit-content;">
-        <svg viewBox="0 0 24 24" width="14" height="14" stroke="#00f2fe" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/></svg>
+        <svg viewBox="0 0 24 24" width="14" height="14" stroke="#00f2fe" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/></svg>
         <span>Modular container namespaces • Zero vendor lock-in</span>
       </div>
     </div>
 
     <!-- Tier Horizontal Navigation Selector -->
-    <div class="tier-nav-grid">
+    <div class="tier-nav-grid" role="tablist" aria-label="Sovereign Architecture Tiers">
       {{ range $tier := $tiers }}
         {{ $isSelected := eq $tier.id 3 }}
         <button
           type="button"
           data-tier-id="{{ $tier.id }}"
+          id="tier-tab-{{ $tier.id }}"
+          role="tab"
+          aria-selected="{{ if $isSelected }}true{{ else }}false{{ end }}"
+          aria-controls="tier-deepdive"
           class="tier-tab-btn{{ if $isSelected }} active{{ end }}"
         >
           {{ if $tier.isPopular }}
@@ -45,17 +49,17 @@
           {{ end }}
           <div class="tab-top-row">
             <span class="tier-num">TIER 0{{ $tier.id }}</span>
-            <span class="tab-ping-dot animate-ping{{ if not $isSelected }} hidden{{ end }}"></span>
+            <span class="tab-ping-dot animate-ping{{ if not $isSelected }} hidden{{ end }}" aria-hidden="true"></span>
           </div>
-          <h4 class="tier-badge-title">{{ $tier.badge }}</h4>
+          <h3 class="tier-badge-title" style="margin: 0; font-size: inherit;">{{ $tier.badge }}</h3>
           <p id="tier-tab-price-{{ $tier.id }}" class="tier-price-preview">{{ $tier.monthlyKes }}</p>
         </button>
       {{ end }}
     </div>
 
     <!-- Tier Deep-Dive Interactive Showcase Card -->
-    <div class="tier-deepdive-card">
-      <div class="deepdive-ambient-glow"></div>
+    <div id="tier-deepdive" class="tier-deepdive-card" role="tabpanel" aria-labelledby="tier-tab-3">
+      <div class="deepdive-ambient-glow" aria-hidden="true"></div>
 
       <div class="deepdive-grid">
         <!-- Left 7 Columns: Tier Narrative & Solved Pain Points -->
@@ -158,7 +162,7 @@
               class="btn-request-blueprint"
             >
               <span>Request Tier 0{{ $defaultTier.id }} Architecture Blueprint</span>
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                 <line x1="5" y1="12" x2="19" y2="12"></line>
                 <polyline points="12 5 19 12 12 19"></polyline>
               </svg>

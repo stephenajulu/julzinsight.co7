@@ -1,18 +1,18 @@
-<section id="insight-os" class="insight-os-section">
-  <div class="ambient-glow-bg"></div>
+<section id="insight-os" class="insight-os-section" aria-labelledby="insight-os-heading">
+  <div class="ambient-glow-bg" aria-hidden="true"></div>
 
   <div class="container-custom" style="position: relative; z-index: 10;">
     <!-- Section Header -->
     <div style="max-width: 48rem; margin-bottom: 3rem;">
       <div class="section-tag">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
           <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
           <line x1="8" y1="21" x2="16" y2="21"></line>
           <line x1="12" y1="17" x2="12" y2="21"></line>
         </svg>
         <span>THE CLIENT SINGLE PANE OF GLASS</span>
       </div>
-      <h2 class="section-heading">
+      <h2 id="insight-os-heading" class="section-heading">
         InsightOS: <span class="heading-italic">Enterprise Simplicity.</span>
       </h2>
       <p class="section-lead">
@@ -23,17 +23,17 @@
     </div>
 
     <!-- Role Selector Tabs -->
-    <div class="role-tabs">
-      <button type="button" data-role="ceo" class="role-btn active">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <div class="role-tabs" role="tablist" aria-label="InsightOS Role Perspectives">
+      <button type="button" data-role="ceo" class="role-btn active" role="tab" aria-selected="true" aria-controls="os-view-ceo" id="tab-ceo">
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
           <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
           <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
         </svg>
         <span>CEO &amp; Board View</span>
       </button>
 
-      <button type="button" data-role="staff" class="role-btn">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <button type="button" data-role="staff" class="role-btn" role="tab" aria-selected="false" aria-controls="os-view-staff" id="tab-staff">
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
           <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
           <circle cx="9" cy="7" r="4"></circle>
           <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
@@ -42,8 +42,8 @@
         <span>Staff App Launcher</span>
       </button>
 
-      <button type="button" data-role="devops" class="role-btn">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <button type="button" data-role="devops" class="role-btn" role="tab" aria-selected="false" aria-controls="os-view-devops" id="tab-devops">
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
           <rect x="2" y="2" width="20" height="8" rx="2" ry="2"></rect>
           <rect x="2" y="14" width="20" height="8" rx="2" ry="2"></rect>
           <line x1="6" y1="6" x2="6.01" y2="6"></line>
@@ -52,8 +52,8 @@
         <span>DevOps &amp; Security SRE</span>
       </button>
 
-      <button type="button" data-role="agentic" class="role-btn">
-        <svg viewBox="0 0 24 24" fill="none" stroke="#00f2fe" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <button type="button" data-role="agentic" class="role-btn" role="tab" aria-selected="false" aria-controls="os-view-agentic" id="tab-agentic">
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="#00f2fe" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
           <rect x="4" y="4" width="16" height="16" rx="2"></rect>
           <rect x="9" y="9" width="6" height="6"></rect>
           <line x1="9" y1="1" x2="9" y2="4"></line>
@@ -81,7 +81,7 @@
         </div>
 
         <div class="address-bar-pill">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
             <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
             <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
           </svg>
@@ -89,7 +89,7 @@
         </div>
 
         <div class="window-status">
-          <span class="ping-dot animate-ping"></span>
+          <span class="ping-dot animate-ping" aria-hidden="true"></span>
           <span>SSO Authenticated</span>
         </div>
       </div>
@@ -97,7 +97,7 @@
       <!-- Window Body -->
       <div class="os-window-body">
         <!-- ROLE VIEW 1: CEO & BOARD -->
-        <div class="os-role-view" data-view="ceo">
+        <div class="os-role-view" data-view="ceo" id="os-view-ceo" role="tabpanel" aria-labelledby="tab-ceo">
           <div style="display: flex; flex-direction: column; gap: 1rem; padding-bottom: 1.5rem; border-bottom: 1px solid rgba(255, 255, 255, 0.1); margin-bottom: 1.5rem;" class="sm-flex-row">
             <div>
               <h3 style="font-size: 1.25rem; font-weight: 700; color: #ffffff; font-family: 'Inter', sans-serif;">
@@ -181,7 +181,7 @@
         </div>
 
         <!-- ROLE VIEW 2: STAFF APP LAUNCHER -->
-        <div class="os-role-view hidden" data-view="staff">
+        <div class="os-role-view hidden" data-view="staff" id="os-view-staff" role="tabpanel" aria-labelledby="tab-staff">
           <div style="display: flex; align-items: center; justify-content: space-between; padding-bottom: 1.5rem; margin-bottom: 1.5rem; border-bottom: 1px solid rgba(255, 255, 255, 0.1);">
             <div>
               <h3 style="font-size: 1.25rem; font-weight: 700; color: #ffffff; font-family: 'Inter', sans-serif;">
@@ -296,7 +296,7 @@
         </div>
 
         <!-- ROLE VIEW 3: DEVOPS & SRE -->
-        <div class="os-role-view hidden" data-view="devops">
+        <div class="os-role-view hidden" data-view="devops" id="os-view-devops" role="tabpanel" aria-labelledby="tab-devops">
           <div style="display: flex; align-items: center; justify-content: space-between; padding-bottom: 1.5rem; margin-bottom: 1.5rem; border-bottom: 1px solid rgba(255, 255, 255, 0.1);">
             <div>
               <h3 style="font-size: 1.25rem; font-weight: 700; color: #ffffff; font-family: 'Inter', sans-serif;">
@@ -377,7 +377,7 @@
         </div>
 
         <!-- ROLE VIEW 4: AGENTIC AI FORGE -->
-        <div class="os-role-view hidden" data-view="agentic">
+        <div class="os-role-view hidden" data-view="agentic" id="os-view-agentic" role="tabpanel" aria-labelledby="tab-agentic">
           <div style="display: flex; align-items: center; justify-content: space-between; padding-bottom: 1.5rem; margin-bottom: 1.5rem; border-bottom: 1px solid rgba(255, 255, 255, 0.1);">
             <div>
               <h3 style="font-size: 1.25rem; font-weight: 700; color: #ffffff; font-family: 'Inter', sans-serif;">
