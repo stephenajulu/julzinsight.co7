@@ -1,0 +1,37 @@
+{{- $type := .Get "type" | default "sovereign" -}}
+{{- $title := .Get "title" -}}
+<div class="shortcode-callout callout-{{ $type }}" role="region" aria-label="{{ with $title }}{{ . }}{{ else }}Callout notice{{ end }}">
+  <div class="callout-icon-col" aria-hidden="true">
+    {{ if eq $type "warning" }}
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"/>
+        <line x1="12" y1="9" x2="12" y2="13"/>
+        <line x1="12" y1="17" x2="12.01" y2="17"/>
+      </svg>
+    {{ else if eq $type "success" }}
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+        <polyline points="22 4 12 14.01 9 11.01"/>
+      </svg>
+    {{ else if eq $type "info" }}
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="12" cy="12" r="10"/>
+        <line x1="12" y1="16" x2="12" y2="12"/>
+        <line x1="12" y1="8" x2="12.01" y2="8"/>
+      </svg>
+    {{ else }}
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+        <path d="m9 12 2 2 4-4"/>
+      </svg>
+    {{ end }}
+  </div>
+  <div class="callout-body">
+    {{ with $title }}
+      <h5 class="callout-title">{{ . }}</h5>
+    {{ end }}
+    <div class="callout-content">
+      {{ .Inner | markdownify }}
+    </div>
+  </div>
+</div>

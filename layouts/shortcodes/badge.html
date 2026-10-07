@@ -1,0 +1,4 @@
+{{- $type := .Get "type" | default "cyan" -}}
+<span class="shortcode-badge badge-{{ $type }}">
+  {{- .Inner | markdownify -}}
+</span>

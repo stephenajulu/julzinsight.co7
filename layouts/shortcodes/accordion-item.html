@@ -1,0 +1,13 @@
+{{- $title := .Get "title" -}}
+{{- $open := .Get "open" | default false -}}
+<details class="shortcode-accordion-item"{{ if $open }} open{{ end }}>
+  <summary class="accordion-item-summary">
+    <span class="accordion-item-title">{{ $title }}</span>
+    <svg class="accordion-item-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <polyline points="6 9 12 15 18 9"/>
+    </svg>
+  </summary>
+  <div class="accordion-item-body">
+    {{ .Inner | markdownify }}
+  </div>
+</details>

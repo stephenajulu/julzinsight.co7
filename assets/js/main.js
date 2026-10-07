@@ -572,7 +572,7 @@
     const estEl = document.getElementById('modal-tier-price-estimate');
     if (estEl) {
       const price = state.currency === 'KES' ? tier.monthlyKes : tier.monthlyUsd;
-      estEl.textContent = `Estimated: ${price} (Retainer & Continuous SRE)`;
+      estEl.textContent = `Estimated: ${price} (Software Retainer & 24/7 Support)`;
     }
   }
 

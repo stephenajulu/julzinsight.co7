@@ -1,0 +1,14 @@
+{{- $value := .Get "value" -}}
+{{- $label := .Get "label" -}}
+{{- $trend := .Get "trend" -}}
+{{- $color := .Get "color" | default "cyan" -}}
+<div class="shortcode-stat-card color-{{ $color }}">
+  <div class="stat-top-row">
+    <span class="stat-status-dot" aria-hidden="true"></span>
+    {{ with $trend }}
+      <span class="stat-trend-tag">{{ . }}</span>
+    {{ end }}
+  </div>
+  <div class="stat-value-display">{{ $value }}</div>
+  <div class="stat-label-text">{{ $label }}</div>
+</div>

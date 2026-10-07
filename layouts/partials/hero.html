@@ -26,27 +26,35 @@
       <div class="hero-content">
         <!-- Liquid Glass Tag Pill -->
         <div class="hero-tag-pill">
-          <span class="tag-release">InsightOS v3.2</span>
-          <span class="tag-desc">Africa's No. 1 Sovereign Cloud Engine</span>
+          <span class="tag-release">{{ with .Params.tagRelease }}{{ . }}{{ else }}InsightOS v3.2{{ end }}</span>
+          <span class="tag-desc">{{ with .Params.tagDesc }}{{ . }}{{ else }}Africa's No. 1 Sovereign Cloud Engine{{ end }}</span>
         </div>
 
         <!-- Headline with Instrument Serif italic accent -->
         <h1 class="hero-headline">
-          The Engine of <br class="sm-inline" />
-          <span class="hero-serif-accent">Digital Sovereignty</span>.
+          {{ with .Params.heroHeadline }}
+            {{ . | safeHTML }}
+          {{ else }}
+            The Engine of <br class="sm-inline" />
+            <span class="hero-serif-accent">Digital Sovereignty</span>.
+          {{ end }}
         </h1>
 
         <!-- Subtitle -->
         <p class="hero-description">
-          Free your organization from foreign SaaS licensing bloat and offshore data risks. 
-          Julz Insight architects, manually provisions, and actively manages dedicated open-source 
-          business infrastructure hosted 100% on African sovereign soil.
+          {{ with .Params.heroDescription }}
+            {{ . }}
+          {{ else }}
+            Free your organization from expensive foreign software price hikes and offshore data risks. 
+            Julz Insight designs, sets up, and proactively manages dedicated, private business software systems 
+            hosted 100% on African sovereign soil.
+          {{ end }}
         </p>
 
         <!-- Action Buttons -->
         <div class="hero-actions">
           <button type="button" data-modal-open class="btn-primary btn-hero-lg">
-            <span>Deploy Sovereign Stack</span>
+            <span>{{ with .Params.ctaPrimaryText }}{{ . }}{{ else }}Deploy Sovereign Stack{{ end }}</span>
             <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
               <line x1="7" y1="17" x2="17" y2="7"></line>
               <polyline points="7 7 17 7 17 17"></polyline>
@@ -54,7 +62,7 @@
           </button>
 
           <a href="#tiers" class="btn-secondary-lg">
-            <span>Explore 5 Architectural Tiers</span>
+            <span>{{ with .Params.ctaSecondaryText }}{{ . }}{{ else }}Explore 5 Architectural Tiers{{ end }}</span>
           </a>
         </div>
 
@@ -197,18 +205,18 @@
     <div class="container-custom bottom-strip-inner">
       <div class="strip-left">
         <span class="dot-brand"></span>
-        <span>MANAGED OPEN-SOURCE ENTERPRISE INFRASTRUCTURE</span>
+        <span>MANAGED SOVEREIGN ENTERPRISE INFRASTRUCTURE</span>
       </div>
       <div class="strip-tech-list">
-        <span>PROXMOX VE</span>
+        <span>UNIFIED ERP &amp; CRM</span>
         <span>•</span>
-        <span>KUBERNETES</span>
+        <span>SOVEREIGN CLOUD &amp; EDMS</span>
         <span>•</span>
-        <span>ERPNEXT</span>
+        <span>SINGLE SIGN-ON (SSO)</span>
         <span>•</span>
-        <span>NEXTCLOUD</span>
+        <span>AUTOMATED WORKFLOWS</span>
         <span>•</span>
-        <span>N8N AGENTS</span>
+        <span>24/7 SIEM DEFENSE</span>
       </div>
     </div>
   </div>

@@ -1,0 +1,27 @@
+{{- $foreign := .Get "foreign" -}}
+{{- $sovereign := .Get "sovereign" -}}
+<div class="shortcode-comparison-box">
+  <div class="comp-col comp-foreign">
+    <div class="comp-header">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#ef4444" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <line x1="18" y1="6" x2="6" y2="18"></line>
+        <line x1="6" y1="6" x2="18" y2="18"></line>
+      </svg>
+      <span>Legacy Foreign Model</span>
+    </div>
+    <div class="comp-text">{{ $foreign }}</div>
+  </div>
+  <div class="comp-divider">
+    <span>VS</span>
+  </div>
+  <div class="comp-col comp-sovereign">
+    <div class="comp-header">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#34d399" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+        <path d="m9 12 2 2 4-4"></path>
+      </svg>
+      <span>Julz Insight Sovereign</span>
+    </div>
+    <div class="comp-text">{{ $sovereign }}</div>
+  </div>
+</div>

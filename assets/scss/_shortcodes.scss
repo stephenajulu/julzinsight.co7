@@ -1,0 +1,504 @@
+/* ==========================================================================
+   THEME-AWARE SHORTCODES
+   ========================================================================== */
+
+// Page Content Section
+.page-content-section {
+  padding: 4rem 0;
+  position: relative;
+  z-index: 10;
+}
+
+// 1. Callout Shortcode
+.shortcode-callout {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  padding: 1.25rem 1.5rem;
+  border-radius: 1rem;
+  margin: 1.5rem 0;
+  background: rgba(9, 10, 18, 0.7);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+
+  .callout-icon-col {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.25rem;
+    height: 2.25rem;
+    border-radius: 0.5rem;
+    flex-shrink: 0;
+    margin-top: 0.125rem;
+  }
+
+  .callout-body {
+    flex: 1;
+
+    .callout-title {
+      font-size: 15px;
+      font-weight: 700;
+      color: $ink-white;
+      margin-bottom: 0.375rem;
+      font-family: $font-sans;
+    }
+
+    .callout-content {
+      font-size: 13.5px;
+      line-height: 1.6;
+      color: rgba(255, 255, 255, 0.85);
+
+      p:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  &.callout-sovereign {
+    border-color: rgba(84, 43, 255, 0.4);
+    background: linear-gradient(135deg, rgba(84, 43, 255, 0.12) 0%, rgba(9, 10, 18, 0.8) 100%);
+
+    .callout-icon-col {
+      background: rgba(84, 43, 255, 0.25);
+      color: #8c6aff;
+    }
+  }
+
+  &.callout-info {
+    border-color: rgba(0, 242, 254, 0.35);
+    background: linear-gradient(135deg, rgba(0, 242, 254, 0.08) 0%, rgba(9, 10, 18, 0.8) 100%);
+
+    .callout-icon-col {
+      background: rgba(0, 242, 254, 0.2);
+      color: $cyan-accent;
+    }
+  }
+
+  &.callout-warning {
+    border-color: rgba(245, 158, 11, 0.4);
+    background: linear-gradient(135deg, rgba(245, 158, 11, 0.1) 0%, rgba(9, 10, 18, 0.8) 100%);
+
+    .callout-icon-col {
+      background: rgba(245, 158, 11, 0.2);
+      color: #fbbf24;
+    }
+  }
+
+  &.callout-success {
+    border-color: rgba(16, 185, 129, 0.4);
+    background: linear-gradient(135deg, rgba(16, 185, 129, 0.1) 0%, rgba(9, 10, 18, 0.8) 100%);
+
+    .callout-icon-col {
+      background: rgba(16, 185, 129, 0.2);
+      color: #34d399;
+    }
+  }
+}
+
+// 2. Stat Metric Shortcode
+.shortcode-stat-card {
+  padding: 1.25rem 1.5rem;
+  border-radius: 1rem;
+  background: #090a12;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  margin: 1.5rem 0;
+  display: inline-flex;
+  flex-direction: column;
+  min-width: 220px;
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.5);
+
+  .stat-top-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 0.5rem;
+
+    .stat-status-dot {
+      width: 0.5rem;
+      height: 0.5rem;
+      border-radius: 9999px;
+      background: $cyan-accent;
+    }
+
+    .stat-trend-tag {
+      font-size: 11px;
+      font-family: $font-mono;
+      color: rgba(255, 255, 255, 0.5);
+    }
+  }
+
+  .stat-value-display {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: $ink-white;
+    font-family: $font-mono;
+    margin-bottom: 0.25rem;
+  }
+
+  .stat-label-text {
+    font-size: 12px;
+    font-family: $font-mono;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: rgba(255, 255, 255, 0.6);
+  }
+
+  &.color-cyan {
+    border-color: rgba(0, 242, 254, 0.3);
+    .stat-status-dot { background: $cyan-accent; }
+    .stat-value-display { color: $cyan-accent; }
+  }
+
+  &.color-brand {
+    border-color: rgba(84, 43, 255, 0.4);
+    .stat-status-dot { background: $brand-light; }
+    .stat-value-display { color: $brand-light; }
+  }
+
+  &.color-emerald {
+    border-color: rgba(16, 185, 129, 0.35);
+    .stat-status-dot { background: #34d399; }
+    .stat-value-display { color: #34d399; }
+  }
+
+  &.color-amber {
+    border-color: rgba(245, 158, 11, 0.35);
+    .stat-status-dot { background: #fbbf24; }
+    .stat-value-display { color: #fbbf24; }
+  }
+}
+
+// 3. Feature Card Shortcode
+.shortcode-feature-card {
+  padding: 1.5rem;
+  border-radius: 1rem;
+  background: #090a12;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  margin: 1.5rem 0;
+  transition: all 0.3s ease;
+
+  &:hover {
+    border-color: rgba(84, 43, 255, 0.4);
+    box-shadow: 0 10px 30px -10px rgba(84, 43, 255, 0.3);
+  }
+
+  .feature-card-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+
+    .feature-icon-box {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 2.25rem;
+      height: 2.25rem;
+      border-radius: 0.5rem;
+      background: rgba(84, 43, 255, 0.2);
+      color: $cyan-accent;
+    }
+
+    .feature-badge {
+      font-size: 10px;
+      font-family: $font-mono;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      padding: 0.2rem 0.6rem;
+      border-radius: 4px;
+      background: rgba(0, 242, 254, 0.1);
+      color: $cyan-accent;
+      border: 1px solid rgba(0, 242, 254, 0.3);
+    }
+  }
+
+  .feature-title {
+    font-size: 1.125rem;
+    font-weight: 700;
+    color: $ink-white;
+    margin-bottom: 0.5rem;
+    font-family: $font-sans;
+  }
+
+  .feature-description {
+    font-size: 13.5px;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.75);
+
+    p:last-child {
+      margin-bottom: 0;
+    }
+  }
+}
+
+// 4. Button Shortcode
+.shortcode-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.75rem;
+  font-weight: 600;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-decoration: none;
+  font-family: $font-sans;
+
+  svg {
+    transition: transform 0.2s ease;
+  }
+
+  &:hover svg {
+    transform: translateX(3px);
+  }
+
+  &.btn-primary {
+    background: #ffffff;
+    color: #040406;
+    border: none;
+    box-shadow: 0 4px 15px rgba(255, 255, 255, 0.2);
+
+    &:hover {
+      background: rgba(255, 255, 255, 0.9);
+      box-shadow: 0 0 25px rgba(255, 255, 255, 0.4);
+    }
+  }
+
+  &.btn-secondary {
+    background: rgba(255, 255, 255, 0.05);
+    color: $ink-white;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+
+    &:hover {
+      background: rgba(255, 255, 255, 0.1);
+      border-color: rgba(255, 255, 255, 0.4);
+    }
+  }
+
+  &.btn-outline {
+    background: transparent;
+    color: $cyan-accent;
+    border: 1px solid rgba(0, 242, 254, 0.4);
+
+    &:hover {
+      background: rgba(0, 242, 254, 0.1);
+      border-color: $cyan-accent;
+    }
+  }
+}
+
+// 5. Badge Shortcode
+.shortcode-badge {
+  display: inline-block;
+  padding: 0.2rem 0.6rem;
+  border-radius: 4px;
+  font-size: 11px;
+  font-family: $font-mono;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+
+  &.badge-beta {
+    background: rgba(245, 158, 11, 0.2);
+    color: #fbbf24;
+    border: 1px solid rgba(245, 158, 11, 0.45);
+  }
+
+  &.badge-coming-soon {
+    background: rgba(148, 163, 184, 0.18);
+    color: #cbd5e1;
+    border: 1px solid rgba(148, 163, 184, 0.4);
+  }
+
+  &.badge-sovereign {
+    background: rgba(16, 185, 129, 0.15);
+    color: #34d399;
+    border: 1px solid rgba(16, 185, 129, 0.35);
+  }
+
+  &.badge-cyan {
+    background: rgba(0, 242, 254, 0.15);
+    color: $cyan-accent;
+    border: 1px solid rgba(0, 242, 254, 0.35);
+  }
+
+  &.badge-purple {
+    background: rgba(84, 43, 255, 0.2);
+    color: #8c6aff;
+    border: 1px solid rgba(84, 43, 255, 0.4);
+  }
+}
+
+// 6. Accordion Shortcode
+.shortcode-accordion {
+  margin: 1.5rem 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+
+  .shortcode-accordion-item {
+    border-radius: 0.75rem;
+    background: #090a12;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    overflow: hidden;
+    transition: border-color 0.2s ease;
+
+    &[open] {
+      border-color: rgba(84, 43, 255, 0.4);
+
+      .accordion-item-chevron {
+        transform: rotate(180deg);
+      }
+    }
+
+    .accordion-item-summary {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1rem 1.25rem;
+      cursor: pointer;
+      user-select: none;
+      list-style: none;
+
+      &::-webkit-details-marker {
+        display: none;
+      }
+
+      .accordion-item-title {
+        font-size: 15px;
+        font-weight: 600;
+        color: $ink-white;
+        font-family: $font-sans;
+      }
+
+      .accordion-item-chevron {
+        color: rgba(255, 255, 255, 0.5);
+        transition: transform 0.2s ease;
+      }
+    }
+
+    .accordion-item-body {
+      padding: 0 1.25rem 1.25rem;
+      font-size: 13.5px;
+      line-height: 1.6;
+      color: rgba(255, 255, 255, 0.75);
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+      padding-top: 0.75rem;
+    }
+  }
+}
+
+// 7. Comparison Box Shortcode
+.shortcode-comparison-box {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  padding: 1.5rem;
+  border-radius: 1rem;
+  background: #090a12;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  margin: 1.5rem 0;
+
+  @include sm {
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+  }
+
+  .comp-col {
+    padding: 1.25rem;
+    border-radius: 0.75rem;
+
+    .comp-header {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 11px;
+      font-family: $font-mono;
+      text-transform: uppercase;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      margin-bottom: 0.5rem;
+    }
+
+    .comp-text {
+      font-size: 14px;
+      color: $ink-white;
+      line-height: 1.5;
+    }
+
+    &.comp-foreign {
+      background: rgba(239, 68, 68, 0.08);
+      border: 1px solid rgba(239, 68, 68, 0.25);
+      .comp-header { color: #f87171; }
+    }
+
+    &.comp-sovereign {
+      background: rgba(16, 185, 129, 0.08);
+      border: 1px solid rgba(16, 185, 129, 0.25);
+      .comp-header { color: #34d399; }
+    }
+  }
+
+  .comp-divider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    font-family: $font-mono;
+    font-weight: 700;
+    color: rgba(255, 255, 255, 0.4);
+    padding: 0.5rem;
+  }
+}
+
+// 8. Tier Addon Banner Shortcode
+.shortcode-addon-banner {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.875rem;
+  padding: 1rem 1.25rem;
+  border-radius: 0.875rem;
+  background: linear-gradient(135deg, rgba(84, 43, 255, 0.12) 0%, rgba(0, 242, 254, 0.06) 100%);
+  border: 1px solid rgba(84, 43, 255, 0.35);
+  margin: 1.5rem 0;
+
+  .addon-icon-wrap {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2rem;
+    height: 2rem;
+    border-radius: 0.5rem;
+    background: rgba(84, 43, 255, 0.25);
+    color: $cyan-accent;
+    flex-shrink: 0;
+    margin-top: 0.125rem;
+  }
+
+  .addon-content {
+    .addon-tag {
+      display: block;
+      font-size: 10.5px;
+      font-family: $font-mono;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: $cyan-accent;
+      margin-bottom: 0.25rem;
+    }
+
+    .addon-desc {
+      font-size: 13px;
+      line-height: 1.55;
+      color: rgba(255, 255, 255, 0.85);
+      margin: 0;
+
+      strong {
+        color: $ink-white;
+        font-weight: 600;
+      }
+    }
+  }
+}

@@ -1,0 +1,17 @@
+{{- $tier := .Get "tier" | default "3" -}}
+{{- $add := .Get "add" | default "Digital E-Signatures" -}}
+<div class="shortcode-addon-banner">
+  <div class="addon-icon-wrap" aria-hidden="true">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="12" r="10"></circle>
+      <line x1="12" y1="8" x2="12" y2="16"></line>
+      <line x1="8" y1="12" x2="16" y2="12"></line>
+    </svg>
+  </div>
+  <div class="addon-content">
+    <span class="addon-tag">A-LA-CARTE MODULAR COMBINATION</span>
+    <p class="addon-desc">
+      You can select <strong>Tier 0{{ $tier }} (Productivity &amp; Vault)</strong> and add <strong>{{ $add }}</strong> (or any individual Tier 04/05 tool) a-la-carte. Your monthly fee only adjusts incrementally for that single component—without requiring a full tier upgrade.
+    </p>
+  </div>
+</div>

@@ -1,0 +1,348 @@
+{
+  "$schema": "https://cloudcannon.com/schema/config.json",
+  "source": "",
+  "paths": {
+    "data": "data",
+    "collections": "content",
+    "layouts": "layouts",
+    "static": "static",
+    "uploads": "static/uploads"
+  },
+  "collections_config": {
+    "pages": {
+      "path": "content",
+      "output": true,
+      "name": "Pages & Content",
+      "icon": "wysiwyg",
+      "filter": "strict",
+      "preview": {
+        "text": "{title}",
+        "subtext": "{description}"
+      }
+    },
+    "data": {
+      "path": "data",
+      "output": false,
+      "name": "Site Infrastructure Data",
+      "icon": "storage",
+      "preview": {
+        "text": "Enterprise Infrastructure Data"
+      }
+    }
+  },
+  "data_config": {
+    "infrastructure": {
+      "path": "data/infrastructure.json"
+    }
+  },
+  "_structures": {
+    "architecture_tier": {
+      "style": "card",
+      "values": [
+        {
+          "value": {
+            "id": 1,
+            "slug": "tier-1-sovereign-edge",
+            "name": "Tier 1: Sovereign Document & File Custody",
+            "badge": "Document Custody & Access",
+            "status": "active",
+            "availabilityBadge": "",
+            "tagline": "The foundational private deployment. Secure document custody, encrypted file synchronization, and protected access.",
+            "setupFeeKes": "KES 110,000 – 195,000",
+            "setupFeeUsd": "$850 – $1,500",
+            "monthlyKes": "KES 19,500 – 39,000 / mo",
+            "monthlyUsd": "$150 – $300 / mo",
+            "replacesText": "Replaces Google Drive, Dropbox, Box & OneDrive (~KES 1,950/user/mo)",
+            "replacesEstimatedSavings": "Up to 75% savings vs Google Workspace / Dropbox",
+            "targetAudience": "Growing teams, legal practices, accounting firms, and organizations seeking full ownership and compliance for confidential files.",
+            "purpose": "Establishes a private, protected corporate document hub and guarantees complete data ownership within African borders.",
+            "agentReadiness": "Private semantic assistant enabled for instant, secure searching across internal corporate documents without sending data offshore.",
+            "featuredPill": "Entry Sovereign Footprint",
+            "isPopular": false,
+            "painPointsSolved": [],
+            "components": []
+          }
+        }
+      ]
+    },
+    "tier_component": {
+      "style": "card",
+      "values": [
+        {
+          "value": {
+            "name": "New Enterprise Capability",
+            "role": "Role & Department Function",
+            "category": "storage",
+            "description": "Clear enterprise benefit description.",
+            "status": "hardened"
+          }
+        }
+      ]
+    },
+    "pain_point": {
+      "style": "card",
+      "values": [
+        {
+          "value": {
+            "title": "Eliminated Bottleneck",
+            "description": "How the sovereign stack resolves this challenge."
+          }
+        }
+      ]
+    },
+    "hosting_provider": {
+      "style": "card",
+      "values": [
+        {
+          "value": {
+            "name": "Data Center Partner",
+            "classification": "African Cloud Providers",
+            "strategicPurpose": "Primary strategic objective and regulatory benefit.",
+            "region": "Nairobi, Kenya",
+            "icon": "flag-ke",
+            "dataSovereigntyGrade": "100% Sovereign (Kenya/Africa)"
+          }
+        }
+      ]
+    },
+    "vertical_solution": {
+      "style": "card",
+      "values": [
+        {
+          "value": {
+            "id": "new-vertical",
+            "title": "Industry Vertical Solution",
+            "sector": "Target Industry Sector",
+            "engine": "Specialized Enterprise Engine",
+            "description": "Complete description of regulated capabilities.",
+            "financials": "Custom Sizing",
+            "metrics": ["Sub-second Settlement", "Regulatory Audit Ready"]
+          }
+        }
+      ]
+    },
+    "faq_item": {
+      "style": "card",
+      "values": [
+        {
+          "value": {
+            "id": "faq-custom",
+            "category": "architecture",
+            "question": "Executive Question?",
+            "answer": "Clear, professional, and jargon-free answer."
+          }
+        }
+      ]
+    },
+    "pipeline_step": {
+      "style": "card",
+      "values": [
+        {
+          "value": {
+            "step": "01",
+            "phase": "Deployment Phase",
+            "actor": "Julz Insight Systems Team",
+            "tech": "Sovereign Solution",
+            "detail": "Action description."
+          }
+        }
+      ]
+    }
+  },
+  "_inputs": {
+    "brandInfo": {
+      "type": "object",
+      "label": "Brand & Corporate Identity"
+    },
+    "architectureTiers": {
+      "type": "array",
+      "label": "Architectural Tiers (1 to 5)",
+      "options": {
+        "structures": "_structures.architecture_tier"
+      }
+    },
+    "components": {
+      "type": "array",
+      "label": "Deployable Components",
+      "options": {
+        "structures": "_structures.tier_component"
+      }
+    },
+    "painPointsSolved": {
+      "type": "array",
+      "label": "Eliminated Pain Points",
+      "options": {
+        "structures": "_structures.pain_point"
+      }
+    },
+    "hostingMatrix": {
+      "type": "array",
+      "label": "Sovereign Hosting & Data Center Partners",
+      "options": {
+        "structures": "_structures.hosting_provider"
+      }
+    },
+    "verticalSolutions": {
+      "type": "array",
+      "label": "Regulated Industry Verticals",
+      "options": {
+        "structures": "_structures.vertical_solution"
+      }
+    },
+    "faqs": {
+      "type": "array",
+      "label": "Executive FAQs",
+      "options": {
+        "structures": "_structures.faq_item"
+      }
+    },
+    "pipelineSteps": {
+      "type": "array",
+      "label": "Deployment Pipeline Phases",
+      "options": {
+        "structures": "_structures.pipeline_step"
+      }
+    },
+    "status": {
+      "type": "select",
+      "label": "Status",
+      "options": {
+        "values": ["active", "beta", "coming-soon", "hardened", "agent-ready"]
+      }
+    },
+    "category": {
+      "type": "select",
+      "label": "Category",
+      "options": {
+        "values": [
+          "ingress",
+          "storage",
+          "identity",
+          "erp",
+          "collab",
+          "automation",
+          "security",
+          "infra",
+          "observability",
+          "ai",
+          "architecture",
+          "migration",
+          "financials"
+        ]
+      }
+    },
+    "icon": {
+      "type": "select",
+      "label": "Region Vector Icon",
+      "options": {
+        "values": ["flag-ke", "globe-africa", "server-rack", "shield-lock", "cloud-failover"]
+      }
+    },
+    "heroHeadline": {
+      "type": "markdown",
+      "label": "Hero Headline"
+    },
+    "heroDescription": {
+      "type": "textarea",
+      "label": "Hero Subtitle & Description"
+    }
+  },
+  "_snippets": {
+    "callout": {
+      "template": "hugo_paired_shortcode",
+      "inline": false,
+      "preview": {
+        "text": "Callout Box: {title}"
+      },
+      "_inputs": {
+        "type": {
+          "type": "select",
+          "options": {
+            "values": ["sovereign", "info", "warning", "success"]
+          }
+        },
+        "title": {
+          "type": "text"
+        }
+      }
+    },
+    "stat_metric": {
+      "template": "hugo_shortcode",
+      "inline": false,
+      "preview": {
+        "text": "Metric: {value} ({label})"
+      },
+      "_inputs": {
+        "value": { "type": "text" },
+        "label": { "type": "text" },
+        "trend": { "type": "text" },
+        "color": {
+          "type": "select",
+          "options": {
+            "values": ["cyan", "brand", "emerald", "amber"]
+          }
+        }
+      }
+    },
+    "feature_card": {
+      "template": "hugo_paired_shortcode",
+      "inline": false,
+      "preview": {
+        "text": "Feature Card: {title}"
+      },
+      "_inputs": {
+        "title": { "type": "text" },
+        "badge": { "type": "text" },
+        "icon": {
+          "type": "select",
+          "options": {
+            "values": ["shield", "server", "lock", "cpu", "globe", "zap"]
+          }
+        }
+      }
+    },
+    "btn": {
+      "template": "hugo_paired_shortcode",
+      "inline": true,
+      "preview": {
+        "text": "Button: {url}"
+      },
+      "_inputs": {
+        "url": { "type": "text" },
+        "style": {
+          "type": "select",
+          "options": {
+            "values": ["primary", "secondary", "outline"]
+          }
+        },
+        "modal": { "type": "text" }
+      }
+    },
+    "badge": {
+      "template": "hugo_paired_shortcode",
+      "inline": true,
+      "preview": {
+        "text": "Badge: {type}"
+      },
+      "_inputs": {
+        "type": {
+          "type": "select",
+          "options": {
+            "values": ["beta", "coming-soon", "sovereign", "cyan", "purple"]
+          }
+        }
+      }
+    },
+    "tier_addon": {
+      "template": "hugo_shortcode",
+      "inline": false,
+      "preview": {
+        "text": "A-la-Carte Add-On Notice"
+      },
+      "_inputs": {
+        "tier": { "type": "text" },
+        "add": { "type": "text" }
+      }
+    }
+  }
+}

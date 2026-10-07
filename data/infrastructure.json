@@ -3,9 +3,9 @@
     "name": "Julz Insight",
     "legalName": "Julz Insight Technology Limited",
     "tagline": "The Engine of Digital Sovereignty",
-    "positioning": "Africa’s No. 1 Fully Managed, Sovereign & Performant Open-Source Business Infrastructure for Enterprises",
+    "positioning": "Africa’s Leading Fully Managed Sovereign Business Infrastructure — Private, High-Performance Systems for Enterprises",
     "mission": "Powering Digital Independence for African Small, Medium & Enterprise Businesses",
-    "heroSubtitle": "Julz Insight architects, manually provisions, and actively manages sovereign open-source enterprise infrastructure — freeing African organizations from foreign SaaS capital drain with dedicated, hands-on engineering and measurable ROI.",
+    "heroSubtitle": "Julz Insight designs, provisions, and proactively manages dedicated, private business software systems — protecting African organizations from expensive foreign software price hikes with predictable local pricing and measurable ROI.",
     "contactEmail": "advisory@julzinsight.co",
     "location": "Nairobi, Kenya • Operating Continent-Wide across Africa",
     "complianceStandards": [
@@ -34,18 +34,18 @@
     {
       "id": 1,
       "slug": "tier-1-sovereign-edge",
-      "name": "Tier 1: Sovereign Edge & Storage Foundation",
-      "badge": "Storage & Edge Base",
-      "tagline": "The minimum viable sovereign deployment. Uncompromised document custody and encrypted ingress.",
+      "name": "Tier 1: Sovereign Document & File Custody",
+      "badge": "Document Custody & Access",
+      "tagline": "The foundational private deployment. Secure document custody, encrypted file synchronization, and protected access.",
       "setupFeeKes": "KES 110,000 – 195,000",
       "setupFeeUsd": "$850 – $1,500",
       "monthlyKes": "KES 19,500 – 39,000 / mo",
       "monthlyUsd": "$150 – $300 / mo",
-      "replacesText": "Replaces Google Drive, Dropbox & OneDrive (~KES 1,950/user/mo)",
+      "replacesText": "Replaces Google Drive, Dropbox, Box & OneDrive (~KES 1,950/user/mo)",
       "replacesEstimatedSavings": "Up to 75% savings vs Google Workspace / Dropbox",
-      "targetAudience": "Micro-enterprises, legal practices, accounting firms, and teams eliminating offshore public cloud storage risks.",
-      "purpose": "Establishes a hardened, encrypted edge entry point and ensures absolute data residency within African borders.",
-      "agentReadiness": "Nextcloud native Assistant enabled for semantic vector search across internal corporate documents.",
+      "targetAudience": "Growing teams, legal practices, accounting firms, and organizations seeking full ownership and compliance for confidential files.",
+      "purpose": "Establishes a private, protected corporate document hub and guarantees complete data ownership within African borders.",
+      "agentReadiness": "Private semantic assistant enabled for instant, secure searching across internal corporate documents without sending data offshore.",
       "featuredPill": "Entry Sovereign Footprint",
       "isPopular": false,
       "painPointsSolved": [
@@ -60,17 +60,17 @@
       ],
       "components": [
         {
-          "name": "Traefik v3",
-          "role": "Edge Routing & Ingress",
+          "name": "Secure Access Gateway & SSL Ingress",
+          "role": "Secure Access & Perimeter Defense",
           "category": "ingress",
-          "description": "Automated Let’s Encrypt SSL rotation, Zero-Trust ingress, rate-limiting, and micro-routing.",
+          "description": "Automated encryption certificate renewal, bank-grade access controls, and rate protection.",
           "status": "hardened"
         },
         {
-          "name": "Nextcloud Hub",
-          "role": "Storage & Context Hub",
+          "name": "Sovereign Document Hub & Team Sync",
+          "role": "Document Custody & Team Sync",
           "category": "storage",
-          "description": "Encrypted document store, WebDAV, Calendar, Contacts, and built-in contextual agent integration.",
+          "description": "Private encrypted document management (EDMS), file sharing, shared team calendars, and video meetings.",
           "status": "agent-ready"
         }
       ]
@@ -78,57 +78,57 @@
     {
       "id": 2,
       "slug": "tier-2-core-business",
-      "name": "Tier 2: Core Business & Operational Hub",
-      "badge": "ERP & Operations",
-      "tagline": "Centralized enterprise identity, double-entry financial ledgers, and secure team collaboration behind SSO.",
+      "name": "Tier 2: Core Enterprise Operations & Financial Hub",
+      "badge": "ERP, CRM & Operations",
+      "tagline": "Unified company login, complete financial accounting and CRM, and private team messaging behind single sign-on.",
       "setupFeeKes": "KES 455,000 – 780,000",
       "setupFeeUsd": "$3,500 – $6,000",
       "monthlyKes": "KES 78,000 – 130,000 / mo",
       "monthlyUsd": "$600 – $1,000 / mo",
-      "replacesText": "Replaces Okta, Salesforce, Jira & Slack (~KES 18,200/user/mo)",
-      "replacesEstimatedSavings": "Saves ~$18,200/user annually against legacy SaaS stacks",
-      "targetAudience": "Growing SMEs, logistics operators, manufacturing firms, and retail companies requiring structured governance.",
-      "purpose": "Unifies corporate identity, financial ledgers, product management, and real-time team communication behind single sign-on (SSO).",
-      "agentReadiness": "ERPNext exposes full DocTypes to Model Context Protocol (MCP); Plane connects sprint issues directly into Mattermost webhooks.",
+      "replacesText": "Replaces Okta, Salesforce, Microsoft Dynamics, Jira & Slack (~KES 18,200/user/mo)",
+      "replacesEstimatedSavings": "Saves ~$18,200/user annually against legacy foreign software licenses",
+      "targetAudience": "Growing companies, distributors, service organizations, and manufacturers requiring unified financial control and customer tracking.",
+      "purpose": "Unifies company logins, financial ledgers, customer relationships (CRM), and team communication so your team never juggles multiple passwords.",
+      "agentReadiness": "Automated data connectors ready to link customer records, invoices, and support conversations directly to AI assistants.",
       "featuredPill": "Core Enterprise Hub",
       "isPopular": false,
       "painPointsSolved": [
         {
           "title": "Departmental Data Silos",
-          "description": "Harmonizes ERP ledgers, sprint trackers, and team chat into one interconnected ecosystem."
+          "description": "Harmonizes financial ledgers, project trackers, and team chat into one interconnected ecosystem."
         },
         {
-          "title": "Password Fatigue & Auth Sprawl",
-          "description": "Enforces unified MFA and enterprise SSO through Authentik across every departmental touchpoint."
+          "title": "Password Fatigue & Access Sprawl",
+          "description": "Eliminates juggling 12 different passwords with unified Single Sign-On (SSO) and multi-factor authentication."
         }
       ],
       "components": [
         {
-          "name": "Authentik",
-          "role": "Identity & Access (IAM)",
+          "name": "Unified Single Sign-On (SSO) & Access Gateway",
+          "role": "Central Identity & Access (IAM)",
           "category": "identity",
-          "description": "Centralized OIDC / SAML SSO, hardware MFA enforcement, and fine-grained role-based access control.",
+          "description": "One master secure login for all business apps with two-factor authentication. Staff never need 12 different passwords to do their job.",
           "status": "hardened"
         },
         {
-          "name": "ERPNext / Frappe",
-          "role": "Enterprise ERP & CRM",
+          "name": "Unified Enterprise ERP & CRM Suite",
+          "role": "Enterprise Financials, ERP & CRM",
           "category": "erp",
-          "description": "Full general ledger, invoicing, multi-currency accounting, supply chain, and CRM workflows.",
+          "description": "Full financial ledger, eTIMS tax invoicing, customer sales pipeline (CRM), inventory tracking, and payroll.",
           "status": "agent-ready"
         },
         {
-          "name": "Plane",
-          "role": "Agile Project Tracking",
+          "name": "Agile Project & Task Management",
+          "role": "Team Task & Project Workspaces",
           "category": "collab",
-          "description": "Modern issue tracking, cycle management, kanban, and roadmap boards without Atlassian licensing bloat.",
+          "description": "Organized team boards, issue tracking, and roadmap planning without expensive per-seat software licenses.",
           "status": "active"
         },
         {
-          "name": "Mattermost",
-          "role": "Sovereign Team Chat",
+          "name": "Encrypted Team Messaging Channels",
+          "role": "Private Team Chat & Channels",
           "category": "collab",
-          "description": "Self-hosted Slack alternative with channel threads, incident boards, and end-to-end encryption.",
+          "description": "Secure company-wide channels, department chats, and incident rooms with end-to-end data privacy.",
           "status": "hardened"
         }
       ]
@@ -136,50 +136,50 @@
     {
       "id": 3,
       "slug": "tier-3-workspace-security",
-      "name": "Tier 3: Workspace, Productivity & Security Layer",
+      "name": "Tier 3: Productivity, Knowledge & Password Vault",
       "badge": "Productivity & Vault",
-      "tagline": "High-fidelity collaborative office authoring, structured local wiki knowledge bases, and enterprise credential vaulting.",
+      "tagline": "Real-time collaborative document editing, private company wiki knowledge bases, and secure corporate password vaulting.",
       "setupFeeKes": "KES 845,000 – 1,235,000",
       "setupFeeUsd": "$6,500 – $9,500",
       "monthlyKes": "KES 143,000 – 234,000 / mo",
       "monthlyUsd": "$1,100 – $1,800 / mo",
-      "replacesText": "Replaces Microsoft 365, Notion & 1Password (~KES 7,800/user/mo)",
+      "replacesText": "Replaces Microsoft 365, Google Docs, Notion & 1Password (~KES 7,800/user/mo)",
       "replacesEstimatedSavings": "Saves ~$7,800/user/yr while retaining 100% data custody",
-      "targetAudience": "Mid-market corporations, regional financial institutions, and consultancies needing strict document compliance.",
-      "purpose": "Provides high-fidelity collaborative document creation, structured team SOP databases, and zero-knowledge password vaulting inside the sovereign network.",
-      "agentReadiness": "AppFlowy local-first vector synthesis; ONLYOFFICE server-side agentic drafting directly within Nextcloud workspaces.",
+      "targetAudience": "Established enterprises, financial institutions, and professional firms requiring collaborative office editing and strict password hygiene.",
+      "purpose": "Provides live collaborative document co-authoring, centralized company knowledge bases and SOPs, and zero-knowledge corporate password protection.",
+      "agentReadiness": "Private knowledge synthesis and smart document drafting within your protected workspace.",
       "featuredPill": "Most Popular for Mid-Market",
       "isPopular": true,
       "painPointsSolved": [
         {
           "title": "Document Versioning Chaos",
-          "description": "Enables concurrent multi-author editing on DOCX/XLSX/PPTX files without sending bytes to Microsoft or Google clouds."
+          "description": "Enables concurrent multi-author editing on Word, Excel, and PowerPoint files without sending bytes to foreign public clouds."
         },
         {
           "title": "Credential Sharing Vulnerabilities",
-          "description": "Eliminates plaintext credential sharing in Slack/WhatsApp via military-grade Vaultwarden password vaults."
+          "description": "Eliminates dangerous password sharing across WhatsApp or email via military-grade encrypted corporate vaults."
         }
       ],
       "components": [
         {
-          "name": "ONLYOFFICE Docs",
-          "role": "Web Collaborative Office",
+          "name": "Real-Time Collaborative Office Suite",
+          "role": "Live Document, Sheet & Slide Co-Authoring",
           "category": "collab",
-          "description": "100% MS Office format compatibility, track changes, spreadsheet pivot tables, and real-time co-editing.",
+          "description": "100% compatible with Word, Excel, and PowerPoint. Multi-author real-time editing with track changes and zero external data sharing.",
           "status": "active"
         },
         {
-          "name": "AppFlowy",
-          "role": "Knowledge & SOP Engine",
+          "name": "Enterprise Knowledge Base & SOP Wiki",
+          "role": "Company Knowledge & SOP Hub",
           "category": "storage",
-          "description": "Local-first Notion alternative for standard operating procedures, documentation, and relational tables.",
+          "description": "Private company wiki for standard operating procedures, documentation, team notes, and structured knowledge boards.",
           "status": "agent-ready"
         },
         {
-          "name": "Vaultwarden",
-          "role": "Zero-Knowledge Vault",
+          "name": "Corporate Credential & Password Vault",
+          "role": "Zero-Knowledge Password Vault",
           "category": "security",
-          "description": "Enterprise credential vault with Bitwarden client compatibility, emergency access, and organization collections.",
+          "description": "Encrypted password management for company teams. Eliminates dangerous password sharing across WhatsApp or email.",
           "status": "hardened"
         }
       ]
@@ -187,20 +187,20 @@
     {
       "id": 4,
       "slug": "tier-4-automation-growth",
-      "name": "Tier 4: Automation & Growth Engine",
-      "badge": "Neural Automation",
+      "name": "Tier 4: Automated Workflows & Digital Signatures",
+      "badge": "Automation & Growth",
       "status": "beta",
       "availabilityBadge": "Beta Testers Only",
-      "tagline": "The autonomic nervous system. Event-driven triggers, automated lead scoring, programmatic contracts, and cryptographic e-signatures. Currently in fine-tuning with select enterprise beta testers.",
+      "tagline": "Intelligent event triggers, automated customer sequences, programmatic contracts, and legal e-signatures. Currently in fine-tuning with select enterprise beta testers.",
       "setupFeeKes": "KES 1,300,000 – 2,080,000",
       "setupFeeUsd": "$10,000 – $16,000",
       "monthlyKes": "KES 260,000 – 416,000 / mo",
       "monthlyUsd": "$2,000 – $3,200 / mo",
-      "replacesText": "Replaces Zapier Enterprise, HubSpot, DocuSign & Klaviyo (~KES 65,000/mo)",
+      "replacesText": "Replaces Zapier Enterprise, HubSpot Marketing, DocuSign & Make (~KES 65,000/mo)",
       "replacesEstimatedSavings": "Recovers KES 65,000+ monthly in recurring automation & signature licenses",
-      "targetAudience": "Scaling enterprises, high-velocity sales organizations, fintechs, and automated service providers.",
-      "purpose": "Interconnects every sovereign layer into an autonomous pipeline. Eliminates manual data re-entry with intelligent event workflows.",
-      "agentReadiness": "n8n serves as the central neural bridge, equipping autonomous AI agents with tools to interact with ERPNext, Nextcloud, and Documenso via Infisical secrets.",
+      "targetAudience": "Fast-scaling companies, automated service providers, and teams looking to eliminate repetitive manual data entry.",
+      "purpose": "Connects every business department into an automated pipeline, cutting human data re-entry and accelerating contract approvals.",
+      "agentReadiness": "Workflow engine serving as an integration bridge to trigger automated actions, contracts, and approvals.",
       "featuredPill": "Beta Testers Only • SRE Fine-Tuning",
       "isPopular": false,
       "painPointsSolved": [
@@ -210,36 +210,36 @@
         },
         {
           "title": "Contract Signing Friction",
-          "description": "Generates programmatic NDAs, service agreements, and invoices with verifiable cryptographic signatures."
+          "description": "Generates programmatic agreements, NDAs, and customer invoices with verifiable cryptographic digital signatures."
         }
       ],
       "components": [
         {
-          "name": "n8n (AI Agent Nodes)",
-          "role": "Workflow Orchestration",
+          "name": "Autonomous Workflow & Integration Engine",
+          "role": "Automated Cross-App Workflows",
           "category": "automation",
-          "description": "Visual workflow engine with native LangChain AI agent nodes, tool calling, and 500+ integration connectors.",
+          "description": "Automates multi-step workflows, connecting CRM data, invoicing, and approvals with smart triggers.",
           "status": "agent-ready"
         },
         {
-          "name": "Infisical",
-          "role": "Secret Management",
+          "name": "Centralized Secrets & API Key Vault",
+          "role": "Encrypted API Key & Secret Management",
           "category": "security",
-          "description": "End-to-end encrypted API key, token, and environment variable management with zero-trust sync.",
+          "description": "Enterprise-grade protection for API tokens, payment keys, and system credentials.",
           "status": "hardened"
         },
         {
-          "name": "Dittofeed / Listmonk",
-          "role": "Omnichannel Outreach",
+          "name": "Omnichannel Customer Messaging Engine",
+          "role": "Automated Customer Notifications",
           "category": "automation",
-          "description": "High-throughput transactional email, customer engagement sequences, and event-based messaging.",
+          "description": "High-volume transactional notifications, email updates, and automated customer engagement.",
           "status": "active"
         },
         {
-          "name": "Documenso",
-          "role": "Digital Signatures",
+          "name": "Legally-Binding Digital E-Signature Suite",
+          "role": "Digital Contracts & E-Signatures",
           "category": "security",
-          "description": "Legally binding e-signatures, cryptographic tamper seals, and programmatic signing templates.",
+          "description": "Legally binding electronic signatures, verifiable audit certificates, and automated contract workflows.",
           "status": "hardened"
         }
       ]
@@ -247,101 +247,101 @@
     {
       "id": 5,
       "slug": "tier-5-agentic-forge",
-      "name": "Tier 5: The Agentic Enterprise Forge",
-      "badge": "Bare-Metal & AI Sovereign",
+      "name": "Tier 5: Private Sovereign Cloud & Enterprise AI",
+      "badge": "Dedicated Cloud & AI",
       "status": "coming-soon",
       "availabilityBadge": "Coming Soon",
-      "tagline": "The ultimate sovereign enterprise architecture. Bare-metal Proxmox virtualization, Kubernetes, distributed Ceph S3, and private GPU inference. Currently behind closed doors.",
+      "tagline": "The apex sovereign enterprise infrastructure. Dedicated private virtualization, distributed high-availability storage, and private on-premise AI models. Currently behind closed doors.",
       "setupFeeKes": "KES 3,900,000 – 7,150,000",
       "setupFeeUsd": "$30,000 – $55,000",
       "monthlyKes": "KES 715,000 – 1,235,000 / mo",
       "monthlyUsd": "$5,500 – $9,500 / mo",
-      "replacesText": "Replaces GitHub Enterprise, Zendesk, Datadog, Splunk, Pinecone, Enterprise OpenAI & AWS EKS/S3 (~KES 650,000+/mo)",
+      "replacesText": "Replaces Enterprise AWS/Azure subscriptions, Zendesk, Datadog & Enterprise OpenAI (~KES 650,000+/mo)",
       "replacesEstimatedSavings": "Saves KES 650,000+ monthly vs foreign hyperscaler infrastructure",
-      "targetAudience": "Tier-1 commercial banks, national telcos, government ministries, health networks, and tech companies requiring total digital sovereignty.",
-      "purpose": "Total sovereign compute stack. Combines bare-metal hypervisor reliability with elastic cloud-native orchestration, private LLMs, and 24/7 SIEM auditing.",
-      "agentReadiness": "Fully autonomous multi-modal AI agent ecosystem. Agents write code via Forgejo CI/CD, resolve tickets in Zammad, execute ERP transactions, and query private Qdrant vectors—with zero offshore telemetry.",
+      "targetAudience": "Commercial banks, national telecom operators, health systems, and institutions requiring 100% digital and physical sovereignty.",
+      "purpose": "Complete dedicated enterprise computing cloud. High availability, dedicated private server infrastructure, and internal AI models that never leak corporate data.",
+      "agentReadiness": "Autonomous internal AI ecosystem capable of executing complex business workflows, answering customer queries, and analyzing company records safely.",
       "featuredPill": "Coming Soon • In Closed R&D",
       "isPopular": false,
       "painPointsSolved": [
         {
           "title": "Hyperscaler Hostage Dilemma",
-          "description": "Guarantees that your mission-critical operations run on local African hardware with zero kill-switch susceptibility."
+          "description": "Guarantees that your mission-critical operations run on local African hardware with zero foreign kill-switch risk."
         },
         {
           "title": "AI Data Sovereignty & Model Privacy",
-          "description": "GPU inference executed 100% on-premise or sovereign data centers—client data never trains foreign public models."
+          "description": "Private AI processing executed 100% within your secure data center—client data never trains foreign public models."
         }
       ],
       "components": [
         {
-          "name": "Proxmox VE + PBS",
-          "role": "Bare-Metal Hypervisor & PBS",
+          "name": "Dedicated Enterprise Server Hypervisor",
+          "role": "Bare-Metal Virtualization & Backups",
           "category": "infra",
-          "description": "Bare-metal LXC for low-latency services and QEMU VMs for Kubernetes with deduplicated Proxmox Backup Server snapshots.",
+          "description": "Isolated, ultra-fast server virtualization with automated deduplicated disaster recovery snapshots.",
           "status": "hardened"
         },
         {
-          "name": "Kubernetes (Talos / RKE2)",
-          "role": "Container Orchestration",
+          "name": "High-Availability Application Cluster",
+          "role": "Resilient Application Clustering",
           "category": "infra",
-          "description": "Declarative GitOps-driven cluster scaling with zero-downtime rolling deployments.",
+          "description": "Zero-downtime application clustering and self-healing deployment management.",
           "status": "hardened"
         },
         {
-          "name": "Rook-Ceph Operator",
-          "role": "Distributed S3 & Block Storage",
+          "name": "Distributed High-Capacity Object Storage",
+          "role": "High-Capacity Private Storage",
           "category": "storage",
-          "description": "Self-healing S3 object storage (RGW), CephFS shared filesystem, and low-latency Ceph RBD block volumes.",
+          "description": "Scalable, resilient storage for large document archives, backups, and multimedia.",
           "status": "hardened"
         },
         {
-          "name": "Forgejo + Woodpecker + ArgoCD",
-          "role": "CI/CD & Code Forge",
+          "name": "Private Code & Version Control Forge",
+          "role": "Internal Code & Deployment Pipelines",
           "category": "automation",
-          "description": "Self-hosted Git forge, container image builds, and automated GitOps cluster synchronization.",
+          "description": "Private code repository and automated deployment pipelines for internal enterprise engineering teams.",
           "status": "active"
         },
         {
-          "name": "Zammad + Mixpost",
-          "role": "Helpdesk & Social Engine",
+          "name": "Omnichannel Customer Support Helpdesk",
+          "role": "Unified Customer Service Ticketing",
           "category": "collab",
-          "description": "Unified multi-channel customer ticketing and programmatic social media publishing.",
+          "description": "Multi-channel support tickets, customer inquiries, and centralized team resolution queues.",
           "status": "active"
         },
         {
-          "name": "SigNoz (OTel + ClickHouse)",
-          "role": "Full-Stack APM & Observability",
+          "name": "Full-Stack System Monitoring & Telemetry",
+          "role": "Real-Time System Health & Tracing",
           "category": "observability",
-          "description": "Distributed tracing, metric aggregation, and structured log management with OpenTelemetry standards.",
+          "description": "Comprehensive server health dashboards, performance metrics, and error tracing.",
           "status": "hardened"
         },
         {
-          "name": "Wazuh SIEM Operator",
-          "role": "Host & Cluster SIEM / Compliance",
+          "name": "24/7 Security Defense & Compliance Auditor",
+          "role": "Intrusion Detection & Compliance",
           "category": "security",
-          "description": "Real-time threat detection, file integrity monitoring, rootkit audits, and regulatory compliance mapping.",
+          "description": "Real-time threat monitoring, file integrity tracking, and continuous data protection compliance.",
           "status": "hardened"
         },
         {
-          "name": "Qdrant Vector DB Operator",
-          "role": "Distributed Vector Memory",
+          "name": "Private AI Vector & Knowledge Memory",
+          "role": "Private AI Knowledge Index",
           "category": "ai",
-          "description": "Raft-replicated vector database providing long-term semantic memory for autonomous corporate agents.",
+          "description": "Secure semantic search engine allowing internal AI models to reference confidential company records.",
           "status": "agent-ready"
         },
         {
-          "name": "NVIDIA GPU Operator + Ollama / vLLM",
-          "role": "Local Sovereign Inference Engine",
+          "name": "Private On-Premise AI Model Engine",
+          "role": "Dedicated Sovereign AI Inference",
           "category": "ai",
-          "description": "Hardware passthrough GPU pods serving local open-weights LLMs (Llama 3, Mistral, DeepSeek) with zero data egress.",
+          "description": "Private, dedicated AI models running on local hardware—your confidential business data never trains public foreign AI models.",
           "status": "agent-ready"
         },
         {
-          "name": "Velero + Kopia Backup",
-          "role": "Cluster Disaster Recovery",
+          "name": "Automated Multi-Site Disaster Recovery",
+          "role": "Full System Snapshot & Failover",
           "category": "infra",
-          "description": "Encrypted cluster state snapshots and persistent volume replication to local and redundant offsite S3.",
+          "description": "Encrypted point-in-time system snapshots with rapid failover to secondary data centers.",
           "status": "hardened"
         }
       ]
@@ -350,38 +350,38 @@
   "pipelineSteps": [
     {
       "step": "01",
-      "phase": "Discovery & Architecture Blueprint",
+      "phase": "Discovery & Needs Analysis",
       "actor": "Julz Insight Principal Architects",
-      "tech": "Consultation + Documenso",
-      "detail": "Our systems architects conduct an in-depth infrastructure audit of your current stack, size your compute/storage needs, and structure a custom sovereign architecture agreement."
+      "tech": "Architecture Consultation",
+      "detail": "Our systems specialists analyze your existing software costs and operational workflows, size your storage and user requirements, and design a customized, predictable plan."
     },
     {
       "step": "02",
-      "phase": "Hands-On Staging & Hardening",
+      "phase": "Dedicated System Setup & Hardening",
       "actor": "Dedicated Infrastructure Engineers",
-      "tech": "Proxmox VE + Kubernetes + GitOps",
-      "detail": "Our engineering team manually provisions, configures, and isolates your dedicated tenant cluster. We configure network perimeters, Ceph storage fabrics, and zero-trust policies by hand."
+      "tech": "Dedicated Virtualization & Security",
+      "detail": "Our engineering team sets up, configures, and isolates your dedicated private business system environment, establishing bank-grade encryption and security protections."
     },
     {
       "step": "03",
-      "phase": "Identity & Ingress Configuration",
-      "actor": "Security & IAM Specialists",
-      "tech": "Authentik SSO + Traefik v3",
-      "detail": "Engineers set up your central Authentik SSO directory, configure enterprise MFA, link custom corporate domains, and verify TLS 1.3 certificates and access controls."
+      "phase": "Single Sign-On & Identity Setup",
+      "actor": "Security & Identity Specialists",
+      "tech": "Unified Single Sign-On (SSO)",
+      "detail": "Engineers set up your central Single Sign-On directory, configure multi-factor authentication (MFA), link custom corporate domains, and verify encryption certificates."
     },
     {
       "step": "04",
-      "phase": "White-Glove Handover & Active Management",
-      "actor": "Julz Insight NOC & SRE Team",
-      "tech": "InsightOS + SigNoz + Wazuh",
-      "detail": "Following comprehensive pre-flight verification, your team receives turnkey InsightOS credentials. Our SRE team monitors host health, backups, and security 24/7."
+      "phase": "Turnkey Handover & 24/7 Management",
+      "actor": "Julz Insight NOC & Engineering Team",
+      "tech": "InsightOS Management & 24/7 Support",
+      "detail": "Following thorough pre-flight verification, your team receives turnkey single-login access to InsightOS. Our engineering team proactively monitors health, backups, and security 24/7."
     }
   ],
   "hostingMatrix": [
     {
       "name": "Safaricom Cloud",
       "classification": "African Cloud Providers",
-      "strategicPurpose": "Primary enterprise target. Guarantees 100% Kenyan data residency, M-Pesa latency parity, and CBK regulatory compliance.",
+      "strategicPurpose": "Primary enterprise target. Guarantees 100% Kenyan data residency, M-Pesa latency parity, and Central Bank regulatory compliance.",
       "region": "Nairobi, Kenya",
       "icon": "flag-ke",
       "dataSovereigntyGrade": "100% Sovereign (Kenya/Africa)"
@@ -413,7 +413,7 @@
     {
       "name": "iXAfrica & Servernah Data Centers",
       "classification": "Bespoke Co-Location & Bare-Metal",
-      "strategicPurpose": "Dedicated high-density compute, Proxmox hypervisor clusters, and GPU arrays for Tier 5 Agentic deployments.",
+      "strategicPurpose": "Dedicated high-density compute, private hypervisor clusters, and GPU arrays for Tier 5 Agentic deployments.",
       "region": "Nairobi Data Centers",
       "icon": "server-rack",
       "dataSovereigntyGrade": "100% Sovereign (Kenya/Africa)"
@@ -421,7 +421,7 @@
     {
       "name": "Client On-Premise Hardware",
       "classification": "On-Premise (Client Hardware)",
-      "strategicPurpose": "Ultimate physical custody. Proxmox VE installed directly on server hardware inside client headquarters with air-gapped options.",
+      "strategicPurpose": "Ultimate physical custody. Private systems installed directly on server hardware inside client corporate headquarters with air-gapped options.",
       "region": "Client Corporate HQ",
       "icon": "shield-lock",
       "dataSovereigntyGrade": "100% On-Premise Air-Gapped"
@@ -440,8 +440,8 @@
       "id": "fintech",
       "title": "FinTech & Microfinance Core Banking",
       "sector": "Financial Services",
-      "engine": "Apache Fineract / Mifos X",
-      "description": "Fully audited open-source core banking engine handling savings, loans, ledger balancing, and mobile money payment gateways.",
+      "engine": "Regulated Microfinance & Banking Engine",
+      "description": "Fully audited core banking system handling savings accounts, loan portfolios, ledger balancing, and mobile money payment gateways.",
       "financials": "Setup KES 1.56M – 4.55M | Retainer KES 325k – 780k/mo",
       "metrics": [
         "Sub-second M-Pesa Settlement",
@@ -453,8 +453,8 @@
       "id": "healthcare",
       "title": "Hospital & Clinical Information System",
       "sector": "Healthcare & Life Sciences",
-      "engine": "Bahmni / OpenEMR",
-      "description": "Integrated Electronic Medical Records (EMR), laboratory management (OpenELIS), and pharmacy inventory complying with patient data custody.",
+      "engine": "Hospital & Clinical EMR System",
+      "description": "Integrated Electronic Medical Records (EMR), laboratory workflows, and pharmacy inventory complying strictly with patient data privacy laws.",
       "financials": "Custom Enterprise Sizing",
       "metrics": [
         "Zero Health Data Egress",
@@ -466,7 +466,7 @@
       "id": "edtech",
       "title": "Enterprise Learning & Digital Academy",
       "sector": "Universities & Corporate L&D",
-      "engine": "Open edX Platform",
+      "engine": "Enterprise Learning & Academy Engine",
       "description": "Scalable sovereign learning ecosystem powering certification courses, interactive assessments, and high-concurrency video delivery.",
       "financials": "Scalable per Seat Footprint",
       "metrics": [
@@ -479,7 +479,7 @@
       "id": "logistics",
       "title": "Fleet Telematics & Cold Chain Tracking",
       "sector": "Supply Chain & Transit",
-      "engine": "Traccar Server",
+      "engine": "Real-Time Fleet Telematics Engine",
       "description": "Real-time GPS fleet telemetry, fuel consumption diagnostics, geo-fencing triggers, and driver safety monitoring on dedicated servers.",
       "financials": "Device Fleet Tiering",
       "metrics": [
@@ -491,40 +491,52 @@
   ],
   "faqs": [
     {
+      "id": "faq-alacarte",
+      "category": "architecture",
+      "question": "Can we start on Tier 3 (Productivity & Vault) and add just one specific tool from Tier 4 or 5 without paying for an entire tier upgrade?",
+      "answer": "Yes, absolutely. Our systems are built with total modularity. If your organization chooses Tier 03 (Productivity & Vault) but needs an individual specialized tool—such as legally-binding digital contract e-signatures, automated workflow bridging, or customer support ticketing—we can provision that single module into your private environment. Your monthly retainer only adjusts incrementally for that single component, meaning you are never forced into a full Tier 04 or 05 package upgrade unless you choose to adopt the entire suite."
+    },
+    {
+      "id": "faq-sso",
+      "category": "security",
+      "question": "Do our employees need separate usernames and passwords for each tool?",
+      "answer": "No. Every deployment includes our Unified Single Sign-On (SSO) and access gateway. Your employees use one single master secure login with multi-factor authentication (MFA) to access every application in your package—whether that's your ERP, CRM, document hub, team chat, or password vault. This eliminates password sprawl, stops employees from having to memorize or write down 12 different passwords, and allows management to instantly grant or revoke access in one click."
+    },
+    {
       "id": "faq-1",
       "category": "architecture",
-      "question": "How do you handle disaster recovery if a local African data center goes offline?",
-      "answer": "For Tier 5 deployments, we use Velero and Kopia to take encrypted, deduplicated snapshots of the entire Kubernetes cluster and push them to a secondary S3-compatible target—either another local provider (e.g., Angani → LiquidC2) or an offshore backup (Hetzner), depending on the client's strict data residency guidelines. RPO is under 15 minutes, with automated RTO recovery drills."
+      "question": "How do you handle disaster recovery if a local African data center experiences an outage?",
+      "answer": "We take automated, encrypted, deduplicated snapshots of your entire system and replicate them to a secondary secure target—either another African data center (such as Angani or LiquidC2) or an encrypted offsite backup, depending on your organization's data protection policy. Recovery time objective (RTO) is under 15 minutes, with regularly tested recovery drills."
     },
     {
       "id": "faq-2",
       "category": "migration",
-      "question": "Can our organization upgrade from Tier 2 to Tier 4 without losing historical data?",
-      "answer": "Yes, seamlessly. Because our entire architecture is modular, declarative, and containerized, moving up a tier simply means our engineering team provisions the new container services (e.g., Dittofeed, Documenso) directly into your existing client namespace and syncs the new access privileges via Authentik. No database migrations, downtime, or vendor export penalties are involved."
+      "question": "Can our organization upgrade between tiers without losing historical data?",
+      "answer": "Yes, seamlessly. Because our entire architecture is modular, declarative, and isolated, moving up a tier simply means our engineering team provisions the new software modules directly into your existing corporate environment and links user permissions via Single Sign-On. No database migrations, downtime, or vendor export penalties are involved."
     },
     {
       "id": "faq-3",
       "category": "architecture",
-      "question": "Why do you use Proxmox VE under Kubernetes for Tier 5 instead of running Kubernetes directly on bare metal?",
-      "answer": "Proxmox provides host-level abstraction and resilience. If a Kubernetes control-plane node fails completely, we can restore the entire VM instantly via Proxmox Backup Server (PBS). It also allows us to run high-IOPS storage engines (like Ceph) and databases in ultra-low overhead bare-metal LXC containers, while keeping Kubernetes dedicated strictly for elastic stateless services and AI inference."
+      "question": "How are our business systems kept isolated, resilient, and fast?",
+      "answer": "We use enterprise-grade virtualization and high-availability application clustering. This ensures your software has dedicated memory and compute resources, automatic failover if a hardware server requires maintenance, and isolated high-performance storage that guarantees fast document indexing and transaction speeds."
     },
     {
       "id": "faq-4",
       "category": "security",
       "question": "How does Julz Insight ensure compliance with the Kenya Data Protection Act 2019 and GDPR?",
-      "answer": "By housing 100% of production data within Kenyan and African borders (Safaricom, Konza, Angani, or on-premise), you eliminate cross-border data transfer legal liabilities. Furthermore, Wazuh SIEM continuously audits access logs, Authentik provides tamper-evident audit trails, and Nextcloud/ONLYOFFICE ensure files are encrypted at rest with AES-256."
+      "answer": "By housing 100% of production data within Kenyan and African borders (Safaricom, Servercore, Konza, or your corporate headquarters), you eliminate cross-border data transfer legal liabilities. Furthermore, 24/7 security auditing continuously monitors system access, Single Sign-On maintains tamper-evident audit trails, and all files are encrypted at rest with military-grade AES-256."
     },
     {
       "id": "faq-5",
       "category": "financials",
-      "question": "What is the ROI comparison between Julz Insight and foreign SaaS platforms like Microsoft 365 or Salesforce?",
-      "answer": "Most African enterprises experience a 65% to 85% net reduction in total cost of ownership (TCO) over 24 months. Proprietary SaaS vendors charge per-user, per-month in foreign exchange (USD), subjecting your budget to local currency devaluations. Julz Insight charges transparent flat or tiered monthly retainers in local currency (KES) with predictable SLAs and zero per-seat licensing penalties."
+      "question": "What is the ROI comparison between Julz Insight and foreign platforms like Microsoft 365 or Salesforce?",
+      "answer": "Most African enterprises experience a 65% to 85% net reduction in total cost of ownership (TCO) over 24 months. Proprietary foreign software vendors charge per-user, per-month in US Dollars, subjecting your budget to local currency devaluations and price hikes. Julz Insight charges transparent flat or tiered monthly retainers in local currency (KES) with predictable SLAs and zero per-seat licensing penalties."
     },
     {
       "id": "faq-6",
       "category": "financials",
       "question": "Is third-party cloud or bare-metal hosting included in the monthly retainer?",
-      "answer": "No. Julz Insight maintains strict infrastructure neutrality. The visible retainers cover our fully managed open-source software stack, custom GitOps automation, security hardening, and 24/7 proactive SRE support. Underlying cloud or bare-metal compute (via Safaricom, Servercore, Konza, iXAfrica, or your corporate headquarters) is contracted directly with or billed transparently by the sovereign data center provider. This ensures your organization retains full legal hardware ownership, zero host markup, and complete freedom from proprietary vendor lock-in."
+      "answer": "No. Julz Insight maintains strict infrastructure neutrality. The visible retainers cover our fully managed software stack, custom automation, security hardening, and 24/7 proactive engineering support. Underlying cloud or bare-metal compute (via Safaricom, Servercore, Konza, iXAfrica, or your corporate headquarters) is contracted directly with or billed transparently by the sovereign data center provider. This ensures your organization retains full legal hardware ownership, zero host markup, and complete freedom from proprietary vendor lock-in."
     }
   ]
 }
