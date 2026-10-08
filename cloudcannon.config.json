@@ -105,22 +105,6 @@
         }
       ]
     },
-    "vertical_solution": {
-      "style": "card",
-      "values": [
-        {
-          "value": {
-            "id": "new-vertical",
-            "title": "Industry Vertical Solution",
-            "sector": "Target Industry Sector",
-            "engine": "Specialized Enterprise Engine",
-            "description": "Complete description of regulated capabilities.",
-            "financials": "Custom Sizing",
-            "metrics": ["Sub-second Settlement", "Regulatory Audit Ready"]
-          }
-        }
-      ]
-    },
     "faq_item": {
       "style": "card",
       "values": [
@@ -180,13 +164,6 @@
       "label": "Sovereign Hosting & Data Center Partners",
       "options": {
         "structures": "_structures.hosting_provider"
-      }
-    },
-    "verticalSolutions": {
-      "type": "array",
-      "label": "Regulated Industry Verticals",
-      "options": {
-        "structures": "_structures.vertical_solution"
       }
     },
     "faqs": {

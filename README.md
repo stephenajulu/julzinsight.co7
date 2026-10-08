@@ -147,7 +147,6 @@ julzinsight.co7-hugo/
 │   │   └── single.html           # Single template fallback
 │   ├── index.html                # Page assembler with CMS body support
 │   ├── partials/
-│   │   ├── compliance.html       # Zero-Trust & Kenya DPA 2019 compliance
 │   │   ├── faq.html              # Executive accordion FAQ
 │   │   ├── footer.html           # Enterprise footer & capability directory
 │   │   ├── head.html             # SEO, JSON-LD, fonts & asset bundles

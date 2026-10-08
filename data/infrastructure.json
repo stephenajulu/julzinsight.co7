@@ -351,28 +351,24 @@
     {
       "step": "01",
       "phase": "Discovery & Needs Analysis",
-      "actor": "Julz Insight Principal Architects",
       "tech": "Architecture Consultation",
       "detail": "Our systems specialists analyze your existing software costs and operational workflows, size your storage and user requirements, and design a customized, predictable plan."
     },
     {
       "step": "02",
       "phase": "Dedicated System Setup & Hardening",
-      "actor": "Dedicated Infrastructure Engineers",
       "tech": "Dedicated Virtualization & Security",
       "detail": "Our engineering team sets up, configures, and isolates your dedicated private business system environment, establishing enterprise-grade encryption and security protections."
     },
     {
       "step": "03",
       "phase": "Single Sign-On & Identity Setup",
-      "actor": "Security & Identity Specialists",
       "tech": "Unified Single Sign-On (SSO)",
       "detail": "Engineers set up your central Single Sign-On directory, configure multi-factor authentication (MFA), link custom corporate domains, and verify encryption certificates."
     },
     {
       "step": "04",
       "phase": "Turnkey Handover & Managed Operations",
-      "actor": "Julz Insight Systems Practice",
       "tech": "InsightOS Management & Priority Support",
       "detail": "Following thorough pre-flight verification, your team receives turnkey single-login access to InsightOS. We handle automated health monitoring, verified backups, and scheduled maintenance."
     }
@@ -433,60 +429,6 @@
       "region": "Global Edge Failover",
       "icon": "cloud-failover",
       "dataSovereigntyGrade": "Secondary Redundancy Only"
-    }
-  ],
-  "verticalSolutions": [
-    {
-      "id": "fintech",
-      "title": "FinTech & Microfinance Core Banking",
-      "sector": "Financial Services",
-      "engine": "Regulated Microfinance & Banking Engine",
-      "description": "Fully audited core banking system handling savings accounts, loan portfolios, ledger balancing, and mobile money payment gateways.",
-      "financials": "Setup KES 1.56M – 4.55M | Retainer KES 325k – 780k/mo",
-      "metrics": [
-        "Sub-second M-Pesa Settlement",
-        "Central Bank Audit Ready",
-        "Multi-Branch Ledger Sync"
-      ]
-    },
-    {
-      "id": "healthcare",
-      "title": "Hospital & Clinical Information System",
-      "sector": "Healthcare & Life Sciences",
-      "engine": "Hospital & Clinical EMR System",
-      "description": "Integrated Electronic Medical Records (EMR), laboratory workflows, and pharmacy inventory complying strictly with patient data privacy laws.",
-      "financials": "Custom Enterprise Sizing",
-      "metrics": [
-        "Zero Health Data Egress",
-        "Offline-First Clinical Node",
-        "ICD-10 / HL7 Compliant"
-      ]
-    },
-    {
-      "id": "edtech",
-      "title": "Enterprise Learning & Digital Academy",
-      "sector": "Universities & Corporate L&D",
-      "engine": "Enterprise Learning & Academy Engine",
-      "description": "Scalable sovereign learning ecosystem powering certification courses, interactive assessments, and high-concurrency video delivery.",
-      "financials": "Scalable per Seat Footprint",
-      "metrics": [
-        "50,000+ Concurrent Students",
-        "Self-Hosted Video Streaming",
-        "Custom Corporate Branding"
-      ]
-    },
-    {
-      "id": "logistics",
-      "title": "Fleet Telematics & Cold Chain Tracking",
-      "sector": "Supply Chain & Transit",
-      "engine": "Real-Time Fleet Telematics Engine",
-      "description": "Real-time GPS fleet telemetry, fuel consumption diagnostics, geo-fencing triggers, and driver safety monitoring on dedicated servers.",
-      "financials": "Device Fleet Tiering",
-      "metrics": [
-        "1,000+ Real-Time Transponders",
-        "Custom SMS/Push Alerts",
-        "100% Route History Ownership"
-      ]
     }
   ],
   "faqs": [
