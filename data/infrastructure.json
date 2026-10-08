@@ -22,13 +22,13 @@
     92, 72
   ],
   "telemetryData": {
-    "savingsPercentage": "+74.2%",
-    "previousSaaSSpendMonthly": "$18,400",
-    "sovereignMonthlySpend": "$4,750",
-    "uptimeSla": "99.99%",
+    "savingsPercentage": "+73%",
+    "previousSaaSSpendMonthly": "$7,800",
+    "sovereignMonthlySpend": "$1,950",
+    "uptimeSla": "99.9%",
     "dataSovereigntyScore": "100% In-Region",
-    "managedNodes": "420+",
-    "activeEnterprises": "68+"
+    "managedNodes": "28+",
+    "activeEnterprises": "12+"
   },
   "architectureTiers": [
     {
@@ -45,7 +45,7 @@
       "replacesEstimatedSavings": "Up to 75% savings vs Google Workspace / Dropbox",
       "targetAudience": "Growing teams, legal practices, accounting firms, and organizations seeking full ownership and compliance for confidential files.",
       "purpose": "Establishes a private, protected corporate document hub and guarantees complete data ownership within African borders.",
-      "agentReadiness": "Private semantic assistant enabled for instant, secure searching across internal corporate documents without sending data offshore.",
+      "agentReadiness": "Automated document indexing and search enabled across all stored records with zero data egress.",
       "featuredPill": "Entry Sovereign Footprint",
       "isPopular": false,
       "painPointsSolved": [
@@ -63,7 +63,7 @@
           "name": "Secure Access Gateway & SSL Ingress",
           "role": "Secure Access & Perimeter Defense",
           "category": "ingress",
-          "description": "Automated encryption certificate renewal, bank-grade access controls, and rate protection.",
+          "description": "Automated encryption certificate renewal, hardened access controls, and rate protection.",
           "status": "hardened"
         },
         {
@@ -89,7 +89,7 @@
       "replacesEstimatedSavings": "Saves ~$18,200/user annually against legacy foreign software licenses",
       "targetAudience": "Growing companies, distributors, service organizations, and manufacturers requiring unified financial control and customer tracking.",
       "purpose": "Unifies company logins, financial ledgers, customer relationships (CRM), and team communication so your team never juggles multiple passwords.",
-      "agentReadiness": "Automated data connectors ready to link customer records, invoices, and support conversations directly to AI assistants.",
+      "agentReadiness": "Standardized database schemas and REST APIs ready for unified reporting, automated accounting sync, and custom webhooks.",
       "featuredPill": "Core Enterprise Hub",
       "isPopular": false,
       "painPointsSolved": [
@@ -147,7 +147,7 @@
       "replacesEstimatedSavings": "Saves ~$7,800/user/yr while retaining 100% data custody",
       "targetAudience": "Established enterprises, financial institutions, and professional firms requiring collaborative office editing and strict password hygiene.",
       "purpose": "Provides live collaborative document co-authoring, centralized company knowledge bases and SOPs, and zero-knowledge corporate password protection.",
-      "agentReadiness": "Private knowledge synthesis and smart document drafting within your protected workspace.",
+      "agentReadiness": "Centralized corporate taxonomy, real-time co-authoring index, and structured SOP wiki ready for instant organization-wide search.",
       "featuredPill": "Most Popular for Mid-Market",
       "isPopular": true,
       "painPointsSolved": [
@@ -157,7 +157,7 @@
         },
         {
           "title": "Credential Sharing Vulnerabilities",
-          "description": "Eliminates dangerous password sharing across WhatsApp or email via military-grade encrypted corporate vaults."
+          "description": "Eliminates dangerous password sharing across WhatsApp or email via industry-standard AES-256 encrypted corporate vaults."
         }
       ],
       "components": [
@@ -200,7 +200,7 @@
       "replacesEstimatedSavings": "Recovers KES 65,000+ monthly in recurring automation & signature licenses",
       "targetAudience": "Fast-scaling companies, automated service providers, and teams looking to eliminate repetitive manual data entry.",
       "purpose": "Connects every business department into an automated pipeline, cutting human data re-entry and accelerating contract approvals.",
-      "agentReadiness": "Workflow engine serving as an integration bridge to trigger automated actions, contracts, and approvals.",
+      "agentReadiness": "Event-driven webhook engine ready to orchestrate automated multi-system approvals, customer notifications, and cryptographic signatures.",
       "featuredPill": "Beta Testers Only • SRE Fine-Tuning",
       "isPopular": false,
       "painPointsSolved": [
@@ -317,7 +317,7 @@
           "status": "hardened"
         },
         {
-          "name": "24/7 Security Defense & Compliance Auditor",
+          "name": "Automated Security Monitoring & Compliance Auditor",
           "role": "Intrusion Detection & Compliance",
           "category": "security",
           "description": "Real-time threat monitoring, file integrity tracking, and continuous data protection compliance.",
@@ -338,10 +338,10 @@
           "status": "agent-ready"
         },
         {
-          "name": "Automated Multi-Site Disaster Recovery",
-          "role": "Full System Snapshot & Failover",
+          "name": "Automated Off-Site Disaster Recovery",
+          "role": "Full System Snapshot & Recovery",
           "category": "infra",
-          "description": "Encrypted point-in-time system snapshots with rapid failover to secondary data centers.",
+          "description": "Encrypted point-in-time system snapshots with verified recovery procedures within 2 hours maximum.",
           "status": "hardened"
         }
       ]
@@ -360,7 +360,7 @@
       "phase": "Dedicated System Setup & Hardening",
       "actor": "Dedicated Infrastructure Engineers",
       "tech": "Dedicated Virtualization & Security",
-      "detail": "Our engineering team sets up, configures, and isolates your dedicated private business system environment, establishing bank-grade encryption and security protections."
+      "detail": "Our engineering team sets up, configures, and isolates your dedicated private business system environment, establishing enterprise-grade encryption and security protections."
     },
     {
       "step": "03",
@@ -371,10 +371,10 @@
     },
     {
       "step": "04",
-      "phase": "Turnkey Handover & 24/7 Management",
-      "actor": "Julz Insight NOC & Engineering Team",
-      "tech": "InsightOS Management & 24/7 Support",
-      "detail": "Following thorough pre-flight verification, your team receives turnkey single-login access to InsightOS. Our engineering team proactively monitors health, backups, and security 24/7."
+      "phase": "Turnkey Handover & Managed Operations",
+      "actor": "Julz Insight Systems Practice",
+      "tech": "InsightOS Management & Priority Support",
+      "detail": "Following thorough pre-flight verification, your team receives turnkey single-login access to InsightOS. We handle automated health monitoring, verified backups, and scheduled maintenance."
     }
   ],
   "hostingMatrix": [
@@ -413,7 +413,7 @@
     {
       "name": "iXAfrica & Servernah Data Centers",
       "classification": "Bespoke Co-Location & Bare-Metal",
-      "strategicPurpose": "Dedicated high-density compute, private hypervisor clusters, and GPU arrays for Tier 5 Agentic deployments.",
+      "strategicPurpose": "Dedicated high-density compute and private hypervisor clusters for Tier 5 Sovereign Cloud deployments.",
       "region": "Nairobi Data Centers",
       "icon": "server-rack",
       "dataSovereigntyGrade": "100% Sovereign (Kenya/Africa)"
@@ -421,10 +421,10 @@
     {
       "name": "Client On-Premise Hardware",
       "classification": "On-Premise (Client Hardware)",
-      "strategicPurpose": "Ultimate physical custody. Private systems installed directly on server hardware inside client corporate headquarters with air-gapped options.",
+      "strategicPurpose": "Ultimate physical custody. Private systems installed directly on server hardware inside client corporate headquarters or dedicated local server rooms.",
       "region": "Client Corporate HQ",
       "icon": "shield-lock",
-      "dataSovereigntyGrade": "100% On-Premise Air-Gapped"
+      "dataSovereigntyGrade": "100% On-Premise / Local Server"
     },
     {
       "name": "Hetzner & OVHcloud",
@@ -506,7 +506,7 @@
       "id": "faq-1",
       "category": "architecture",
       "question": "How do you handle disaster recovery if a local African data center experiences an outage?",
-      "answer": "We take automated, encrypted, deduplicated snapshots of your entire system and replicate them to a secondary secure target—either another African data center (such as Angani or LiquidC2) or an encrypted offsite backup, depending on your organization's data protection policy. Recovery time objective (RTO) is under 15 minutes, with regularly tested recovery drills."
+      "answer": "We take automated, encrypted, deduplicated snapshots of your entire system and replicate them to a secondary secure target—either another African data center (such as Angani or LiquidC2) or an encrypted offsite backup, depending on your organization's data protection policy. Recovery time objective (RTO) is within 2 hours maximum, backed by automated daily snapshots and scheduled recovery verification drills."
     },
     {
       "id": "faq-2",
@@ -524,7 +524,7 @@
       "id": "faq-4",
       "category": "security",
       "question": "How does Julz Insight ensure compliance with the Kenya Data Protection Act 2019 and GDPR?",
-      "answer": "By housing 100% of production data within Kenyan and African borders (Safaricom, Servercore, Konza, or your corporate headquarters), you eliminate cross-border data transfer legal liabilities. Furthermore, 24/7 security auditing continuously monitors system access, Single Sign-On maintains tamper-evident audit trails, and all files are encrypted at rest with military-grade AES-256."
+      "answer": "By housing 100% of production data within Kenyan and African borders (Safaricom, Servercore, Konza, or your corporate headquarters), you eliminate cross-border data transfer legal liabilities. Furthermore, automated security monitoring tracks system access, Single Sign-On maintains tamper-evident audit trails, and all files are encrypted at rest with strong AES-256 encryption."
     },
     {
       "id": "faq-5",
@@ -536,7 +536,7 @@
       "id": "faq-6",
       "category": "financials",
       "question": "Is third-party cloud or bare-metal hosting included in the monthly retainer?",
-      "answer": "No. Julz Insight maintains strict infrastructure neutrality. The visible retainers cover our fully managed software stack, custom automation, security hardening, and 24/7 proactive engineering support. Underlying cloud or bare-metal compute (via Safaricom, Servercore, Konza, iXAfrica, or your corporate headquarters) is contracted directly with or billed transparently by the sovereign data center provider. This ensures your organization retains full legal hardware ownership, zero host markup, and complete freedom from proprietary vendor lock-in."
+      "answer": "No. Julz Insight maintains strict infrastructure neutrality. The visible retainers cover our fully managed software stack, custom automation, security hardening, and proactive engineering maintenance with direct technical support. Underlying cloud or bare-metal compute (via Safaricom, Servercore, Konza, iXAfrica, or your corporate headquarters) is contracted directly with or billed transparently by the sovereign data center provider. This ensures your organization retains full legal hardware ownership, zero host markup, and complete freedom from proprietary vendor lock-in."
     }
   ]
 }

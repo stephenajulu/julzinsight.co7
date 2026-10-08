@@ -65,13 +65,13 @@
     // 2. Update Hero Telemetry Amount
     const heroAmount = document.getElementById('hero-telemetry-amount');
     if (heroAmount) {
-      heroAmount.textContent = curr === 'KES' ? 'KES 2,420,000' : '$18,400';
+      heroAmount.textContent = curr === 'KES' ? 'KES 1,120,000' : '$8,600';
     }
 
     // 3. Update InsightOS CEO KPI
     const ceoSavingsKpi = document.getElementById('ceo-savings-kpi');
     if (ceoSavingsKpi) {
-      ceoSavingsKpi.textContent = curr === 'KES' ? 'KES 24,800,000' : '$192,000';
+      ceoSavingsKpi.textContent = curr === 'KES' ? 'KES 12,400,000' : '$96,000';
     }
 
     // 4. Update Tier Explorer prices
@@ -238,6 +238,13 @@
 
     const readiness = document.getElementById('tier-agent-readiness');
     if (readiness) readiness.textContent = tier.agentReadiness;
+
+    const readinessLabel = document.getElementById('tier-readiness-label');
+    if (readinessLabel) {
+      readinessLabel.textContent = tier.id === 5 
+        ? 'Private Sovereign AI Readiness' 
+        : 'System Integration & Automation Readiness';
+    }
 
     const replaces = document.getElementById('tier-replaces-text');
     if (replaces) replaces.textContent = tier.replacesText;
@@ -572,7 +579,7 @@
     const estEl = document.getElementById('modal-tier-price-estimate');
     if (estEl) {
       const price = state.currency === 'KES' ? tier.monthlyKes : tier.monthlyUsd;
-      estEl.textContent = `Estimated: ${price} (Software Retainer & 24/7 Support)`;
+      estEl.textContent = `Estimated: ${price} (Software Retainer & Managed Support)`;
     }
   }
 
