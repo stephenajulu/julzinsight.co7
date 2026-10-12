@@ -13,6 +13,7 @@
 
   // Global Application State
   const state = {
+    theme: 'dark',
     currency: 'KES',
     activeRole: 'ceo',
     selectedTierId: 3,
@@ -36,6 +37,94 @@
 
   function formatNumber(num) {
     return new Intl.NumberFormat().format(Math.round(num));
+  }
+
+  /* ==========================================================================
+     THEME CONTROLLER (LIGHT / DARK)
+     ========================================================================== */
+  function getPreferredTheme() {
+    try {
+      const stored = localStorage.getItem('theme');
+      if (stored === 'light' || stored === 'dark') return stored;
+    } catch (e) {}
+    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches) {
+      return 'light';
+    }
+    return 'dark';
+  }
+
+  function setTheme(theme) {
+    if (theme !== 'light' && theme !== 'dark') return;
+    state.theme = theme;
+    document.documentElement.setAttribute('data-theme', theme);
+
+    try {
+      localStorage.setItem('theme', theme);
+    } catch (e) {}
+
+    // Update theme-color meta tag for mobile browser headers
+    const metaTheme = document.querySelector('meta[name="theme-color"]');
+    if (metaTheme) {
+      metaTheme.setAttribute('content', theme === 'light' ? '#f8fafc' : '#040406');
+    }
+
+    // Update button states in mobile drawer
+    document.querySelectorAll('[data-theme-btn]').forEach((btn) => {
+      const t = btn.getAttribute('data-theme-btn');
+      if (t === theme) {
+        btn.classList.add('active');
+        btn.setAttribute('aria-pressed', 'true');
+      } else {
+        btn.classList.remove('active');
+        btn.setAttribute('aria-pressed', 'false');
+      }
+    });
+
+    // Update aria labels on desktop & mobile switcher buttons
+    const desktopBtn = document.getElementById('theme-toggle-btn');
+    if (desktopBtn) {
+      desktopBtn.setAttribute('aria-label', theme === 'dark' ? 'Switch to light theme' : 'Switch to dark theme');
+      desktopBtn.setAttribute('title', theme === 'dark' ? 'Switch to light theme' : 'Switch to dark theme');
+    }
+
+    const mobileBtn = document.getElementById('mobile-theme-btn');
+    if (mobileBtn) {
+      mobileBtn.setAttribute('aria-label', theme === 'dark' ? 'Switch to light theme' : 'Switch to dark theme');
+      mobileBtn.setAttribute('title', theme === 'dark' ? 'Switch to light theme' : 'Switch to dark theme');
+    }
+  }
+
+  function toggleTheme() {
+    setTheme(state.theme === 'light' ? 'dark' : 'light');
+  }
+
+  window.setTheme = setTheme;
+  window.toggleTheme = toggleTheme;
+
+  function initTheme() {
+    const initialTheme = document.documentElement.getAttribute('data-theme') || getPreferredTheme();
+    setTheme(initialTheme);
+
+    const desktopBtn = document.getElementById('theme-toggle-btn');
+    if (desktopBtn) {
+      desktopBtn.addEventListener('click', toggleTheme);
+    }
+
+    const mobileBtn = document.getElementById('mobile-theme-btn');
+    if (mobileBtn) {
+      mobileBtn.addEventListener('click', toggleTheme);
+    }
+
+    // Listen for OS scheme changes if user hasn't set an explicit manual override
+    if (window.matchMedia) {
+      window.matchMedia('(prefers-color-scheme: light)').addEventListener('change', (e) => {
+        try {
+          if (!localStorage.getItem('theme')) {
+            setTheme(e.matches ? 'light' : 'dark');
+          }
+        } catch (err) {}
+      });
+    }
   }
 
   /* ==========================================================================
@@ -754,6 +843,7 @@
      INIT ON DOM READY
      ========================================================================== */
   document.addEventListener('DOMContentLoaded', () => {
+    initTheme();
     initNavbar();
     initInsightOs();
     initTierExplorer();

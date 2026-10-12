@@ -170,6 +170,37 @@
   }
 }
 
+.theme-toggle-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.25rem;
+  height: 2.25rem;
+  border-radius: 8px;
+  background: rgba(0, 0, 0, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #fbbf24;
+  transition: all 0.2s ease;
+  cursor: pointer;
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(255, 255, 255, 0.25);
+    color: #fde047;
+    transform: scale(1.05);
+  }
+
+  .theme-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .icon-moon {
+    display: none;
+  }
+}
+
 .status-badge-residency {
   display: flex;
   align-items: center;
@@ -284,6 +315,30 @@
 
   @include lg {
     display: none;
+  }
+
+  .mobile-theme-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.25rem;
+    height: 2.25rem;
+    border-radius: 8px;
+    background: rgba(0, 0, 0, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    color: #fbbf24;
+    transition: all 0.2s ease;
+    cursor: pointer;
+
+    .theme-icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .icon-moon {
+      display: none;
+    }
   }
 
   .mobile-curr-btn {
