@@ -53,9 +53,11 @@ The site is configured to build and deploy seamlessly on both **Netlify** and **
 ### Render Deployment
 - **Configuration**: [`render.yaml`](render.yaml)
 - **Service Type**: Static Site (`type: web`, `runtime: static`)
-- **Build Command**: `chmod +x scripts/build.sh && ./scripts/build.sh` (or `hugo --gc --minify`)
+- **Build Command**: `bash scripts/build.sh` (or `chmod +x scripts/build.sh && ./scripts/build.sh`)
 - **Publish Directory**: `public`
-- **Automated Fallback**: [`scripts/build.sh`](scripts/build.sh) verifies if `hugo` is present; if not, it automatically downloads and extracts Hugo Extended Linux AMD64, compiles the site with minification, and sets appropriate cache routes.
+- **Environment Variables**:
+  - `HUGO_VERSION`: `0.160.1`
+- **Why `bash scripts/build.sh` is required on Render**: Render's default system image comes with an older Hugo binary (`v0.124.1`). Running `bash scripts/build.sh` automatically downloads and uses **Hugo Extended v0.160.1 Linux AMD64**, ensuring template tags and modern Hugo features compile without errors.
 
 ---
 
